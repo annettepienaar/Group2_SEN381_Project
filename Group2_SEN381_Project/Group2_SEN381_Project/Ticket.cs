@@ -40,5 +40,49 @@ namespace Group2_SEN381_Project
         public string TicketOpenDate { get { return ticketOpenDate; } set { ticketOpenDate = value; } }
         public string TicketCloseDate { get { return ticketCloseDate; } set { ticketCloseDate = value; } }
 
+        public override bool Equals(object obj)
+        {
+            return obj is Ticket ticket &&
+                   ticketID == ticket.ticketID &&
+                   ticketDesc == ticket.ticketDesc &&
+                   ticketLevel == ticket.ticketLevel &&
+                   clientID == ticket.clientID &&
+                   technitionID == ticket.technitionID &&
+                   callCenterEmpID == ticket.callCenterEmpID &&
+                   ticketState == ticket.ticketState &&
+                   ticketOpenDate == ticket.ticketOpenDate &&
+                   ticketCloseDate == ticket.ticketCloseDate &&
+                   TicketID == ticket.TicketID &&
+                   TicketDesc == ticket.TicketDesc &&
+                   TicketLevel == ticket.TicketLevel &&
+                   ClientID == ticket.ClientID &&
+                   CallCenterEmpID == ticket.CallCenterEmpID &&
+                   TicketState == ticket.TicketState &&
+                   TicketOpenDate == ticket.TicketOpenDate &&
+                   TicketCloseDate == ticket.TicketCloseDate;
+        }
+
+        public override int GetHashCode()
+        {
+            int hashCode = -1873141835;
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(ticketID);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(ticketDesc);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(ticketLevel);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(clientID);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(technitionID);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(callCenterEmpID);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(ticketState);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(ticketOpenDate);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(ticketCloseDate);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(TicketID);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(TicketDesc);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(TicketLevel);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(ClientID);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(CallCenterEmpID);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(TicketState);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(TicketOpenDate);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(TicketCloseDate);
+            return hashCode;
+        }
     }
 }
