@@ -51,7 +51,7 @@ namespace Group2_SEN381_Project.BusinessLogicLayer
                    clientID == call.clientID &&
                    empID == call.empID &&
                    callStartTime == call.callStartTime &&
-                   callEndTIme == call.callEndTIme;
+                   callEndTime == call.callEndTime;
         }
 
         public override int GetHashCode()
@@ -61,7 +61,7 @@ namespace Group2_SEN381_Project.BusinessLogicLayer
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(clientID);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(empID);
             hashCode = hashCode * -1521134295 + callStartTime.GetHashCode();
-            hashCode = hashCode * -1521134295 + callEndTIme.GetHashCode();
+            hashCode = hashCode * -1521134295 + callEndTime.GetHashCode();
             return hashCode;
         }
     }
