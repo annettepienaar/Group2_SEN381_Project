@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessLogicLayer\Call.cs" />
+    <Compile Include="BusinessLogicLayer\Specialization.cs" />
     <Compile Include="DataAccessLayer\DataAccess.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
