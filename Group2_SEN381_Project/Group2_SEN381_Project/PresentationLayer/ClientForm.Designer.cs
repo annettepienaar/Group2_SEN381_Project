@@ -29,101 +29,118 @@
         private void InitializeComponent()
         {
             this.lblClientInfo = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lblID = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
+            this.lblSurname = new System.Windows.Forms.Label();
+            this.lblBusinessName = new System.Windows.Forms.Label();
+            this.lblPhone = new System.Windows.Forms.Label();
+            this.lblAddress = new System.Windows.Forms.Label();
+            this.lblServicePackage = new System.Windows.Forms.Label();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.cboxServicePackage = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtClientID = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.txtSurname = new System.Windows.Forms.TextBox();
+            this.txtBusinessName = new System.Windows.Forms.TextBox();
+            this.txtPhone = new System.Windows.Forms.TextBox();
+            this.txtAddress = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblClientInfo
             // 
             this.lblClientInfo.AutoSize = true;
             this.lblClientInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClientInfo.Location = new System.Drawing.Point(77, 21);
+            this.lblClientInfo.Location = new System.Drawing.Point(125, 38);
+            this.lblClientInfo.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblClientInfo.Name = "lblClientInfo";
             this.lblClientInfo.Size = new System.Drawing.Size(286, 37);
             this.lblClientInfo.TabIndex = 0;
             this.lblClientInfo.Text = "Client Information";
             // 
-            // label1
+            // lblID
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(49, 155);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "label1";
+            this.lblID.AutoSize = true;
+            this.lblID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblID.Location = new System.Drawing.Point(45, 124);
+            this.lblID.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(83, 20);
+            this.lblID.TabIndex = 1;
+            this.lblID.Text = "Cliend ID";
             // 
-            // label2
+            // lblName
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(49, 192);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "label2";
+            this.lblName.AutoSize = true;
+            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.Location = new System.Drawing.Point(45, 190);
+            this.lblName.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(55, 20);
+            this.lblName.TabIndex = 2;
+            this.lblName.Text = "Name";
             // 
-            // label3
+            // lblSurname
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(49, 232);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "label3";
+            this.lblSurname.AutoSize = true;
+            this.lblSurname.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSurname.Location = new System.Drawing.Point(45, 257);
+            this.lblSurname.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lblSurname.Name = "lblSurname";
+            this.lblSurname.Size = new System.Drawing.Size(81, 20);
+            this.lblSurname.TabIndex = 3;
+            this.lblSurname.Text = "Surname";
             // 
-            // label4
+            // lblBusinessName
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(49, 269);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "label4";
+            this.lblBusinessName.AutoSize = true;
+            this.lblBusinessName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBusinessName.Location = new System.Drawing.Point(45, 319);
+            this.lblBusinessName.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lblBusinessName.Name = "lblBusinessName";
+            this.lblBusinessName.Size = new System.Drawing.Size(133, 20);
+            this.lblBusinessName.TabIndex = 4;
+            this.lblBusinessName.Text = "Business Name";
             // 
-            // label5
+            // lblPhone
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(49, 308);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 13);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "label5";
+            this.lblPhone.AutoSize = true;
+            this.lblPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPhone.Location = new System.Drawing.Point(45, 391);
+            this.lblPhone.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lblPhone.Name = "lblPhone";
+            this.lblPhone.Size = new System.Drawing.Size(60, 20);
+            this.lblPhone.TabIndex = 5;
+            this.lblPhone.Text = "Phone";
             // 
-            // label6
+            // lblAddress
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(49, 351);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(35, 13);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "label6";
+            this.lblAddress.AutoSize = true;
+            this.lblAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAddress.Location = new System.Drawing.Point(45, 451);
+            this.lblAddress.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lblAddress.Name = "lblAddress";
+            this.lblAddress.Size = new System.Drawing.Size(75, 20);
+            this.lblAddress.TabIndex = 6;
+            this.lblAddress.Text = "Address";
             // 
-            // label7
+            // lblServicePackage
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(49, 396);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(35, 13);
-            this.label7.TabIndex = 7;
-            this.label7.Text = "label7";
+            this.lblServicePackage.AutoSize = true;
+            this.lblServicePackage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblServicePackage.Location = new System.Drawing.Point(45, 531);
+            this.lblServicePackage.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lblServicePackage.Name = "lblServicePackage";
+            this.lblServicePackage.Size = new System.Drawing.Size(142, 20);
+            this.lblServicePackage.TabIndex = 7;
+            this.lblServicePackage.Text = "Service Package";
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(184, 450);
+            this.btnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSubmit.Location = new System.Drawing.Point(192, 605);
+            this.btnSubmit.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(75, 23);
+            this.btnSubmit.Size = new System.Drawing.Size(125, 52);
             this.btnSubmit.TabIndex = 8;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
@@ -131,74 +148,84 @@
             // cboxServicePackage
             // 
             this.cboxServicePackage.FormattingEnabled = true;
-            this.cboxServicePackage.Location = new System.Drawing.Point(174, 396);
+            this.cboxServicePackage.Location = new System.Drawing.Point(254, 527);
+            this.cboxServicePackage.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.cboxServicePackage.Name = "cboxServicePackage";
-            this.cboxServicePackage.Size = new System.Drawing.Size(134, 21);
+            this.cboxServicePackage.Size = new System.Drawing.Size(221, 28);
             this.cboxServicePackage.TabIndex = 9;
             // 
-            // textBox1
+            // txtClientID
             // 
-            this.textBox1.Location = new System.Drawing.Point(208, 155);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 10;
+            this.txtClientID.Location = new System.Drawing.Point(254, 119);
+            this.txtClientID.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtClientID.Name = "txtClientID";
+            this.txtClientID.Size = new System.Drawing.Size(221, 26);
+            this.txtClientID.TabIndex = 10;
             // 
-            // textBox2
+            // txtName
             // 
-            this.textBox2.Location = new System.Drawing.Point(208, 192);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 11;
+            this.txtName.Location = new System.Drawing.Point(254, 185);
+            this.txtName.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(221, 26);
+            this.txtName.TabIndex = 11;
             // 
-            // textBox3
+            // txtSurname
             // 
-            this.textBox3.Location = new System.Drawing.Point(208, 232);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 12;
+            this.txtSurname.Location = new System.Drawing.Point(254, 253);
+            this.txtSurname.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtSurname.Name = "txtSurname";
+            this.txtSurname.Size = new System.Drawing.Size(221, 26);
+            this.txtSurname.TabIndex = 12;
             // 
-            // textBox4
+            // txtBusinessName
             // 
-            this.textBox4.Location = new System.Drawing.Point(208, 266);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 13;
+            this.txtBusinessName.Location = new System.Drawing.Point(254, 314);
+            this.txtBusinessName.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtBusinessName.Name = "txtBusinessName";
+            this.txtBusinessName.Size = new System.Drawing.Size(221, 26);
+            this.txtBusinessName.TabIndex = 13;
             // 
-            // textBox5
+            // txtPhone
             // 
-            this.textBox5.Location = new System.Drawing.Point(208, 301);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 14;
+            this.txtPhone.Location = new System.Drawing.Point(254, 381);
+            this.txtPhone.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtPhone.Name = "txtPhone";
+            this.txtPhone.Size = new System.Drawing.Size(221, 26);
+            this.txtPhone.TabIndex = 14;
             // 
-            // textBox6
+            // txtAddress
             // 
-            this.textBox6.Location = new System.Drawing.Point(208, 348);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 15;
+            this.txtAddress.Location = new System.Drawing.Point(254, 447);
+            this.txtAddress.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(221, 26);
+            this.txtAddress.TabIndex = 15;
             // 
             // ClientForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(452, 523);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(525, 706);
+            this.Controls.Add(this.txtAddress);
+            this.Controls.Add(this.txtPhone);
+            this.Controls.Add(this.txtBusinessName);
+            this.Controls.Add(this.txtSurname);
+            this.Controls.Add(this.txtName);
+            this.Controls.Add(this.txtClientID);
             this.Controls.Add(this.cboxServicePackage);
             this.Controls.Add(this.btnSubmit);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblServicePackage);
+            this.Controls.Add(this.lblAddress);
+            this.Controls.Add(this.lblPhone);
+            this.Controls.Add(this.lblBusinessName);
+            this.Controls.Add(this.lblSurname);
+            this.Controls.Add(this.lblName);
+            this.Controls.Add(this.lblID);
             this.Controls.Add(this.lblClientInfo);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.Name = "ClientForm";
             this.Text = "ClientForm";
             this.ResumeLayout(false);
@@ -209,20 +236,20 @@
         #endregion
 
         private System.Windows.Forms.Label lblClientInfo;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblID;
+        private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Label lblSurname;
+        private System.Windows.Forms.Label lblBusinessName;
+        private System.Windows.Forms.Label lblPhone;
+        private System.Windows.Forms.Label lblAddress;
+        private System.Windows.Forms.Label lblServicePackage;
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.ComboBox cboxServicePackage;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtClientID;
+        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.TextBox txtSurname;
+        private System.Windows.Forms.TextBox txtBusinessName;
+        private System.Windows.Forms.TextBox txtPhone;
+        private System.Windows.Forms.TextBox txtAddress;
     }
 }

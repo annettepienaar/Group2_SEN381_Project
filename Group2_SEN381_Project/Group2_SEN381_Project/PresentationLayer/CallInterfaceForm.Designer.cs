@@ -29,10 +29,6 @@ namespace Group2_SEN381_Project
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnStartStop = new System.Windows.Forms.Button();
-            this.lblStartTime = new System.Windows.Forms.Label();
-            this.lblDuration = new System.Windows.Forms.Label();
             this.txtClientID = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.lblClientFound = new System.Windows.Forms.Label();
@@ -41,53 +37,14 @@ namespace Group2_SEN381_Project
             this.lblUrgencyLevel = new System.Windows.Forms.Label();
             this.rtxtProblemDesc = new System.Windows.Forms.RichTextBox();
             this.cboxUrgencyLevel = new System.Windows.Forms.ComboBox();
+            this.lblProblemArea = new System.Windows.Forms.Label();
+            this.cboxProblemArea = new System.Windows.Forms.ComboBox();
+            this.btnStartStop = new System.Windows.Forms.Button();
+            this.lblStartTime = new System.Windows.Forms.Label();
+            this.lblDuration = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.lblDuration);
-            this.panel1.Controls.Add(this.lblStartTime);
-            this.panel1.Controls.Add(this.btnStartStop);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(143, 450);
-            this.panel1.TabIndex = 0;
-            // 
-            // btnStartStop
-            // 
-            this.btnStartStop.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStartStop.Location = new System.Drawing.Point(11, 11);
-            this.btnStartStop.Name = "btnStartStop";
-            this.btnStartStop.Size = new System.Drawing.Size(120, 49);
-            this.btnStartStop.TabIndex = 0;
-            this.btnStartStop.Text = "Start / Stop Call";
-            this.btnStartStop.UseVisualStyleBackColor = true;
-            // 
-            // lblStartTime
-            // 
-            this.lblStartTime.AutoSize = true;
-            this.lblStartTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStartTime.Location = new System.Drawing.Point(23, 87);
-            this.lblStartTime.Name = "lblStartTime";
-            this.lblStartTime.Size = new System.Drawing.Size(92, 20);
-            this.lblStartTime.TabIndex = 1;
-            this.lblStartTime.Text = "Start Time";
-            this.lblStartTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblDuration
-            // 
-            this.lblDuration.AutoSize = true;
-            this.lblDuration.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDuration.Location = new System.Drawing.Point(30, 136);
-            this.lblDuration.Name = "lblDuration";
-            this.lblDuration.Size = new System.Drawing.Size(78, 20);
-            this.lblDuration.TabIndex = 2;
-            this.lblDuration.Text = "Duration";
-            this.lblDuration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtClientID
             // 
@@ -130,7 +87,7 @@ namespace Group2_SEN381_Project
             // 
             this.lblProblemDesc.AutoSize = true;
             this.lblProblemDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProblemDesc.Location = new System.Drawing.Point(160, 195);
+            this.lblProblemDesc.Location = new System.Drawing.Point(160, 201);
             this.lblProblemDesc.Name = "lblProblemDesc";
             this.lblProblemDesc.Size = new System.Drawing.Size(170, 20);
             this.lblProblemDesc.TabIndex = 5;
@@ -140,7 +97,7 @@ namespace Group2_SEN381_Project
             // 
             this.lblUrgencyLevel.AutoSize = true;
             this.lblUrgencyLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUrgencyLevel.Location = new System.Drawing.Point(578, 195);
+            this.lblUrgencyLevel.Location = new System.Drawing.Point(508, 201);
             this.lblUrgencyLevel.Name = "lblUrgencyLevel";
             this.lblUrgencyLevel.Size = new System.Drawing.Size(122, 20);
             this.lblUrgencyLevel.TabIndex = 6;
@@ -151,7 +108,7 @@ namespace Group2_SEN381_Project
             this.rtxtProblemDesc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.rtxtProblemDesc.Location = new System.Drawing.Point(164, 228);
             this.rtxtProblemDesc.Name = "rtxtProblemDesc";
-            this.rtxtProblemDesc.Size = new System.Drawing.Size(350, 210);
+            this.rtxtProblemDesc.Size = new System.Drawing.Size(613, 167);
             this.rtxtProblemDesc.TabIndex = 8;
             this.rtxtProblemDesc.Text = "";
             this.rtxtProblemDesc.TextChanged += new System.EventHandler(this.rtxtProblemDesc_TextChanged);
@@ -159,10 +116,73 @@ namespace Group2_SEN381_Project
             // cboxUrgencyLevel
             // 
             this.cboxUrgencyLevel.FormattingEnabled = true;
-            this.cboxUrgencyLevel.Location = new System.Drawing.Point(582, 227);
+            this.cboxUrgencyLevel.Location = new System.Drawing.Point(636, 203);
             this.cboxUrgencyLevel.Name = "cboxUrgencyLevel";
-            this.cboxUrgencyLevel.Size = new System.Drawing.Size(121, 21);
+            this.cboxUrgencyLevel.Size = new System.Drawing.Size(141, 21);
             this.cboxUrgencyLevel.TabIndex = 9;
+            // 
+            // lblProblemArea
+            // 
+            this.lblProblemArea.AutoSize = true;
+            this.lblProblemArea.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProblemArea.Location = new System.Drawing.Point(160, 411);
+            this.lblProblemArea.Name = "lblProblemArea";
+            this.lblProblemArea.Size = new System.Drawing.Size(117, 20);
+            this.lblProblemArea.TabIndex = 10;
+            this.lblProblemArea.Text = "Problem Area";
+            // 
+            // cboxProblemArea
+            // 
+            this.cboxProblemArea.FormattingEnabled = true;
+            this.cboxProblemArea.Location = new System.Drawing.Point(283, 410);
+            this.cboxProblemArea.Name = "cboxProblemArea";
+            this.cboxProblemArea.Size = new System.Drawing.Size(141, 21);
+            this.cboxProblemArea.TabIndex = 11;
+            // 
+            // btnStartStop
+            // 
+            this.btnStartStop.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStartStop.Location = new System.Drawing.Point(11, 11);
+            this.btnStartStop.Name = "btnStartStop";
+            this.btnStartStop.Size = new System.Drawing.Size(120, 49);
+            this.btnStartStop.TabIndex = 0;
+            this.btnStartStop.Text = "Start / Stop Call";
+            this.btnStartStop.UseVisualStyleBackColor = true;
+            // 
+            // lblStartTime
+            // 
+            this.lblStartTime.AutoSize = true;
+            this.lblStartTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStartTime.Location = new System.Drawing.Point(23, 87);
+            this.lblStartTime.Name = "lblStartTime";
+            this.lblStartTime.Size = new System.Drawing.Size(92, 20);
+            this.lblStartTime.TabIndex = 1;
+            this.lblStartTime.Text = "Start Time";
+            this.lblStartTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblDuration
+            // 
+            this.lblDuration.AutoSize = true;
+            this.lblDuration.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDuration.Location = new System.Drawing.Point(30, 136);
+            this.lblDuration.Name = "lblDuration";
+            this.lblDuration.Size = new System.Drawing.Size(78, 20);
+            this.lblDuration.TabIndex = 2;
+            this.lblDuration.Text = "Duration";
+            this.lblDuration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.lblDuration);
+            this.panel1.Controls.Add(this.lblStartTime);
+            this.panel1.Controls.Add(this.btnStartStop);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(143, 450);
+            this.panel1.TabIndex = 0;
             // 
             // CallInterfaceForm
             // 
@@ -171,6 +191,8 @@ namespace Group2_SEN381_Project
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.cboxProblemArea);
+            this.Controls.Add(this.lblProblemArea);
             this.Controls.Add(this.cboxUrgencyLevel);
             this.Controls.Add(this.rtxtProblemDesc);
             this.Controls.Add(this.lblUrgencyLevel);
@@ -190,11 +212,6 @@ namespace Group2_SEN381_Project
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label lblDuration;
-        private System.Windows.Forms.Label lblStartTime;
-        private System.Windows.Forms.Button btnStartStop;
         private System.Windows.Forms.TextBox txtClientID;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label lblClientFound;
@@ -203,5 +220,11 @@ namespace Group2_SEN381_Project
         private System.Windows.Forms.Label lblUrgencyLevel;
         private System.Windows.Forms.RichTextBox rtxtProblemDesc;
         private System.Windows.Forms.ComboBox cboxUrgencyLevel;
+        private System.Windows.Forms.Label lblProblemArea;
+        private System.Windows.Forms.ComboBox cboxProblemArea;
+        private System.Windows.Forms.Button btnStartStop;
+        private System.Windows.Forms.Label lblStartTime;
+        private System.Windows.Forms.Label lblDuration;
+        private System.Windows.Forms.Panel panel1;
     }
 }

@@ -17,7 +17,7 @@ namespace Group2_SEN381_Project
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ClientForm());
+            Application.Run(new CallInterfaceForm());
         }
     }
 }
