@@ -3,16 +3,32 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace Group2_SEN381_Project.DataAccessLayer
 {
-    class DataAccess
+    class DataAccess: IDataAccess
     {
-        private string connString;
+        private readonly string connString;
+        private SqlDataAdapter dataAdapter;
+        private readonly SqlConnection connection;
 
         public DataAccess()
         {
-            //Constructor
+            connString = $@"DataSource = .; InitialCatalog = SEN381_Project; IntegratedSecurity = True;";
+            connection = new SqlConnection(connString);
+        }
+
+        public DataTable GetTable(string tblName)
+        {
+            DataTable tblEntries;
+            string select = $"SELECT * FROM {tblName}";
+
+            dataAdapter = new SqlDataAdapter(select, connection);
+            
+            return tblEntries;
+            
         }
 
         /*public List<Client> getClient(string client_ID) {
