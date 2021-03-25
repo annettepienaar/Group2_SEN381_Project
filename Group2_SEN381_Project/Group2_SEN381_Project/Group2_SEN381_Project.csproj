@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLogicLayer\ServicePackage.cs" />
     <Compile Include="BusinessLogicLayer\CallCentreEmployee.cs" />
     <Compile Include="BusinessLogicLayer\Employee.cs" />
     <Compile Include="BusinessLogicLayer\SatisfactionEmployee.cs" />
@@ -98,7 +99,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DataAccessLayer\" />
-    <Folder Include="PresentationLayer\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
