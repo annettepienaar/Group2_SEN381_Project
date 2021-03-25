@@ -54,10 +54,10 @@
     <Compile Include="BusinessLogicLayer\Employee.cs" />
     <Compile Include="BusinessLogicLayer\SatisfactionEmployee.cs" />
     <Compile Include="BusinessLogicLayer\TechnicianEmployee.cs" />
-    <Compile Include="CallInterfaceForm.cs">
+    <Compile Include="PresentationLayer\CallInterfaceForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CallInterfaceForm.Designer.cs">
+    <Compile Include="PresentationLayer\CallInterfaceForm.Designer.cs">
       <DependentUpon>CallInterfaceForm.cs</DependentUpon>
     </Compile>
     <Compile Include="BusinessLogicLayer\BusinessClient.cs" />
@@ -71,13 +71,13 @@
     <Compile Include="BusinessLogicLayer\PersonalClient.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TechnitionInterfaceForm.cs">
+    <Compile Include="PresentationLayer\TechnitionInterfaceForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TechnitionInterfaceForm.Designer.cs">
+    <Compile Include="PresentationLayer\TechnitionInterfaceForm.Designer.cs">
       <DependentUpon>TechnitionInterfaceForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Ticket.cs" />
+    <Compile Include="BusinessLogicLayer\Ticket.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -100,9 +100,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="PresentationLayer\" />
-    <Folder Include="DataAccessLayer\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
