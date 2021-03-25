@@ -12,29 +12,29 @@ namespace Group2_SEN381_Project
 {
     public partial class CallInterfaceForm : Form
     {
-        private DataAccess dataAccess = new DataAccess();
-        DateTime callStart;
-        DateTime callEnd;
+        //private DataAccess dataAccess = new DataAccess();
+        //DateTime callStart;
+        //DateTime callEnd;
 
-        public CallInterfaceForm()
-        {
-            InitializeComponent();
-        }
+        //public CallInterfaceForm()
+        //{
+        //    InitializeComponent();
+        //}
 
-        public void addClient()
-        {
+        //public void addClient()
+        //{
 
-        }
+        //}
 
-        public void modifyClient()
-        {
+        //public void modifyClient()
+        //{
 
-        }
+        //}
 
-        public void createTicket()
-        {
+        //public void createTicket()
+        //{
 
-        }
+        //}
 
     }
 }
