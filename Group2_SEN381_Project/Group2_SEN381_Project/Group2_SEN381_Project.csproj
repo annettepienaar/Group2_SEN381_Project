@@ -46,6 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLogicLayer\Call.cs" />
+    <Compile Include="BusinessLogicLayer\Specialization.cs" />
+    <Compile Include="DataAccessLayer\DataAccess.cs" />
     <Compile Include="BusinessLogicLayer\ServicePackage.cs" />
     <Compile Include="BusinessLogicLayer\CallCentreEmployee.cs" />
     <Compile Include="BusinessLogicLayer\Employee.cs" />
@@ -98,6 +101,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="PresentationLayer\" />
     <Folder Include="DataAccessLayer\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
