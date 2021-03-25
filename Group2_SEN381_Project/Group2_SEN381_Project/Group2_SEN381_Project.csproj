@@ -63,6 +63,12 @@
     <Compile Include="BusinessLogicLayer\BusinessClient.cs" />
     <Compile Include="BusinessLogicLayer\Client.cs" />
     <Compile Include="BusinessLogicLayer\PersonalClient.cs" />
+    <Compile Include="PresentationLayer\ClientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\ClientForm.Designer.cs">
+      <DependentUpon>ClientForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="PresentationLayer\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +92,9 @@
     <Compile Include="BusinessLogicLayer\Ticket.cs" />
     <EmbeddedResource Include="PresentationLayer\CallInterfaceForm.resx">
       <DependentUpon>CallInterfaceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\ClientForm.resx">
+      <DependentUpon>ClientForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PresentationLayer\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

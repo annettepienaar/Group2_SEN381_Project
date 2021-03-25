@@ -12,6 +12,10 @@ namespace Group2_SEN381_Project
 {
     public partial class CallInterfaceForm : Form
     {
+        private void rtxtProblemDesc_TextChanged(object sender, EventArgs e)
+        {
+
+        }
         //private DataAccess dataAccess = new DataAccess();
         //DateTime callStart;
         //DateTime callEnd;
