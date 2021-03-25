@@ -62,12 +62,6 @@
     </Compile>
     <Compile Include="BusinessLogicLayer\BusinessClient.cs" />
     <Compile Include="BusinessLogicLayer\Client.cs" />
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="BusinessLogicLayer\PersonalClient.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -102,7 +96,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="PresentationLayer\" />
-    <Folder Include="DataAccessLayer\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
