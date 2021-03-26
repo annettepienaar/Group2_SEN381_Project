@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace Group2_SEN381_Project.DataAccessLayer
 {
-    class DataAccess: IDataAccess
+    class DataAccess
     {
         private readonly string connString;
         private SqlDataAdapter dataAdapter;
@@ -20,20 +20,22 @@ namespace Group2_SEN381_Project.DataAccessLayer
         {
             connString = $@"DataSource = .; InitialCatalog = SEN381_Project; IntegratedSecurity = True;";
             connection = new SqlConnection(connString);
-
-           
         }
 
         public DataTable GetTable(string tblName)
         {
             DataTable tblEntries = new DataTable();
             string select = $"SELECT * FROM {tblName}";
-
-            dataAdapter = new SqlDataAdapter(select, connection);
-            dataAdapter.Fill(tblEntries);
-            
+            try
+            {
+                dataAdapter = new SqlDataAdapter(select, connection);
+                dataAdapter.Fill(tblEntries);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error has occoured", ex.Message);
+            }
             return tblEntries;
-            
         }
 
         //need to insert employee, client, calls, tickets, service packages
@@ -44,13 +46,13 @@ namespace Group2_SEN381_Project.DataAccessLayer
             {
                 connection.Open();
                 string insert = $@"INSERT INTO Employees (Emp_ID, Emp_Name, Emp_Surname, Emp_Address, Emp_Phone) VALUES ({id},{name},{surname},{address},{phone})";
-                SqlCommand insertcmd = new SqlCommand(insert, connection);
-                insertcmd.ExecuteNonQuery();
+                modifyCMD= new SqlCommand(insert, connection);
+                modifyCMD.ExecuteNonQuery();
                 connection.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error has occoured");
+                MessageBox.Show("An error has occoured",ex.Message);
             }
             
         }
@@ -61,13 +63,13 @@ namespace Group2_SEN381_Project.DataAccessLayer
             {
                 connection.Open();
                 string insert = $@"INSERT INTO Client (Client_ID, Name, Surname, Business_Name, Phone, Address, SP_ID) VALUES ({id},{name},{surname},{bName},{phone},{address},{spID})";
-                SqlCommand insertcmd = new SqlCommand(insert, connection);
-                insertcmd.ExecuteNonQuery();
+                modifyCMD = new SqlCommand(insert, connection);
+                modifyCMD.ExecuteNonQuery();
                 connection.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error has occoured");
+                MessageBox.Show("An error has occoured", ex.Message);
             }
             
         }
@@ -78,13 +80,13 @@ namespace Group2_SEN381_Project.DataAccessLayer
             {
                 connection.Open();
                 string insert = $@"INSERT INTO Call (Start_Time, End_Time, Client_ID, Emp_ID) VALUES ({startTime},{endTime},{clientID},{empID})";
-                SqlCommand insertcmd = new SqlCommand(insert, connection);
-                insertcmd.ExecuteNonQuery();
+                modifyCMD = new SqlCommand(insert, connection);
+                modifyCMD.ExecuteNonQuery();
                 connection.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error has occoured");
+                MessageBox.Show("An error has occoured", ex.Message);
             }
 
         }
@@ -95,13 +97,13 @@ namespace Group2_SEN381_Project.DataAccessLayer
             {
                 connection.Open();
                 string insert = $@"INSERT INTO Ticket (Ticket_Description, Ticket_Level, Ticket_State, Open_Date, Close_Date, Client_ID, Technician_ID, Call_Centre_Emp_ID) VALUES ({desc},{level},{state},{openDate},{closeDate},{clientID}, {techID}, {empID})";
-                SqlCommand insertcmd = new SqlCommand(insert, connection);
-                insertcmd.ExecuteNonQuery();
+                modifyCMD= new SqlCommand(insert, connection);
+                modifyCMD.ExecuteNonQuery();
                 connection.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error has occoured");
+                MessageBox.Show("An error has occoured", ex.Message);
             }
             
         }
@@ -187,51 +189,57 @@ namespace Group2_SEN381_Project.DataAccessLayer
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error has occoured");
+                MessageBox.Show("An error has occoured", ex.Message);
             }
 
         }
 
-
-
-        /*public List<Client> getClient(string client_ID) {
-            Method that will get the client and return it as a List
-        }*/
-
-        /*public List<Employee> getEmployee(string emp_ID)
+        public void DeleteEmployee(string id) 
         {
-            Method that will get the employee and return it as a List
-        }*/
-
-        /*public List<ServicePackage> getSP(string ) 
+            try
+            {
+                connection.Open();
+                string delete = $@"DELETE FROM Employee WHERE Emp_ID";
+                modifyCMD = new SqlCommand(delete, connection);
+                modifyCMD.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error has occoured", ex.Message);
+            }
+        }
+        public void DeleteClient(string id) 
         {
-            Method that will get the service package and return it as a List
-        }*/
-
-        /*public Call getCallLogs(DateTime, DateTime)
+            try
+            {
+                connection.Open();
+                string delete = $@"DELETE FROM Client WHERE Client_ID";
+                modifyCMD = new SqlCommand(delete, connection);
+                modifyCMD.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error has occoured", ex.Message);
+            }
+        }
+        public void DeleteSP(string id) 
         {
-            Method that will get the call log based on the start and end time/date
-        }*/
+            try
+            {
+                connection.Open();
+                string delete = $@"DELETE FROM Service_Package WHERE SP_ID";
+                modifyCMD = new SqlCommand(delete, connection);
+                modifyCMD.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error has occoured", ex.Message);
+            }
+        }
 
-        /*public void addClient(Client)
-        {
-            Method that adds a Client to the database and Client table
-        }*/
-
-        /*public void addEmployee(Employee)
-        {
-            Method that adds a Employee to the database and Employee table
-        }*/
-
-        /*public void addSP(ServicePackage)
-        {
-            Method that adds a Service Package to the database and ServicePackage table
-        }*/
-
-        /*public void addCallLog(Call)
-        {
-            Method that adds a Call Log to the database and Call table
-        }*/
 
         /*public void modifyClient(Client)
         {
