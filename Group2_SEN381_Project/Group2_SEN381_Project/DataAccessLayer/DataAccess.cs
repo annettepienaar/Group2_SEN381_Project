@@ -14,14 +14,13 @@ namespace Group2_SEN381_Project.DataAccessLayer
         private readonly string connString;
         private SqlDataAdapter dataAdapter;
         private readonly SqlConnection connection;
+        private SqlCommand modifyCMD;
 
 
         public DataAccess()
         {
             connString = $@"DataSource = .; InitialCatalog = SEN381_Project; IntegratedSecurity = True;";
             connection = new SqlConnection(connString);
-
-           
         }
 
         public DataTable GetTable(string tblName)
@@ -48,8 +47,8 @@ namespace Group2_SEN381_Project.DataAccessLayer
             {
                 connection.Open();
                 string insert = $@"INSERT INTO Employees (Emp_ID, Emp_Name, Emp_Surname, Emp_Address, Emp_Phone) VALUES ({id},{name},{surname},{address},{phone})";
-                SqlCommand insertcmd = new SqlCommand(insert, connection);
-                insertcmd.ExecuteNonQuery();
+                modifyCMD= new SqlCommand(insert, connection);
+                modifyCMD.ExecuteNonQuery();
                 connection.Close();
             }
             catch (Exception ex)
@@ -65,8 +64,8 @@ namespace Group2_SEN381_Project.DataAccessLayer
             {
                 connection.Open();
                 string insert = $@"INSERT INTO Client (Client_ID, Name, Surname, Business_Name, Phone, Address, SP_ID) VALUES ({id},{name},{surname},{bName},{phone},{address},{spID})";
-                SqlCommand insertcmd = new SqlCommand(insert, connection);
-                insertcmd.ExecuteNonQuery();
+                modifyCMD = new SqlCommand(insert, connection);
+                modifyCMD.ExecuteNonQuery();
                 connection.Close();
             }
             catch (Exception ex)
@@ -82,8 +81,8 @@ namespace Group2_SEN381_Project.DataAccessLayer
             {
                 connection.Open();
                 string insert = $@"INSERT INTO Call (Start_Time, End_Time, Client_ID, Emp_ID) VALUES ({startTime},{endTime},{clientID},{empID})";
-                SqlCommand insertcmd = new SqlCommand(insert, connection);
-                insertcmd.ExecuteNonQuery();
+                modifyCMD = new SqlCommand(insert, connection);
+                modifyCMD.ExecuteNonQuery();
                 connection.Close();
             }
             catch (Exception ex)
@@ -99,8 +98,8 @@ namespace Group2_SEN381_Project.DataAccessLayer
             {
                 connection.Open();
                 string insert = $@"INSERT INTO Ticket (Ticket_Description, Ticket_Level, Ticket_State, Open_Date, Close_Date, Client_ID, Technician_ID, Call_Centre_Emp_ID) VALUES ({desc},{level},{state},{openDate},{closeDate},{clientID}, {techID}, {empID})";
-                SqlCommand insertcmd = new SqlCommand(insert, connection);
-                insertcmd.ExecuteNonQuery();
+                modifyCMD= new SqlCommand(insert, connection);
+                modifyCMD.ExecuteNonQuery();
                 connection.Close();
             }
             catch (Exception ex)
@@ -116,8 +115,8 @@ namespace Group2_SEN381_Project.DataAccessLayer
             {
                 connection.Open();
                 string insert = $@"INSERT INTO Service_Program (Package_Name, Package_Description, Release_Date, Close_Date) VALUES ({name},{desc},{releaseDate},{closeDate})";
-                SqlCommand insertcmd = new SqlCommand(insert, connection);
-                insertcmd.ExecuteNonQuery();
+                modifyCMD = new SqlCommand(insert, connection);
+                modifyCMD.ExecuteNonQuery();
                 connection.Close();
             }
             catch (Exception ex)
@@ -127,6 +126,51 @@ namespace Group2_SEN381_Project.DataAccessLayer
             
         }
 
+        public void DeleteEmployee(string id) 
+        {
+            try
+            {
+                connection.Open();
+                string delete = $@"DELETE FROM Employee WHERE Emp_ID";
+                modifyCMD = new SqlCommand(delete, connection);
+                modifyCMD.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error has occoured", ex.Message);
+            }
+        }
+        public void DeleteClient(string id) 
+        {
+            try
+            {
+                connection.Open();
+                string delete = $@"DELETE FROM Client WHERE Client_ID";
+                modifyCMD = new SqlCommand(delete, connection);
+                modifyCMD.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error has occoured", ex.Message);
+            }
+        }
+        public void DeleteSP(string id) 
+        {
+            try
+            {
+                connection.Open();
+                string delete = $@"DELETE FROM Service_Program WHERE SP_ID";
+                modifyCMD = new SqlCommand(delete, connection);
+                modifyCMD.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error has occoured", ex.Message);
+            }
+        }
 
 
         /*public void modifyClient(Client)
