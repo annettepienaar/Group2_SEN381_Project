@@ -14,7 +14,7 @@ namespace Group2_SEN381_Project.DataAccessLayer
         private readonly string connString;
         private SqlDataAdapter dataAdapter;
         private readonly SqlConnection connection;
-
+        private SqlCommand modifyCMD;
 
         public DataAccess()
         {
@@ -111,7 +111,7 @@ namespace Group2_SEN381_Project.DataAccessLayer
             try
             {
                 connection.Open();
-                string insert = $@"INSERT INTO Service_Program (Package_Name, Package_Description, Release_Date, Close_Date) VALUES ({name},{desc},{releaseDate},{closeDate})";
+                string insert = $@"INSERT INTO Service_Package (Package_Name, Package_Description, Release_Date, Close_Date) VALUES ({name},{desc},{releaseDate},{closeDate})";
                 SqlCommand insertcmd = new SqlCommand(insert, connection);
                 insertcmd.ExecuteNonQuery();
                 connection.Close();
@@ -121,6 +121,75 @@ namespace Group2_SEN381_Project.DataAccessLayer
                 MessageBox.Show("An error has occoured");
             }
             
+        }
+
+        //updates for service packages, tickets, employee, client
+        public void UpdateSP(string id, string name, string desc, string releaseDate, string closeDate)
+        {
+            try
+            {
+                connection.Open();
+                string update = $@"UPDATE Service_Package SET Package_Name = {name},Package_Description = {desc},Release_Date = {releaseDate},Close_Date = {closeDate} WHERE SP_ID = {id}";
+                modifyCMD = new SqlCommand(update, connection);
+                modifyCMD.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error has occoured");
+            }
+
+        }
+
+        public void UpdateTicket(string id, string desc, string level, string state, string openDate, string closeDate, string clientID, string techID, string empID)
+        {
+            try
+            {
+                connection.Open();
+                string update = $@"UPDATE Ticket SET Ticket_Description = {desc},Ticket_Level = {level},Ticket_State = {state},Open_Date = {openDate},Close_Date = {closeDate},Client_ID = {clientID},Technician_ID = {techID},Call_Centre_Emp_ID = {empID} WHERE Ticket_ID = {id}";
+                modifyCMD = new SqlCommand(update, connection);
+                modifyCMD.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error has occoured");
+            }
+
+        }
+
+        public void UpdateEmployee(string id, string name, string surname, string address, string phone)
+        {
+            try
+            {
+                connection.Open();
+                string update = $@"UPDATE Employees SET Emp_Name = {name},Emp_Surname = {surname},Emp_Address = {address},Emp_Phone = {phone} WHERE Emp_ID = {id}";
+                modifyCMD = new SqlCommand(update, connection);
+                modifyCMD.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error has occoured");
+            }
+
+        }
+
+        public void UpdateClient(string id, string name, string surname, string bName, string phone, string address, string spID)
+        {
+            try
+            {
+                connection.Open();
+                string insert = $@"UPDATE Client SET Name = {name},Surname = {surname},Business_Name = {bName},Phone = {phone},Address = {address},SP_ID = {spID} WHERE Client_ID = {id}";
+                SqlCommand insertcmd = new SqlCommand(insert, connection);
+                insertcmd.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error has occoured");
+            }
+
         }
 
 
