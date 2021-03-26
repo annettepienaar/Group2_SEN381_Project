@@ -161,7 +161,7 @@ namespace Group2_SEN381_Project.DataAccessLayer
             try
             {
                 connection.Open();
-                string delete = $@"DELETE FROM Service_Program WHERE SP_ID";
+                string delete = $@"DELETE FROM Service_Package WHERE SP_ID";
                 modifyCMD = new SqlCommand(delete, connection);
                 modifyCMD.ExecuteNonQuery();
                 connection.Close();
