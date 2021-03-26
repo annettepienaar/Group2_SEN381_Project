@@ -199,7 +199,7 @@ namespace Group2_SEN381_Project.DataAccessLayer
             try
             {
                 connection.Open();
-                string delete = $@"DELETE FROM Employee WHERE Emp_ID";
+                string delete = $@"DELETE FROM Employee WHERE Emp_ID = {id}";
                 modifyCMD = new SqlCommand(delete, connection);
                 modifyCMD.ExecuteNonQuery();
                 connection.Close();
@@ -214,7 +214,7 @@ namespace Group2_SEN381_Project.DataAccessLayer
             try
             {
                 connection.Open();
-                string delete = $@"DELETE FROM Client WHERE Client_ID";
+                string delete = $@"DELETE FROM Client WHERE Client_ID = {id}";
                 modifyCMD = new SqlCommand(delete, connection);
                 modifyCMD.ExecuteNonQuery();
                 connection.Close();
@@ -229,7 +229,7 @@ namespace Group2_SEN381_Project.DataAccessLayer
             try
             {
                 connection.Open();
-                string delete = $@"DELETE FROM Service_Package WHERE SP_ID";
+                string delete = $@"DELETE FROM Service_Package WHERE SP_ID = {id}";
                 modifyCMD = new SqlCommand(delete, connection);
                 modifyCMD.ExecuteNonQuery();
                 connection.Close();
@@ -239,21 +239,5 @@ namespace Group2_SEN381_Project.DataAccessLayer
                 MessageBox.Show("An error has occoured", ex.Message);
             }
         }
-
-
-        /*public void modifyClient(Client)
-        {
-            Method that can update and modify a record in the Client table
-        }*/
-
-        /*public void modifyEmployee(Employee)
-        {
-            Method that can update and modify a record in the Employee table
-        }*/
-
-        /*public void modifySP(ServicePackage)
-        {
-            Method that can update and modify a record in the ServicePackage table
-        }*/
     }
 }
