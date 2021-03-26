@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace Group2_SEN381_Project.DataAccessLayer
 {
-    class DataAccess: IDataAccess
+    class DataAccess
     {
         private readonly string connString;
         private SqlDataAdapter dataAdapter;
@@ -28,12 +28,16 @@ namespace Group2_SEN381_Project.DataAccessLayer
         {
             DataTable tblEntries = new DataTable();
             string select = $"SELECT * FROM {tblName}";
-
-            dataAdapter = new SqlDataAdapter(select, connection);
-            dataAdapter.Fill(tblEntries);
-            
+            try
+            {
+                dataAdapter = new SqlDataAdapter(select, connection);
+                dataAdapter.Fill(tblEntries);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error has occoured", ex.Message);
+            }
             return tblEntries;
-            
         }
 
         //need to insert employee, client, calls, tickets, service packages
@@ -50,7 +54,7 @@ namespace Group2_SEN381_Project.DataAccessLayer
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error has occoured");
+                MessageBox.Show("An error has occoured",ex.Message);
             }
             
         }
@@ -67,7 +71,7 @@ namespace Group2_SEN381_Project.DataAccessLayer
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error has occoured");
+                MessageBox.Show("An error has occoured", ex.Message);
             }
             
         }
@@ -84,7 +88,7 @@ namespace Group2_SEN381_Project.DataAccessLayer
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error has occoured");
+                MessageBox.Show("An error has occoured", ex.Message);
             }
 
         }
@@ -101,7 +105,7 @@ namespace Group2_SEN381_Project.DataAccessLayer
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error has occoured");
+                MessageBox.Show("An error has occoured", ex.Message);
             }
             
         }
@@ -118,51 +122,12 @@ namespace Group2_SEN381_Project.DataAccessLayer
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error has occoured");
+                MessageBox.Show("An error has occoured", ex.Message);
             }
             
         }
 
 
-
-        /*public List<Client> getClient(string client_ID) {
-            Method that will get the client and return it as a List
-        }*/
-
-        /*public List<Employee> getEmployee(string emp_ID)
-        {
-            Method that will get the employee and return it as a List
-        }*/
-
-        /*public List<ServicePackage> getSP(string ) 
-        {
-            Method that will get the service package and return it as a List
-        }*/
-
-        /*public Call getCallLogs(DateTime, DateTime)
-        {
-            Method that will get the call log based on the start and end time/date
-        }*/
-
-        /*public void addClient(Client)
-        {
-            Method that adds a Client to the database and Client table
-        }*/
-
-        /*public void addEmployee(Employee)
-        {
-            Method that adds a Employee to the database and Employee table
-        }*/
-
-        /*public void addSP(ServicePackage)
-        {
-            Method that adds a Service Package to the database and ServicePackage table
-        }*/
-
-        /*public void addCallLog(Call)
-        {
-            Method that adds a Call Log to the database and Call table
-        }*/
 
         /*public void modifyClient(Client)
         {
