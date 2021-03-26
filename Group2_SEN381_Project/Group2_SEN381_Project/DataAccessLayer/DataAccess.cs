@@ -22,10 +22,11 @@ namespace Group2_SEN381_Project.DataAccessLayer
 
         public DataTable GetTable(string tblName)
         {
-            DataTable tblEntries;
+            DataTable tblEntries = new DataTable();
             string select = $"SELECT * FROM {tblName}";
 
             dataAdapter = new SqlDataAdapter(select, connection);
+            dataAdapter.Fill(tblEntries);
             
             return tblEntries;
             
