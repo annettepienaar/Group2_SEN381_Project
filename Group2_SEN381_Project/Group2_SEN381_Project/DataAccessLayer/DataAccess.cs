@@ -120,7 +120,7 @@ namespace Group2_SEN381_Project.DataAccessLayer
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error has occoured");
+                MessageBox.Show("An error has occoured", ex.Message);
             }
             
         }
@@ -138,7 +138,7 @@ namespace Group2_SEN381_Project.DataAccessLayer
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error has occoured");
+                MessageBox.Show("An error has occoured", ex.Message);
             }
 
         }
@@ -155,7 +155,7 @@ namespace Group2_SEN381_Project.DataAccessLayer
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error has occoured");
+                MessageBox.Show("An error has occoured", ex.Message);
             }
 
         }
@@ -172,7 +172,7 @@ namespace Group2_SEN381_Project.DataAccessLayer
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error has occoured");
+                MessageBox.Show("An error has occoured", ex.Message);
             }
 
         }
