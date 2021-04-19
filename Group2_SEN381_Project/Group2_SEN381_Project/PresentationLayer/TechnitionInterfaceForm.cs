@@ -12,30 +12,30 @@ namespace Group2_SEN381_Project
 {
     public partial class TechnitionInterfaceForm : Form
     {
-        private DataAccess dataAccess = new DataAccess();
-        public TechnitionInterfaceForm()
-        {
-            InitializeComponent();
-        }
+        //private DataAccess dataAccess = new DataAccess();
+        //public TechnitionInterfaceForm()
+        //{
+        //    InitializeComponent();
+        //}
 
-        public Ticket getTicket()
-        {
+        //public Ticket getTicket()
+        //{
 
-        }
+        //}
 
-        public void AssignTicket()
-        {
+        //public void AssignTicket()
+        //{
 
-        }
+        //}
 
-        public List<TechnicianEmployee> getAvailableTechnician()
-        {
+        //public List<TechnicianEmployee> getAvailableTechnician()
+        //{
 
-        }
+        //}
 
-        public void closeTicket()
-        {
+        //public void closeTicket()
+        //{
 
-        }
+        //}
     }
 }

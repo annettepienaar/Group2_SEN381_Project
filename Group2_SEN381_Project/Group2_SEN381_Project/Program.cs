@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Group2_SEN381_Project.PresentationLayer;
 
 namespace Group2_SEN381_Project
 {
@@ -16,7 +17,7 @@ namespace Group2_SEN381_Project
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new CallInterfaceForm());
         }
     }
 }
