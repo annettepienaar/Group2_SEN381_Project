@@ -36,5 +36,16 @@ namespace Group2_SEN381_Project.PresentationLayer
 		{
 
 		}
+
+		private void lblDescripionTitle_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void btnAddServicePackage_Click(object sender, EventArgs e)
+		{
+			ServiceCreationInterface serviceCreationInterface = new ServiceCreationInterface();
+			serviceCreationInterface.Show();
+		}
 	}
 }
