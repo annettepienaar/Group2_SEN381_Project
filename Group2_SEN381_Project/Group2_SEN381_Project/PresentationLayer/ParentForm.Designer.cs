@@ -32,14 +32,14 @@ namespace Group2_SEN381_Project.PresentationLayer
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ParentForm));
             this.pnlheader = new System.Windows.Forms.Panel();
-            this.childFormPanel = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnExit = new System.Windows.Forms.Button();
-            this.btnMinimize = new System.Windows.Forms.Button();
             this.btnLoginName = new System.Windows.Forms.Button();
+            this.btnMinimize = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pnlChildForm = new System.Windows.Forms.Panel();
             this.CMStripLoginName = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label1 = new System.Windows.Forms.Label();
             this.pnlheader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.CMStripLoginName.SuspendLayout();
@@ -62,44 +62,23 @@ namespace Group2_SEN381_Project.PresentationLayer
             this.pnlheader.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnlheader_MouseMove);
             this.pnlheader.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnlheader_MouseUp);
             // 
-            // childFormPanel
+            // btnLoginName
             // 
-            this.childFormPanel.AutoSize = true;
-            this.childFormPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.childFormPanel.Location = new System.Drawing.Point(0, 40);
-            this.childFormPanel.Name = "childFormPanel";
-            this.childFormPanel.Size = new System.Drawing.Size(924, 594);
-            this.childFormPanel.TabIndex = 1;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(134, 40);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // btnExit
-            // 
-            this.btnExit.BackColor = System.Drawing.Color.White;
-            this.btnExit.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnExit.FlatAppearance.BorderSize = 0;
-            this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
-            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
-            this.btnExit.Location = new System.Drawing.Point(884, 0);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(40, 39);
-            this.btnExit.TabIndex = 1;
-            this.btnExit.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnExit.UseVisualStyleBackColor = false;
-            this.btnExit.Click += new System.EventHandler(this.button1_Click);
+            this.btnLoginName.BackColor = System.Drawing.Color.White;
+            this.btnLoginName.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnLoginName.FlatAppearance.BorderSize = 0;
+            this.btnLoginName.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.btnLoginName.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnLoginName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLoginName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLoginName.Location = new System.Drawing.Point(684, 0);
+            this.btnLoginName.Name = "btnLoginName";
+            this.btnLoginName.Size = new System.Drawing.Size(160, 39);
+            this.btnLoginName.TabIndex = 3;
+            this.btnLoginName.Text = "Username ";
+            this.btnLoginName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLoginName.UseVisualStyleBackColor = false;
+            this.btnLoginName.Click += new System.EventHandler(this.btnLoginName_Click);
             // 
             // btnMinimize
             // 
@@ -119,23 +98,54 @@ namespace Group2_SEN381_Project.PresentationLayer
             this.btnMinimize.UseVisualStyleBackColor = false;
             this.btnMinimize.Click += new System.EventHandler(this.button2_Click);
             // 
-            // btnLoginName
+            // btnExit
             // 
-            this.btnLoginName.BackColor = System.Drawing.Color.White;
-            this.btnLoginName.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnLoginName.FlatAppearance.BorderSize = 0;
-            this.btnLoginName.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
-            this.btnLoginName.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnLoginName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLoginName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLoginName.Location = new System.Drawing.Point(684, 0);
-            this.btnLoginName.Name = "btnLoginName";
-            this.btnLoginName.Size = new System.Drawing.Size(160, 39);
-            this.btnLoginName.TabIndex = 3;
-            this.btnLoginName.Text = "Username ";
-            this.btnLoginName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnLoginName.UseVisualStyleBackColor = false;
-            this.btnLoginName.Click += new System.EventHandler(this.btnLoginName_Click);
+            this.btnExit.BackColor = System.Drawing.Color.White;
+            this.btnExit.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
+            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
+            this.btnExit.Location = new System.Drawing.Point(884, 0);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(40, 39);
+            this.btnExit.TabIndex = 1;
+            this.btnExit.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.Blue;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label1.Location = new System.Drawing.Point(0, 39);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(924, 1);
+            this.label1.TabIndex = 4;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(134, 40);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pnlChildForm
+            // 
+            this.pnlChildForm.AutoSize = true;
+            this.pnlChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlChildForm.Location = new System.Drawing.Point(0, 40);
+            this.pnlChildForm.Name = "pnlChildForm";
+            this.pnlChildForm.Size = new System.Drawing.Size(924, 594);
+            this.pnlChildForm.TabIndex = 1;
             // 
             // CMStripLoginName
             // 
@@ -159,22 +169,12 @@ namespace Group2_SEN381_Project.PresentationLayer
             this.logOutToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
             this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.Blue;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label1.Location = new System.Drawing.Point(0, 39);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(924, 1);
-            this.label1.TabIndex = 4;
-            // 
             // ParentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(924, 634);
-            this.Controls.Add(this.childFormPanel);
+            this.Controls.Add(this.pnlChildForm);
             this.Controls.Add(this.pnlheader);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MinimumSize = new System.Drawing.Size(900, 600);
@@ -192,7 +192,7 @@ namespace Group2_SEN381_Project.PresentationLayer
         #endregion
 
         private System.Windows.Forms.Panel pnlheader;
-        private System.Windows.Forms.Panel childFormPanel;
+        private System.Windows.Forms.Panel pnlChildForm;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnMinimize;

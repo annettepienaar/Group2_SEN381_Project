@@ -15,11 +15,20 @@ namespace Group2_SEN381_Project.PresentationLayer
         public ParentForm()
         {
             InitializeComponent();
+
+            //Open the login form by default when the form is initialized
+            OpenChildForm(new LoginForm());
         }
+
+        #region Menu Bar Controls
 
         private void btnLoginName_Click(object sender, EventArgs e)
         {
             CMStripLoginName.Show(btnLoginName, 0, btnLoginName.Height);
+        }
+        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new LoginForm());
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -32,11 +41,9 @@ namespace Group2_SEN381_Project.PresentationLayer
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        #region Make window movable
 
-        }
-
+        //Code to make the form movable, detects when the mouse button is pressed and move to its location
         private bool mouseDown;
         private Point lastLocation;
 
@@ -61,5 +68,37 @@ namespace Group2_SEN381_Project.PresentationLayer
         {
             mouseDown = false;
         }
+
+        #endregion
+
+        #endregion
+
+        #region Child Form Container
+
+        //Code to open Child form where is will close the previous form and add the new one to the childContainer panel
+        private Form activeForm = null;
+        private void OpenChildForm(Form childForm)
+        {
+            if (activeForm != null)
+            {
+                activeForm.Close();
+            }
+
+            activeForm = childForm;
+
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+
+            pnlChildForm.Controls.Add(childForm);
+            pnlChildForm.Tag = childForm;
+
+            childForm.BringToFront();
+            childForm.Show();
+
+        }
+
+        #endregion
+
     }
 }
