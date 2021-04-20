@@ -19,7 +19,7 @@ namespace Group2_SEN381_Project.PresentationLayer
             EnableDoubleBuffering();
 
             //Open the login form by default when the form is initialized
-            OpenChildForm(new LoginForm());
+            OpenChildForm(new CallInterfaceForm());
         }
 
         public void EnableDoubleBuffering()
