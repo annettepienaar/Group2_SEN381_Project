@@ -118,7 +118,7 @@ namespace Group2_SEN381_Project.PresentationLayer
             // 
             // label1
             // 
-            this.label1.BackColor = System.Drawing.Color.Blue;
+            this.label1.BackColor = System.Drawing.Color.DodgerBlue;
             this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label1.Location = new System.Drawing.Point(0, 39);
@@ -141,6 +141,8 @@ namespace Group2_SEN381_Project.PresentationLayer
             // pnlChildForm
             // 
             this.pnlChildForm.AutoSize = true;
+            this.pnlChildForm.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlChildForm.BackgroundImage")));
+            this.pnlChildForm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pnlChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlChildForm.Location = new System.Drawing.Point(0, 40);
             this.pnlChildForm.Name = "pnlChildForm";

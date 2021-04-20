@@ -16,8 +16,19 @@ namespace Group2_SEN381_Project.PresentationLayer
         {
             InitializeComponent();
 
+            EnableDoubleBuffering();
+
             //Open the login form by default when the form is initialized
             OpenChildForm(new LoginForm());
+        }
+
+        public void EnableDoubleBuffering()
+        {
+            this.SetStyle(ControlStyles.DoubleBuffer |
+               ControlStyles.UserPaint |
+               ControlStyles.AllPaintingInWmPaint,
+               true);
+            this.UpdateStyles();
         }
 
         #region Menu Bar Controls
@@ -79,6 +90,7 @@ namespace Group2_SEN381_Project.PresentationLayer
         private Form activeForm = null;
         private void OpenChildForm(Form childForm)
         {
+
             if (activeForm != null)
             {
                 activeForm.Close();
@@ -92,7 +104,7 @@ namespace Group2_SEN381_Project.PresentationLayer
 
             pnlChildForm.Controls.Add(childForm);
             pnlChildForm.Tag = childForm;
-
+            
             childForm.BringToFront();
             childForm.Show();
 

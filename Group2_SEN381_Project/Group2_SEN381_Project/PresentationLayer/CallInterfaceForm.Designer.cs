@@ -43,7 +43,10 @@ namespace Group2_SEN381_Project
             this.lblStartTime = new System.Windows.Forms.Label();
             this.lblDuration = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtClientID
@@ -141,10 +144,11 @@ namespace Group2_SEN381_Project
             // 
             // btnStartStop
             // 
+            this.btnStartStop.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnStartStop.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStartStop.Location = new System.Drawing.Point(11, 11);
+            this.btnStartStop.Location = new System.Drawing.Point(0, 0);
             this.btnStartStop.Name = "btnStartStop";
-            this.btnStartStop.Size = new System.Drawing.Size(120, 49);
+            this.btnStartStop.Size = new System.Drawing.Size(154, 69);
             this.btnStartStop.TabIndex = 0;
             this.btnStartStop.Text = "Start / Stop Call";
             this.btnStartStop.UseVisualStyleBackColor = true;
@@ -152,10 +156,13 @@ namespace Group2_SEN381_Project
             // lblStartTime
             // 
             this.lblStartTime.AutoSize = true;
-            this.lblStartTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStartTime.Location = new System.Drawing.Point(23, 87);
+            this.lblStartTime.BackColor = System.Drawing.Color.White;
+            this.lblStartTime.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblStartTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStartTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblStartTime.Location = new System.Drawing.Point(20, 33);
             this.lblStartTime.Name = "lblStartTime";
-            this.lblStartTime.Size = new System.Drawing.Size(92, 20);
+            this.lblStartTime.Size = new System.Drawing.Size(76, 18);
             this.lblStartTime.TabIndex = 1;
             this.lblStartTime.Text = "Start Time";
             this.lblStartTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -164,7 +171,7 @@ namespace Group2_SEN381_Project
             // 
             this.lblDuration.AutoSize = true;
             this.lblDuration.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDuration.Location = new System.Drawing.Point(30, 136);
+            this.lblDuration.Location = new System.Drawing.Point(19, 75);
             this.lblDuration.Name = "lblDuration";
             this.lblDuration.Size = new System.Drawing.Size(78, 20);
             this.lblDuration.TabIndex = 2;
@@ -173,16 +180,37 @@ namespace Group2_SEN381_Project
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.lblDuration);
-            this.panel1.Controls.Add(this.lblStartTime);
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.btnStartStop);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(143, 450);
+            this.panel1.Size = new System.Drawing.Size(154, 555);
             this.panel1.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.lblStartTime);
+            this.panel2.Controls.Add(this.lblDuration);
+            this.panel2.Location = new System.Drawing.Point(14, 76);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(127, 170);
+            this.panel2.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.label1.Location = new System.Drawing.Point(3, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(76, 18);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Start Time";
             // 
             // CallInterfaceForm
             // 
@@ -190,7 +218,7 @@ namespace Group2_SEN381_Project
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(908, 555);
             this.Controls.Add(this.cboxProblemArea);
             this.Controls.Add(this.lblProblemArea);
             this.Controls.Add(this.cboxUrgencyLevel);
@@ -205,7 +233,8 @@ namespace Group2_SEN381_Project
             this.Name = "CallInterfaceForm";
             this.Text = "CallInterfaceForm";
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -226,5 +255,7 @@ namespace Group2_SEN381_Project
         private System.Windows.Forms.Label lblStartTime;
         private System.Windows.Forms.Label lblDuration;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label1;
     }
 }

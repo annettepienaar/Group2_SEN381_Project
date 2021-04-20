@@ -15,6 +15,7 @@ namespace Group2_SEN381_Project.PresentationLayer
         public LoginForm()
         {
             InitializeComponent();
+            EnableDoubleBuffering();
         }
 
         private void LoginForm_Load(object sender, EventArgs e)
@@ -25,6 +26,15 @@ namespace Group2_SEN381_Project.PresentationLayer
         private void lblHeading_Click(object sender, EventArgs e)
         {
 
+        }
+        
+        public void EnableDoubleBuffering()
+        {
+            this.SetStyle(ControlStyles.DoubleBuffer |
+               ControlStyles.UserPaint |
+               ControlStyles.AllPaintingInWmPaint,
+               true);
+            this.UpdateStyles();
         }
     }
 }
