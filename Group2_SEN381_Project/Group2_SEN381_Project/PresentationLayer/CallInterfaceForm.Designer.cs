@@ -29,6 +29,7 @@ namespace Group2_SEN381_Project
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CallInterfaceForm));
             this.txtClientID = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
@@ -49,9 +50,10 @@ namespace Group2_SEN381_Project
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.pBoxCustomerFound = new System.Windows.Forms.PictureBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -143,6 +145,11 @@ namespace Group2_SEN381_Project
             this.cboxUrgencyLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboxUrgencyLevel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.cboxUrgencyLevel.FormattingEnabled = true;
+            this.cboxUrgencyLevel.Items.AddRange(new object[] {
+            "A",
+            "B",
+            "C",
+            "D"});
             this.cboxUrgencyLevel.Location = new System.Drawing.Point(618, 100);
             this.cboxUrgencyLevel.Name = "cboxUrgencyLevel";
             this.cboxUrgencyLevel.Size = new System.Drawing.Size(236, 26);
@@ -174,10 +181,10 @@ namespace Group2_SEN381_Project
             // 
             // btnStartStop
             // 
-            this.btnStartStop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnStartStop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(220)))), ((int)(((byte)(76)))));
             this.btnStartStop.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnStartStop.FlatAppearance.BorderSize = 0;
-            this.btnStartStop.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnStartStop.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(200)))), ((int)(((byte)(76)))));
             this.btnStartStop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStartStop.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStartStop.ForeColor = System.Drawing.Color.White;
@@ -263,7 +270,7 @@ namespace Group2_SEN381_Project
             this.lblCallEnd.Name = "lblCallEnd";
             this.lblCallEnd.Size = new System.Drawing.Size(113, 20);
             this.lblCallEnd.TabIndex = 11;
-            this.lblCallEnd.Text = "Duration";
+            this.lblCallEnd.Text = "End Time";
             this.lblCallEnd.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
@@ -314,16 +321,17 @@ namespace Group2_SEN381_Project
             this.panel3.Size = new System.Drawing.Size(871, 531);
             this.panel3.TabIndex = 12;
             // 
-            // label4
+            // pBoxCustomerFound
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label4.BackColor = System.Drawing.Color.Teal;
-            this.label4.Location = new System.Drawing.Point(158, 10);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(1, 513);
-            this.label4.TabIndex = 12;
-            this.label4.Text = "label4";
+            this.pBoxCustomerFound.BackColor = System.Drawing.Color.White;
+            this.pBoxCustomerFound.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pBoxCustomerFound.Image = global::Group2_SEN381_Project.Properties.Resources.circle_16;
+            this.pBoxCustomerFound.Location = new System.Drawing.Point(478, 35);
+            this.pBoxCustomerFound.Name = "pBoxCustomerFound";
+            this.pBoxCustomerFound.Size = new System.Drawing.Size(30, 25);
+            this.pBoxCustomerFound.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pBoxCustomerFound.TabIndex = 14;
+            this.pBoxCustomerFound.TabStop = false;
             // 
             // label5
             // 
@@ -336,17 +344,21 @@ namespace Group2_SEN381_Project
             this.label5.TabIndex = 13;
             this.label5.Text = "Customer Identification Number";
             // 
-            // pBoxCustomerFound
+            // label4
             // 
-            this.pBoxCustomerFound.BackColor = System.Drawing.Color.White;
-            this.pBoxCustomerFound.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pBoxCustomerFound.Image = global::Group2_SEN381_Project.Properties.Resources.circle_16;
-            this.pBoxCustomerFound.Location = new System.Drawing.Point(478, 35);
-            this.pBoxCustomerFound.Name = "pBoxCustomerFound";
-            this.pBoxCustomerFound.Size = new System.Drawing.Size(30, 25);
-            this.pBoxCustomerFound.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pBoxCustomerFound.TabIndex = 14;
-            this.pBoxCustomerFound.TabStop = false;
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label4.BackColor = System.Drawing.Color.Teal;
+            this.label4.Location = new System.Drawing.Point(158, 10);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(1, 513);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "label4";
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // CallInterfaceForm
             // 
@@ -392,5 +404,6 @@ namespace Group2_SEN381_Project
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox pBoxCustomerFound;
+        private System.Windows.Forms.Timer timer1;
     }
 }

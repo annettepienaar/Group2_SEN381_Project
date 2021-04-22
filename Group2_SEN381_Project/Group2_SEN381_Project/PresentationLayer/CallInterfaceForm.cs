@@ -26,16 +26,24 @@ namespace Group2_SEN381_Project
             if (clockRunning)
             {
                 clockRunning = false;
-                btnStartStop.BackColor = Color.FromArgb(255, 128, 128);
-                btnStartStop.FlatAppearance.MouseOverBackColor = Color.FromArgb(235, 128, 128);
+                btnStartStop.BackColor = Color.FromArgb(34, 220, 76);
+                btnStartStop.FlatAppearance.MouseOverBackColor = Color.FromArgb(34, 200, 76);
                 btnStartStop.Text = "START CALL";
+
+                timer1.Stop();
+                lblCallEnd.Text = DateTime.Now.ToString("hh:mm:ss");
             }
             else
             {
                 clockRunning = true;
-                btnStartStop.BackColor = Color.FromArgb(34, 220, 76);
-                btnStartStop.FlatAppearance.MouseOverBackColor = Color.FromArgb(34, 200, 76);
+                btnStartStop.BackColor = Color.FromArgb(255, 128, 128);
+                btnStartStop.FlatAppearance.MouseOverBackColor = Color.FromArgb(235, 128, 128);
                 btnStartStop.Text = "STOP CALL";
+
+                counter = 0;
+                timer1.Start();
+                lblCallEnd.Text = null;
+                lblStartTime.Text = DateTime.Now.ToString("hh:mm:ss");
             }
         }
 
@@ -63,7 +71,25 @@ namespace Group2_SEN381_Project
         {
             Form form = new ClientForm();
             form.Show();
+
+            //Disables button after click
+            btnCreateClient.Enabled = false;
         }
+
+        #region Timer
+        int counter = 0;
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            counter++;
+
+            int minutes = (int)counter / 60;
+            int seconds = (int)counter % 60;
+
+            //Formats time counter :)
+            lblDuration.Text = $"{(minutes.ToString().Length < 2 ? "0" + minutes.ToString(): minutes.ToString())}:{(seconds.ToString().Length < 2 ? "0" + seconds.ToString(): seconds.ToString())}";
+        }
+
+        #endregion
 
         //DateTime callStart;
         //DateTime callEnd;

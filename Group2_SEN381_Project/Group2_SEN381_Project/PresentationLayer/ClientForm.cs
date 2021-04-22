@@ -55,7 +55,15 @@ namespace Group2_SEN381_Project.PresentationLayer
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            ClientHandler.Add(new Client(txtClientID.Text, txtName.Text, txtSurname.Text, txtBusinessName.Text, txtPhone.Text, txtAddress.Text, cboxServicePackage.Text));
+            if (txtClientID.Text != "" && txtName.Text != "" && txtSurname.Text != "" && txtPhone.Text != "" && txtAddress.Text != "" && cboxServicePackage.Text != "")
+            {
+                ClientHandler.Add(new Client(txtClientID.Text, txtName.Text, txtSurname.Text, txtBusinessName.Text, txtPhone.Text, txtAddress.Text, cboxServicePackage.Text));
+            }
+            else
+            {
+                MessageBox.Show("Crutial information is missing, Please ensure all crutial information is added");
+            }
+            
         }
     }
 }

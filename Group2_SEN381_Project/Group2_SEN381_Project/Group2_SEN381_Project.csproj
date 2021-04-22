@@ -62,7 +62,6 @@
       <DependentUpon>CallInterfaceForm.cs</DependentUpon>
     </Compile>
     <Compile Include="BusinessLogicLayer\Client.cs" />
-    <Compile Include="BusinessLogicLayer\PersonalClient.cs" />
     <Compile Include="PresentationLayer\ClientForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,7 +86,6 @@
     <Compile Include="PresentationLayer\ServiceMetricsForm.Designer.cs">
       <DependentUpon>ServiceMetricsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="PersonalClient.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PresentationLayer\TechnitionInterfaceForm.cs">

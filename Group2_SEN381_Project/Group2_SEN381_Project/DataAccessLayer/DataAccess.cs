@@ -38,6 +38,24 @@ namespace Group2_SEN381_Project.DataAccessLayer
             return tblEntries;
         }
 
+
+        //Client search
+        public DataTable SearchClient(string id)
+        {
+            DataTable data = new DataTable();
+            string select = $"SELECT FROM Client WHERE Client_ID = {id}";
+            try
+            {
+                dataAdapter = new SqlDataAdapter(select, connection);
+                dataAdapter.Fill(data);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error has occoured", ex.Message);
+            }
+            return data;
+        }
+
         //need to insert employee, client, calls, tickets, service packages
 
         public void InsertEmployee(string id, string name, string surname, string address, string phone)
