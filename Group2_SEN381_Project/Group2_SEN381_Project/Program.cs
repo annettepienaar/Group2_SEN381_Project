@@ -3,21 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Group2_SEN381_Project.PresentationLayer;
 
 namespace Group2_SEN381_Project
 {
     static class Program
     {
-
-        /// <summary>
+        //// <summary>
         /// The main entry point for the application.
-        /// </summary>
+        /// </summary> 
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new ParentForm());
         }
     }
 }

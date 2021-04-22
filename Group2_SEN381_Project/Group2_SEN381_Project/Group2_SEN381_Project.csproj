@@ -46,16 +46,69 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BusinessClient.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="BusinessLogicLayer\Call.cs" />
+    <Compile Include="BusinessLogicLayer\Specialization.cs" />
+    <Compile Include="DataAccessLayer\DataAccess.cs" />
+    <Compile Include="BusinessLogicLayer\ServicePackage.cs" />
+    <Compile Include="BusinessLogicLayer\CallCentreEmployee.cs" />
+    <Compile Include="BusinessLogicLayer\Employee.cs" />
+    <Compile Include="BusinessLogicLayer\SatisfactionEmployee.cs" />
+    <Compile Include="BusinessLogicLayer\TechnicianEmployee.cs" />
+    <Compile Include="PresentationLayer\CallInterfaceForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="PresentationLayer\CallInterfaceForm.Designer.cs">
+      <DependentUpon>CallInterfaceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLogicLayer\BusinessClient.cs" />
+    <Compile Include="BusinessLogicLayer\Client.cs" />
+    <Compile Include="BusinessLogicLayer\PersonalClient.cs" />
+    <Compile Include="PresentationLayer\ClientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\ClientForm.Designer.cs">
+      <DependentUpon>ClientForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\ParentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\ParentForm.Designer.cs">
+      <DependentUpon>ParentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\ServiceMetricsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\ServiceMetricsForm.Designer.cs">
+      <DependentUpon>ServiceMetricsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="PersonalClient.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PresentationLayer\TechnitionInterfaceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\TechnitionInterfaceForm.Designer.cs">
+      <DependentUpon>TechnitionInterfaceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLogicLayer\Ticket.cs" />
+    <EmbeddedResource Include="PresentationLayer\CallInterfaceForm.resx">
+      <DependentUpon>CallInterfaceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\ClientForm.resx">
+      <DependentUpon>ClientForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\ParentForm.resx">
+      <DependentUpon>ParentForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -64,6 +117,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -79,9 +133,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="BusinessLogicLayer\" />
-    <Folder Include="DataAccessLayer\" />
-    <Folder Include="PresentationLayer\" />
+    <None Include="Resources\checkmark_no_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\circle_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checkmark_yes_16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

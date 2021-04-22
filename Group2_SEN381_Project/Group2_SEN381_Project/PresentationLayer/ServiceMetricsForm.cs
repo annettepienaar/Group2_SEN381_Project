@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Group2_SEN381_Project
+namespace Group2_SEN381_Project.PresentationLayer
 {
-    public partial class Form1 : Form
+    public partial class ServiceMetricsForm : Form
     {
-        public Form1()
+        public ServiceMetricsForm()
         {
             InitializeComponent();
         }
