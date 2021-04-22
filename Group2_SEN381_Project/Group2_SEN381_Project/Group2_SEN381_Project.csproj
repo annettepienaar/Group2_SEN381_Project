@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="BusinessLogicLayer\Call.cs" />
     <Compile Include="BusinessLogicLayer\Specialization.cs" />
+    <Compile Include="DataAccessLayer\ClientHandler.cs" />
     <Compile Include="DataAccessLayer\DataAccess.cs" />
     <Compile Include="BusinessLogicLayer\ServicePackage.cs" />
     <Compile Include="BusinessLogicLayer\CallCentreEmployee.cs" />
@@ -60,7 +61,6 @@
     <Compile Include="PresentationLayer\CallInterfaceForm.Designer.cs">
       <DependentUpon>CallInterfaceForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="BusinessLogicLayer\BusinessClient.cs" />
     <Compile Include="BusinessLogicLayer\Client.cs" />
     <Compile Include="BusinessLogicLayer\PersonalClient.cs" />
     <Compile Include="PresentationLayer\ClientForm.cs">

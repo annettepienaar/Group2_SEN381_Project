@@ -45,11 +45,11 @@
             this.txtPhone = new System.Windows.Forms.TextBox();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblClientID = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pnlMenuBar = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnExit = new System.Windows.Forms.Button();
-            this.lblClientID = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.pnlMenuBar.SuspendLayout();
@@ -160,6 +160,7 @@
             this.btnSubmit.TabIndex = 8;
             this.btnSubmit.Text = "SUBMIT";
             this.btnSubmit.UseVisualStyleBackColor = false;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // cboxServicePackage
             // 
@@ -284,6 +285,18 @@
             this.panel1.Size = new System.Drawing.Size(280, 545);
             this.panel1.TabIndex = 16;
             // 
+            // lblClientID
+            // 
+            this.lblClientID.AutoSize = true;
+            this.lblClientID.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblClientID.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.lblClientID.Location = new System.Drawing.Point(29, 92);
+            this.lblClientID.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lblClientID.Name = "lblClientID";
+            this.lblClientID.Size = new System.Drawing.Size(130, 18);
+            this.lblClientID.TabIndex = 18;
+            this.lblClientID.Text = "Client Identification";
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
@@ -335,18 +348,6 @@
             this.btnExit.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // lblClientID
-            // 
-            this.lblClientID.AutoSize = true;
-            this.lblClientID.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClientID.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblClientID.Location = new System.Drawing.Point(29, 92);
-            this.lblClientID.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.lblClientID.Name = "lblClientID";
-            this.lblClientID.Size = new System.Drawing.Size(130, 18);
-            this.lblClientID.TabIndex = 18;
-            this.lblClientID.Text = "Client Identification";
             // 
             // ClientForm
             // 

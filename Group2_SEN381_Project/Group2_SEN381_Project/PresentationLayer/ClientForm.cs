@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Group2_SEN381_Project.DataAccessLayer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -52,5 +53,9 @@ namespace Group2_SEN381_Project.PresentationLayer
 
         #endregion
 
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+            ClientHandler.Add(new Client(txtClientID.Text, txtName.Text, txtSurname.Text, txtBusinessName.Text, txtPhone.Text, txtAddress.Text, cboxServicePackage.Text));
+        }
     }
 }
