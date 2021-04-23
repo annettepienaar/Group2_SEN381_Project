@@ -57,7 +57,7 @@ namespace Group2_SEN381_Project.DataAccessLayer
         }
 
         //need to insert employee, client, calls, tickets, service packages
-
+        #region Insert Into Database
         public void InsertEmployee(string id, string name, string surname, string address, string phone)
         {
             try
@@ -143,7 +143,10 @@ namespace Group2_SEN381_Project.DataAccessLayer
             
         }
 
+        #endregion
+
         //updates for service packages, tickets, employee, client
+        #region Update Tables
         public void UpdateSP(string id, string name, string desc, string releaseDate, string closeDate)
         {
             try
@@ -212,6 +215,9 @@ namespace Group2_SEN381_Project.DataAccessLayer
 
         }
 
+        #endregion
+
+        #region Delete Info in Tables
         public void DeleteEmployee(string id) 
         {
             try
@@ -257,5 +263,7 @@ namespace Group2_SEN381_Project.DataAccessLayer
                 MessageBox.Show("An error has occoured", ex.Message);
             }
         }
+
+        #endregion
     }
 }
