@@ -88,12 +88,9 @@ namespace Group2_SEN381_Project
         private void btnSearch_Click(object sender, EventArgs e)
         {
             bool clientFound;
-            DataAccess access = new DataAccess();
-            DataTable data = new DataTable();
+            Client clients = ClientHandler.Search(txtClientID.Text);
 
-            data = access.SearchClient(txtClientID.Text);
-
-            if (data.Rows.Count > 0)
+            if (clients.ClientID != null)
             {
                 clientFound = true;
             }
