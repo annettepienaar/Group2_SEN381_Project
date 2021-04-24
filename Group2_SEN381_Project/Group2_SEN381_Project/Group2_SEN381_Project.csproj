@@ -55,6 +55,7 @@
     <Compile Include="BusinessLogicLayer\Employee.cs" />
     <Compile Include="BusinessLogicLayer\SatisfactionEmployee.cs" />
     <Compile Include="BusinessLogicLayer\TechnicianEmployee.cs" />
+    <Compile Include="DataAccessLayer\TicketHandler.cs" />
     <Compile Include="PresentationLayer\CallInterfaceForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,6 +139,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\checkmark_yes_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\checkmarkRed_no_16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

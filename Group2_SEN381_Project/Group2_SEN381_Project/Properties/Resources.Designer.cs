@@ -83,6 +83,16 @@ namespace Group2_SEN381_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap checkmarkRed_no_16 {
+            get {
+                object obj = ResourceManager.GetObject("checkmarkRed_no_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap circle_16 {
             get {
                 object obj = ResourceManager.GetObject("circle_16", resourceCulture);

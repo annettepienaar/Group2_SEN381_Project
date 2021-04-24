@@ -14,6 +14,10 @@ namespace Group2_SEN381_Project
 {
     public partial class CallInterfaceForm : Form
     {
+        //Equals null at end of testing phase
+        //This is the employee that logs in
+        public string callInterfaceID = "Koosie";
+
         public CallInterfaceForm()
         {
             InitializeComponent();
@@ -26,10 +30,7 @@ namespace Group2_SEN381_Project
         private void btnStartStop_Click(object sender, EventArgs e)
         {
             if (clockRunning)
-            {
-                
-
-                bool inCall = true;
+            {                
 
                 timer1.Stop();
                 
@@ -46,7 +47,10 @@ namespace Group2_SEN381_Project
                         btnStartStop.Text = "START CALL";
                         lblCallEnd.Text = DateTime.Now.ToString("hh:mm:ss");
 
+                        //TODO
                         //Send Data to the DB
+                        //Send customerId, urgencyLevel, problemDesc, problemArea, currentDate, callInterfaceID
+                        CreateTicket();
                         break;
                     case DialogResult.No:
                         clockRunning = false;
@@ -79,25 +83,25 @@ namespace Group2_SEN381_Project
 
         #endregion
 
-        bool clientFound = true;
+        //bool clientFound = true;
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            //bool clientFound;
-            //DataAccess access = new DataAccess();
-            //DataTable data = new DataTable();
+            bool clientFound;
+            DataAccess access = new DataAccess();
+            DataTable data = new DataTable();
 
-            //data = access.SearchClient(txtClientID.Text);
+            data = access.SearchClient(txtClientID.Text);
 
-            //if (data.Rows.Count > 0)
-            //{
-            //    clientFound  = true;
-            //}
-            //else
-            //{
-            //    clientFound = false;
-            //}
-            
+            if (data.Rows.Count > 0)
+            {
+                clientFound = true;
+            }
+            else
+            {
+                clientFound = false;
+            }
+
 
             //Actual search TODO
             if (clientFound)
@@ -106,11 +110,11 @@ namespace Group2_SEN381_Project
             }
             else
             {
-                pBoxCustomerFound.Image = Properties.Resources.checkmark_no_16;
+                pBoxCustomerFound.Image = Properties.Resources.checkmarkRed_no_16;
             }
 
             //For test purposes 
-            if (clientFound) { clientFound = false; } else clientFound = true;
+            //if (clientFound) { clientFound = false; } else clientFound = true;
         }
 
         public static int flag = 0;
@@ -149,6 +153,15 @@ namespace Group2_SEN381_Project
             {
                 btnCreateClient.Enabled = true;
             }
+        }
+
+        private void CreateTicket()
+        {
+            string technicianId = "", ticketId = "", ticketState = "", closeDate = "";
+            string currentDate = DateTime.Now.ToString("dd/mm/yyy");
+            Ticket ticket = new Ticket(ticketId, rtxtProblemDesc.Text, cboxUrgencyLevel.Text, txtClientID.Text, technicianId, callInterfaceID, ticketState, currentDate, closeDate);
+
+            TicketHandler.Add(ticket);
         }
 
 
