@@ -56,7 +56,7 @@ namespace Group2_SEN381_Project.DataAccessLayer
             return data;
         }
 
-        //need to insert employee, client, calls, tickets, service packages
+        //inserts for employee, client, calls, tickets, service packages
         #region Insert Into Database
         public void InsertEmployee(string id, string name, string surname, string address, string phone)
         {
@@ -217,6 +217,7 @@ namespace Group2_SEN381_Project.DataAccessLayer
 
         #endregion
 
+        //deletes 
         #region Delete Info in Tables
         public void DeleteEmployee(string id) 
         {

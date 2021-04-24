@@ -65,5 +65,10 @@ namespace Group2_SEN381_Project.PresentationLayer
             }
             
         }
+
+        private void ClientForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            CallInterfaceForm.flag--;
+        }
     }
 }

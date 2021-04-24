@@ -1,4 +1,5 @@
-﻿using Group2_SEN381_Project.PresentationLayer;
+﻿using Group2_SEN381_Project.DataAccessLayer;
+using Group2_SEN381_Project.PresentationLayer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +17,7 @@ namespace Group2_SEN381_Project
         public CallInterfaceForm()
         {
             InitializeComponent();
+
         }
 
         #region Clock button
@@ -25,13 +27,41 @@ namespace Group2_SEN381_Project
         {
             if (clockRunning)
             {
-                clockRunning = false;
-                btnStartStop.BackColor = Color.FromArgb(34, 220, 76);
-                btnStartStop.FlatAppearance.MouseOverBackColor = Color.FromArgb(34, 200, 76);
-                btnStartStop.Text = "START CALL";
+                
+
+                bool inCall = true;
 
                 timer1.Stop();
-                lblCallEnd.Text = DateTime.Now.ToString("hh:mm:ss");
+                
+                DialogResult dialog = MessageBox.Show("End Call and Submit Ticket?", "End Call", MessageBoxButtons.YesNoCancel);
+                switch (dialog)
+                {
+                    case DialogResult.Cancel:
+                        timer1.Start();
+                        break;
+                    case DialogResult.Yes:
+                        clockRunning = false;
+                        btnStartStop.BackColor = Color.FromArgb(34, 220, 76);
+                        btnStartStop.FlatAppearance.MouseOverBackColor = Color.FromArgb(34, 200, 76);
+                        btnStartStop.Text = "START CALL";
+                        lblCallEnd.Text = DateTime.Now.ToString("hh:mm:ss");
+
+                        //Send Data to the DB
+                        break;
+                    case DialogResult.No:
+                        clockRunning = false;
+                        btnStartStop.BackColor = Color.FromArgb(34, 220, 76);
+                        btnStartStop.FlatAppearance.MouseOverBackColor = Color.FromArgb(34, 200, 76);
+                        btnStartStop.Text = "START CALL";
+                        lblCallEnd.Text = DateTime.Now.ToString("hh:mm:ss");
+
+                        //Just end Call, don't send data to DB
+                        break;
+                    default:
+                        break;
+                }
+
+                
             }
             else
             {
@@ -53,6 +83,22 @@ namespace Group2_SEN381_Project
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            //bool clientFound;
+            //DataAccess access = new DataAccess();
+            //DataTable data = new DataTable();
+
+            //data = access.SearchClient(txtClientID.Text);
+
+            //if (data.Rows.Count > 0)
+            //{
+            //    clientFound  = true;
+            //}
+            //else
+            //{
+            //    clientFound = false;
+            //}
+            
+
             //Actual search TODO
             if (clientFound)
             {
@@ -67,14 +113,18 @@ namespace Group2_SEN381_Project
             if (clientFound) { clientFound = false; } else clientFound = true;
         }
 
+        public static int flag = 0;
         private void btnCreateClient_Click(object sender, EventArgs e)
         {
             Form form = new ClientForm();
+            flag++;
             form.Show();
 
             //Disables button after click
             btnCreateClient.Enabled = false;
+            
         }
+
 
         #region Timer
         int counter = 0;
@@ -89,7 +139,18 @@ namespace Group2_SEN381_Project
             lblDuration.Text = $"{(minutes.ToString().Length < 2 ? "0" + minutes.ToString(): minutes.ToString())}:{(seconds.ToString().Length < 2 ? "0" + seconds.ToString(): seconds.ToString())}";
         }
 
+
         #endregion
+
+        private void CallInterfaceForm_MouseMove(object sender, MouseEventArgs e)
+        {
+            //Enables Create Client button
+            if (flag <= 0)
+            {
+                btnCreateClient.Enabled = true;
+            }
+        }
+
 
         //DateTime callStart;
         //DateTime callEnd;

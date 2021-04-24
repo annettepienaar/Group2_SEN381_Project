@@ -174,6 +174,10 @@ namespace Group2_SEN381_Project
             this.cboxProblemArea.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboxProblemArea.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.cboxProblemArea.FormattingEnabled = true;
+            this.cboxProblemArea.Items.AddRange(new object[] {
+            "Network Issue",
+            "Electronics Issue",
+            "Wiring Issue"});
             this.cboxProblemArea.Location = new System.Drawing.Point(270, 496);
             this.cboxProblemArea.Name = "cboxProblemArea";
             this.cboxProblemArea.Size = new System.Drawing.Size(141, 26);
@@ -371,6 +375,7 @@ namespace Group2_SEN381_Project
             this.Controls.Add(this.panel3);
             this.Name = "CallInterfaceForm";
             this.Text = "CallInterfaceForm";
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.CallInterfaceForm_MouseMove);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
