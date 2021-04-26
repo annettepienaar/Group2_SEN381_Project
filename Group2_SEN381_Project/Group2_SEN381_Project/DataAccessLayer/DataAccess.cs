@@ -38,6 +38,25 @@ namespace Group2_SEN381_Project.DataAccessLayer
             return tblEntries;
         }
 
+        public DataTable GetEmployee(string username)
+        {
+            string select = $@"SELECT * FROM Employee WHERE Emp_ID = '{username}'";
+
+            DataTable tblEntries = new DataTable();
+
+            try
+            {
+                dataAdapter = new SqlDataAdapter(select, connection);
+                dataAdapter.Fill(tblEntries);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error has occoured", ex.Message);
+            }
+
+            return tblEntries;
+        }
+
         //need to insert employee, client, calls, tickets, service packages
 
         public void InsertEmployee(string id, string name, string surname, string address, string phone)

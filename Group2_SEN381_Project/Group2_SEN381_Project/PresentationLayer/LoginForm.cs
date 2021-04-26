@@ -8,13 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Group2_SEN381_Project.DataAccessLayer;
+using Group2_SEN381_Project.BusinessLogicLayer;
 
 namespace Group2_SEN381_Project.PresentationLayer
 {
     public partial class LoginForm : Form
     {
-        EmployeeHandler employeeHandler;
-
         public LoginForm()
         {
             InitializeComponent();
@@ -42,22 +41,26 @@ namespace Group2_SEN381_Project.PresentationLayer
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            employeeHandler = new EmployeeHandler();
+            Employee empObject = EmployeeHandler.GetEmployee(txtUsername.Text);
 
-            char employeeType = employeeHandler.EmployeeLogin(txtUsername.Text, txtPassword.Text);
-
-            if (employeeType.Equals('C'))
+            if (txtPassword.Text.Equals(empObject.Password))
             {
-                //Open CallInterfaceForm
-            } else if (employeeType.Equals("T"))
+                if (empObject is CallCentreEmployee)
+                {
+                    //Change to form
+                    MessageBox.Show("CallCentreEmployee");
+                } else if (empObject is TechnicianEmployee)
+                {
+                    MessageBox.Show("TechnicianEmployee");
+                    //Change to form
+                } else if (empObject is SatisfactionEmployee)
+                {
+                    MessageBox.Show("SatisfactionEmployee");
+                    //Change to form
+                }
+            }
+            else
             {
-                //Open Technition Form
-            } else if (employeeType.Equals("S"))
-            {
-                //Open Satisfaction Form
-            } else
-            {
-                MessageBox.Show("Employee Unknown");
                 txtUsername.Text = String.Empty;
                 txtPassword.Text = String.Empty;
             }

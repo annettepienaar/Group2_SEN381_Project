@@ -5,57 +5,41 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Windows.Forms;
+using Group2_SEN381_Project.BusinessLogicLayer;
 
 namespace Group2_SEN381_Project.DataAccessLayer
 {
-    class EmployeeHandler
+    static class EmployeeHandler
     {
-        DataAccess myAccess;
-        DataTable employeeTable;
-
-        public EmployeeHandler()
+        public static Employee GetEmployee(string username)
         {
-            myAccess = new DataAccess();
-            employeeTable = new DataTable();
+            DataAccess dataAccess = new DataAccess();
+            DataTable empTable = dataAccess.GetEmployee(username);
+            Employee empObject = null;
 
-            employeeTable = myAccess.GetTable("Employee");
-        }
+            string employee = "";
 
-        public char EmployeeLogin(string username, string password)
-        {
-            bool empFound = false;
-            string userPassword = "";
+            char empType = ' ';
 
-            char empType = 'U';
-
-            foreach (DataRow employee in employeeTable.Rows)
+            foreach (DataRow emp in empTable.Rows)
             {
-                if (username == employee.ItemArray[0].ToString())
+                employee = emp.ItemArray[0].ToString();
+
+                empType = employee[0];
+
+                if (empType.Equals('C'))
                 {
-                    empFound = true;
-                    userPassword = employee.ItemArray[5].ToString();
+                    empObject = new CallCentreEmployee(emp.ItemArray[0].ToString(), emp.ItemArray[1].ToString(), emp.ItemArray[2].ToString(), emp.ItemArray[3].ToString(), emp.ItemArray[4].ToString(), emp.ItemArray[5].ToString());
+                } else if (empType.Equals('T'))
+                {
+                    empObject = new TechnicianEmployee(emp.ItemArray[0].ToString(), emp.ItemArray[1].ToString(), emp.ItemArray[2].ToString(), emp.ItemArray[3].ToString(), emp.ItemArray[4].ToString(), emp.ItemArray[5].ToString());
+                } else if (empType.Equals('S'))
+                {
+                    empObject = new SatisfactionEmployee(emp.ItemArray[0].ToString(), emp.ItemArray[1].ToString(), emp.ItemArray[2].ToString(), emp.ItemArray[3].ToString(), emp.ItemArray[4].ToString(), emp.ItemArray[5].ToString());
                 }
             }
 
-            if (empFound == true)
-            {
-                MessageBox.Show("Employee found");
-
-                if (password == userPassword)
-                {
-                    empType = username[0];
-                }
-                else
-                {
-                    MessageBox.Show("Password Incorrect");
-                }
-            }
-            else
-            {
-                MessageBox.Show("Employee not found");
-            }
-
-            return empType;
+            return empObject;
         }
     }
 }
