@@ -14,7 +14,7 @@ namespace Group2_SEN381_Project.PresentationLayer
     {
         public ParentForm()
         {
-            InitializeComponent();
+            InitializeComponent(); 
 
             EnableDoubleBuffering();
 

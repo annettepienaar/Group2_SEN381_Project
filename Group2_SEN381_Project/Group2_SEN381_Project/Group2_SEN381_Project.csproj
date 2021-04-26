@@ -144,4 +144,4 @@
     <Content Include="Resources\checkmarkRed_no_16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-</Project>
+</Project> 
