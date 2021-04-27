@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Group2_SEN381_Project.BusinessLogicLayer
 {
-    class Specialization
+    public class Specialization
     {
         private string specID, specName, specDesc;
 

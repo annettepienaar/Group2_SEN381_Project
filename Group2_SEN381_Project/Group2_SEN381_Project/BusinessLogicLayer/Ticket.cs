@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Group2_SEN381_Project
 {
-    class Ticket
+    public class Ticket
     {
         private string ticketID;
         private string ticketDesc;
@@ -17,18 +17,20 @@ namespace Group2_SEN381_Project
         private string ticketState;
         private string ticketOpenDate;
         private string ticketCloseDate;
+        private string problemArea;
 
-        public Ticket(string ticketID, string ticketDesc, string ticketLevel, string clientID, string technitionID, string callCenterEmpID, string ticketState, string ticketOpenDate, string ticketCloseDate)
+        public Ticket(string ticketID, string ticketDesc, string ticketLevel, string ticketState, string ticketOpenDate, string ticketCloseDate, string problemArea, string clientID, string technitionID, string callCenterEmpID)
         {
             this.ticketID = ticketID;
             this.ticketDesc = ticketDesc;
             this.ticketLevel = ticketLevel;
-            this.clientID = clientID;
-            this.technitionID = technitionID;
-            this.callCenterEmpID = callCenterEmpID;
             this.ticketState = ticketState;
             this.ticketOpenDate = ticketOpenDate;
             this.ticketCloseDate = ticketCloseDate;
+            this.problemArea = problemArea;
+            this.clientID = clientID;
+            this.technitionID = technitionID;
+            this.callCenterEmpID = callCenterEmpID; 
         }
 
         public string TicketID { get { return ticketID; } set { ticketID = value; } }
@@ -39,6 +41,8 @@ namespace Group2_SEN381_Project
         public string TicketState { get { return ticketState; } set { ticketState = value; } }
         public string TicketOpenDate { get { return ticketOpenDate; } set { ticketOpenDate = value; } }
         public string TicketCloseDate { get { return ticketCloseDate; } set { ticketCloseDate = value; } }
+        public string ProblemArea { get { return problemArea; } set { problemArea = value; } }
+        public string TechnitionID { get { return technitionID; } set { technitionID = value; } }
 
         public override bool Equals(object obj)
         {
@@ -52,19 +56,12 @@ namespace Group2_SEN381_Project
                    ticketState == ticket.ticketState &&
                    ticketOpenDate == ticket.ticketOpenDate &&
                    ticketCloseDate == ticket.ticketCloseDate &&
-                   TicketID == ticket.TicketID &&
-                   TicketDesc == ticket.TicketDesc &&
-                   TicketLevel == ticket.TicketLevel &&
-                   ClientID == ticket.ClientID &&
-                   CallCenterEmpID == ticket.CallCenterEmpID &&
-                   TicketState == ticket.TicketState &&
-                   TicketOpenDate == ticket.TicketOpenDate &&
-                   TicketCloseDate == ticket.TicketCloseDate;
+                   problemArea == ticket.problemArea;
         }
 
         public override int GetHashCode()
         {
-            int hashCode = -1873141835;
+            int hashCode = 1155675649;
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(ticketID);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(ticketDesc);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(ticketLevel);
@@ -74,15 +71,13 @@ namespace Group2_SEN381_Project
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(ticketState);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(ticketOpenDate);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(ticketCloseDate);
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(TicketID);
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(TicketDesc);
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(TicketLevel);
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(ClientID);
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(CallCenterEmpID);
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(TicketState);
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(TicketOpenDate);
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(TicketCloseDate);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(problemArea);
             return hashCode;
+        }
+
+        public override string ToString()
+        {
+            return base.ToString();
         }
     }
 }
