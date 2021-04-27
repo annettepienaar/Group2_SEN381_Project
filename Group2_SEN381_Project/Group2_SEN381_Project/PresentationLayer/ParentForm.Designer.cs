@@ -75,7 +75,6 @@ namespace Group2_SEN381_Project.PresentationLayer
             this.btnLoginName.Name = "btnLoginName";
             this.btnLoginName.Size = new System.Drawing.Size(160, 39);
             this.btnLoginName.TabIndex = 3;
-            this.btnLoginName.Text = "Username ";
             this.btnLoginName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLoginName.UseVisualStyleBackColor = false;
             this.btnLoginName.Click += new System.EventHandler(this.btnLoginName_Click);
@@ -141,7 +140,7 @@ namespace Group2_SEN381_Project.PresentationLayer
             // pnlChildForm
             // 
             this.pnlChildForm.AutoSize = true;
-            this.pnlChildForm.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlChildForm.BackgroundImage")));
+            this.pnlChildForm.BackColor = System.Drawing.Color.Teal;
             this.pnlChildForm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pnlChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlChildForm.Location = new System.Drawing.Point(0, 40);

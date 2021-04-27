@@ -35,29 +35,34 @@ namespace Group2_SEN381_Project.PresentationLayer
         {
             Employee empObject = EmployeeHandler.GetEmployee(txtUsername.Text);
 
-            if (txtPassword.Text.Equals(empObject.Password))
+            if (empObject != null)
             {
-                if (empObject is CallCentreEmployee)
+                if (txtPassword.Text.Equals(empObject.Password))
                 {
-                    //Change to form
-                    childFormHandler.OpenChildForm(new CallInterfaceForm());
-                    MessageBox.Show("CallCentreEmployee");
-                } else if (empObject is TechnicianEmployee)
-                {
-                    childFormHandler.OpenChildForm(new TechnitionInterfaceForm());
-                    MessageBox.Show("TechnicianEmployee");
-                    //Change to form
-                } else if (empObject is SatisfactionEmployee)
-                {
-                    childFormHandler.OpenChildForm(new ServiceMetricsForm());
-                    MessageBox.Show("SatisfactionEmployee");
-                    //Change to form
+                    if (empObject is CallCentreEmployee)
+                    {
+                        //Change to form
+                        childFormHandler.OpenChildForm(new CallInterfaceForm((CallCentreEmployee)empObject));
+                        childFormHandler.ChangeUserDisplay(empObject.Name + " " + empObject.Surname);
+                    }
+                    else if (empObject is TechnicianEmployee)
+                    {
+                        childFormHandler.OpenChildForm(new TechnitionInterfaceForm((TechnicianEmployee)empObject));
+                        childFormHandler.ChangeUserDisplay(empObject.Name + " " + empObject.Surname);
+                        //Change to form
+                    }
+                    else if (empObject is SatisfactionEmployee)
+                    {
+                        childFormHandler.OpenChildForm(new ServiceMetricsForm((SatisfactionEmployee)empObject));
+                        childFormHandler.ChangeUserDisplay(empObject.Name + " " + empObject.Surname);
+                        //Change to form
+                    }
                 }
-            }
-            else
-            {
-                txtUsername.Text = String.Empty;
-                txtPassword.Text = String.Empty;
+                else
+                {
+                    txtUsername.Text = String.Empty;
+                    txtPassword.Text = String.Empty;
+                }
             }
         }
     }

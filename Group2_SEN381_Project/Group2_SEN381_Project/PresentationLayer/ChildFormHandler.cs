@@ -10,9 +10,11 @@ namespace Group2_SEN381_Project.PresentationLayer
     public class ChildFormHandler
     {
         private Panel pnlChildForm;
-        public ChildFormHandler(Panel pnlChildForm)
+        private Button btnLoginName;
+        public ChildFormHandler(Panel pnlChildForm, Button btnLoginName)
         {
             this.pnlChildForm = pnlChildForm;
+            this.btnLoginName = btnLoginName;
         }
 
         //Code to open Child form where is will close the previous form and add the new one to the childContainer panel
@@ -37,6 +39,11 @@ namespace Group2_SEN381_Project.PresentationLayer
             childForm.BringToFront();
             childForm.Show();
 
+        }
+
+        public void ChangeUserDisplay(string user)
+        {
+            btnLoginName.Text = user;
         }
     }
 }

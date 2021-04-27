@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Group2_SEN381_Project.BusinessLogicLayer;
 
 namespace Group2_SEN381_Project
 {
@@ -18,7 +19,7 @@ namespace Group2_SEN381_Project
         //This is the employee that logs in
         public string callInterfaceID = "Koosie";
 
-        public CallInterfaceForm()
+        public CallInterfaceForm(CallCentreEmployee callCentreEmployee)
         {
             InitializeComponent();
 

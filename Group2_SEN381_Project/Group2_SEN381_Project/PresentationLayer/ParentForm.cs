@@ -19,7 +19,7 @@ namespace Group2_SEN381_Project.PresentationLayer
 
             EnableDoubleBuffering();
 
-            childFormHandler = new ChildFormHandler(pnlChildForm);
+            childFormHandler = new ChildFormHandler(pnlChildForm, btnLoginName);
             //Open the login form by default when the form is initialized
             childFormHandler.OpenChildForm(new LoginForm(childFormHandler));
         }
@@ -42,6 +42,7 @@ namespace Group2_SEN381_Project.PresentationLayer
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             childFormHandler.OpenChildForm(new LoginForm(childFormHandler));
+            childFormHandler.ChangeUserDisplay("");
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -83,12 +84,6 @@ namespace Group2_SEN381_Project.PresentationLayer
         }
 
         #endregion
-
-        #endregion
-
-        #region Child Form Container
-
-        
 
         #endregion
 

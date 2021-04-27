@@ -15,7 +15,7 @@ namespace Group2_SEN381_Project
     public partial class TechnitionInterfaceForm : Form
     {
         
-        public TechnitionInterfaceForm()
+        public TechnitionInterfaceForm(TechnicianEmployee technicianEmployee)
         {
             InitializeComponent();
         }
