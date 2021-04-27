@@ -175,9 +175,9 @@ namespace Group2_SEN381_Project
             this.cboxProblemArea.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.cboxProblemArea.FormattingEnabled = true;
             this.cboxProblemArea.Items.AddRange(new object[] {
-            "Network Issue",
-            "Electronics Issue",
-            "Wiring Issue"});
+            "Electronics",
+            "Mechanic",
+            "Electrician"});
             this.cboxProblemArea.Location = new System.Drawing.Point(270, 496);
             this.cboxProblemArea.Name = "cboxProblemArea";
             this.cboxProblemArea.Size = new System.Drawing.Size(141, 26);

@@ -168,6 +168,13 @@
             this.cboxServicePackage.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboxServicePackage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.cboxServicePackage.FormattingEnabled = true;
+            this.cboxServicePackage.Items.AddRange(new object[] {
+            "Bronze",
+            "Silver",
+            "Gold",
+            "Premium Bronze",
+            "Premium Silver",
+            "Premium Gold"});
             this.cboxServicePackage.Location = new System.Drawing.Point(30, 439);
             this.cboxServicePackage.Margin = new System.Windows.Forms.Padding(5);
             this.cboxServicePackage.Name = "cboxServicePackage";
@@ -184,6 +191,7 @@
             this.txtClientID.MaxLength = 10;
             this.txtClientID.Multiline = true;
             this.txtClientID.Name = "txtClientID";
+            this.txtClientID.ReadOnly = true;
             this.txtClientID.Size = new System.Drawing.Size(223, 26);
             this.txtClientID.TabIndex = 10;
             this.txtClientID.WordWrap = false;

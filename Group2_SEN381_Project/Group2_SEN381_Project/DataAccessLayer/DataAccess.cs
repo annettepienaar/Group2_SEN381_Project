@@ -56,6 +56,26 @@ namespace Group2_SEN381_Project.DataAccessLayer
             return data;
         }
 
+        //Find the last client for new one to be added
+        public string FindClientId()
+        {
+            string newId = "";
+            using (connection)
+            {
+                connection.Open();
+                string select = $"SELECT Top 1 * FROM Client ORDER BY Client_ID DESC";
+                using (modifyCMD = new SqlCommand(select, connection))
+                {
+                    SqlDataReader data = modifyCMD.ExecuteReader();
+                    if (data.Read())
+                    {
+                        newId = data.GetValue(0).ToString();
+                    }
+                    return newId;
+                }               
+            }            
+        }
+
         //inserts for employee, client, calls, tickets, service packages
         #region Insert Into Database
         public void InsertEmployee(string id, string name, string surname, string address, string phone)
@@ -109,12 +129,12 @@ namespace Group2_SEN381_Project.DataAccessLayer
 
         }
 
-        public void InsertTicket( string desc, string level, string state, string openDate, string closeDate, string clientID, string techID, string empID)
+        public void InsertTicket( string desc, string level, string state, string openDate, string closeDate, string problemArea, string clientID, string techID, string empID)
         {
             try
             {
                 connection.Open();
-                string insert = $@"INSERT INTO Ticket (Ticket_Description, Ticket_Level, Ticket_State, Open_Date, Close_Date, Client_ID, Technician_ID, Call_Centre_Emp_ID) VALUES ({desc},{level},{state},{openDate},{closeDate},{clientID}, {techID}, {empID})";
+                string insert = $@"INSERT INTO Ticket (Ticket_Description, Ticket_Level, Ticket_State, Open_Date, Close_Date, Problem_Area, Client_ID, Technician_ID, Call_Centre_ID) VALUES ({desc},{level},{state},{openDate},{closeDate},{problemArea},{clientID}, {techID}, {empID})";
                 modifyCMD= new SqlCommand(insert, connection);
                 modifyCMD.ExecuteNonQuery();
                 connection.Close();
