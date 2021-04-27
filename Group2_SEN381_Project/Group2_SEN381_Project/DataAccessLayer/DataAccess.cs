@@ -100,6 +100,22 @@ namespace Group2_SEN381_Project.DataAccessLayer
             }
             return tblEntries;
         }
+        public DataTable GetTechOpenTicket(string empID)
+        {
+
+            DataTable tblEntries = new DataTable();
+            string select = $"SELECT * FROM Ticket WHERE Technician_ID = '{empID}'";
+            try
+            {
+                dataAdapter = new SqlDataAdapter(select, connection);
+                dataAdapter.Fill(tblEntries);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error has occoured", ex.Message);
+            }
+            return tblEntries;
+        }
 
         public DataTable GetEmployee(string username)
         {

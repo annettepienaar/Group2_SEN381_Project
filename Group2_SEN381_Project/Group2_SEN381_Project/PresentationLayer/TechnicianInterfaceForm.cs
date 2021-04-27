@@ -14,28 +14,40 @@ namespace Group2_SEN381_Project
 {
     public partial class TechnitionInterfaceForm : Form
     {
-        
+        TechnicianEmployee technicianEmployee;
         public TechnitionInterfaceForm(TechnicianEmployee technicianEmployee)
         {
+            this.technicianEmployee = technicianEmployee;
             InitializeComponent();
         }
 
-        public Ticket GetTicket()
+        private void TechnitionInterfaceForm_Load(object sender, EventArgs e)
         {
+            List<Ticket> techTickets = TicketHandler.GetTechOpenTickets(technicianEmployee.EmpID);
 
-            Ticket ticket = null;
-            return ticket;
+            foreach(Ticket ticket in techTickets)
+            {
+                
+                lbAssignedTickets.Items.Add(ticket.ToString());
+            }
         }
 
-        public List<TechnicianEmployee> GetAvailableTechnician()
-        {
-            List<TechnicianEmployee> tempTechEmp = new List<TechnicianEmployee>();
-            return tempTechEmp;
-        }
+        //public Ticket GetTicket()
+        //{
 
-        public void closeTicket()
-        {
+        //    Ticket ticket = null;
+        //    return ticket;
+        //}
 
-        }
+        //public List<TechnicianEmployee> GetAvailableTechnician()
+        //{
+        //    List<TechnicianEmployee> tempTechEmp = new List<TechnicianEmployee>();
+        //    return tempTechEmp;
+        //}
+
+        //public void closeTicket()
+        //{
+
+        //}
     }
 }

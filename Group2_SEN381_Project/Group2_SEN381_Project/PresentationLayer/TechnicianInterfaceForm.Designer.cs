@@ -325,6 +325,7 @@ namespace Group2_SEN381_Project
             this.Controls.Add(this.pnlTicketDisplay);
             this.Name = "TechnitionInterfaceForm";
             this.Text = "TechnitionInterfaceForm";
+            this.Load += new System.EventHandler(this.TechnitionInterfaceForm_Load);
             this.gbClientDetails.ResumeLayout(false);
             this.gbClientDetails.PerformLayout();
             this.pnlTicketDisplay.ResumeLayout(false);

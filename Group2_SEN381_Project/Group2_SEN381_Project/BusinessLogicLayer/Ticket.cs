@@ -77,7 +77,7 @@ namespace Group2_SEN381_Project
 
         public override string ToString()
         {
-            return base.ToString();
+            return $"{TicketID} {TicketOpenDate}";
         }
     }
 }

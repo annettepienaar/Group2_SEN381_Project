@@ -78,5 +78,19 @@ namespace Group2_SEN381_Project.DataAccessLayer
             return new Ticket(row[0].ToString(),row[1].ToString(), row[2].ToString(), row[6].ToString(), row[7].ToString(), row[8].ToString(), row[3].ToString(), row[4].ToString(), row[5].ToString(), row[6].ToString());
         }
 
+        public static List<Ticket> GetTechOpenTickets(string empID)
+        {
+            List<Ticket> tickets = new List<Ticket>();
+            DataAccess access = new DataAccess();
+            DataTable data = access.GetTechOpenTicket(empID);
+
+            foreach(DataRow dr in data.Rows)
+            {
+                tickets.Add(new Ticket(dr["Ticket_ID"].ToString(), dr["Ticket_Description"].ToString(), dr["Ticket_Level"].ToString(), dr["Ticket_State"].ToString(),dr["Open_Date"].ToString(), dr["Close_Date"].ToString(), dr["Problem_Area"].ToString(), dr["Client_ID"].ToString(), dr["Technician_ID"].ToString(), dr["Call_Center_ID"].ToString()));
+            }
+
+            return tickets;
+        }
+
     }
 }
