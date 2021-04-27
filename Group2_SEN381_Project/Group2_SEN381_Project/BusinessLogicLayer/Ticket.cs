@@ -30,7 +30,8 @@ namespace Group2_SEN381_Project
             this.problemArea = problemArea;
             this.clientID = clientID;
             this.technitionID = technitionID;
-            this.callCenterEmpID = callCenterEmpID; 
+            this.callCenterEmpID = callCenterEmpID;
+            this.ticketOpenDate = DateTime.Parse(TicketOpenDate).ToString("yyyy-MM-dd");
         }
 
         public string TicketID { get { return ticketID; } set { ticketID = value; } }
