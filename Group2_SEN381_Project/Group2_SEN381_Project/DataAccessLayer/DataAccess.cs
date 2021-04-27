@@ -70,6 +70,36 @@ namespace Group2_SEN381_Project.DataAccessLayer
             }
             return tblEntries;
         }
+        //Get a list of all active tickets
+        public DataTable GetActiveTickets(string problemArea)
+        {
+            DataTable tblEntries = new DataTable();
+            string select = "SELECT E.Emp_ID, ISNULL(E.All_Tickets,0) - ISNULL(A.Closed_Tickets,0) AS Total_Open_Tickets" +
+                "FROM(SELECT E.Emp_ID, COUNT(*) AS All_Tickets" +
+                    "FROM Employee E" +
+                    "INNER JOIN Employee_Specialization ES ON E.Emp_ID = ES.Emp_ID" +
+                    "INNER JOIN Specialization S ON S.Spec_ID = ES.Spec_ID" +
+                    "INNER JOIN Ticket T ON E.Emp_ID = T.Technician_ID" +
+                    $"WHERE S.Spec_Name = '{problemArea}'" +
+                    "GROUP BY E.Emp_ID) AS E" +
+                "LEFT JOIN(SELECT E.Emp_ID, COUNT(*) AS Closed_Tickets" +
+                    "FROM Employee E" +
+                    "INNER JOIN Employee_Specialization ES ON E.Emp_ID = ES.Emp_ID" +
+                    "INNER JOIN Specialization S ON S.Spec_ID = ES.Spec_ID" +
+                    "INNER JOIN Ticket T ON E.Emp_ID = T.Technician_ID" +
+                    $"WHERE S.Spec_Name = '{problemArea}' AND T.Close_Date != '1900-01-01'" +
+                    "GROUP BY E.Emp_ID) AS A ON A.Emp_ID = E.Emp_ID";
+            try
+            {
+                dataAdapter = new SqlDataAdapter(select, connection);
+                dataAdapter.Fill(tblEntries);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error has occoured", ex.Message);
+            }
+            return tblEntries;
+        }
 
         public DataTable GetEmployee(string username)
         {
@@ -89,8 +119,6 @@ namespace Group2_SEN381_Project.DataAccessLayer
 
             return tblEntries;
         }
-
-        //need to insert employee, client, calls, tickets, service packages
 
         //Client search
         public DataTable SearchClient(string id)

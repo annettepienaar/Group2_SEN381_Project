@@ -26,23 +26,17 @@ namespace Group2_SEN381_Project.BusinessLogicLayer
             this.address = address;
             this.phoneNum = phoneNum;
             this.password = password;
-        }
-        public override string EmpID { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public override string Name { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public override string Surname { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public override string PhoneNum { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public override string Address { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public override string Password { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
             this.specializations = TicketHandler.GetTechnicianSpecs(this.empID);
-
         }
+       
         public override string EmpID { get { return empID; } set { empID = value; } }
         public override string Name { get { return name; } set { name = value; } }
         public override string Surname { get { return surname; } set { surname = value; } }
         public override string PhoneNum { get { return phoneNum; } set { phoneNum = value; } }
         public override string Address { get { return address; } set { address = value; } }
 
-        public override string Password { get { return password; } set { password = value; } }
+        public override string Password { get { return password; } }
+        public List<Specialization> Specializations { get { return specializations; } }
 
         public override int GetHashCode()
         {

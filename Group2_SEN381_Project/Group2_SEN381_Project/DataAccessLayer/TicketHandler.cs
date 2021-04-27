@@ -14,21 +14,35 @@ namespace Group2_SEN381_Project.DataAccessLayer
         public static void Add(Ticket obj)
         {
             DataAccess access = new DataAccess();
-
+            TicketHandler.AssignTechnicians(obj);
 
         }
-        public static List<TechnicianEmployee> GetTechnicians(Ticket obj)
+        public static Ticket AssignTechnicians(Ticket obj)
         {
+            string problemArea = obj.ProblemArea;
+            int min = int.MaxValue;
+            string techID = "";
             DataAccess access = new DataAccess();
-            List<TechnicianEmployee> techEmp = new List<TechnicianEmployee>();
-            DataTable data = access.GetTechnicians();
+            DataTable data = access.GetActiveTickets(problemArea);
+
+            Dictionary<string, int> technicianOpenTickets = new Dictionary<string, int>();
 
             foreach (DataRow dr in data.Rows)
             {
-                techEmp.Add(new TechnicianEmployee(dr["Emp_Address"].ToString(), dr["Emp_ID"].ToString(), dr["Emp_Name"].ToString(), dr["Emp_Surname"].ToString(), dr["Emp_Phone"].ToString()));
+                technicianOpenTickets.Add(dr["Emp_ID"].ToString(), int.Parse(dr["Total_Open_Tickets"].ToString()));
+            }
+            foreach (KeyValuePair<string,int> item in technicianOpenTickets)
+            {
+                if (item.Value < min)
+                {
+                    min = item.Value;
+                    techID = item.Key;
+                }
             }
 
-            return techEmp;
+            obj.TechnitionID = techID;
+            
+            return obj;
 
         }
         public static List<Specialization> GetTechnicianSpecs(string empID)
