@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Group2_SEN381_Project.BusinessLogicLayer;
-using System.Data;
 
 namespace Group2_SEN381_Project.DataAccessLayer
 {
@@ -20,7 +19,8 @@ namespace Group2_SEN381_Project.DataAccessLayer
         public static void Add(Ticket obj)
         {
             DataAccess access = new DataAccess();
-            AssignTechnicians(obj);
+            Ticket ticket = AssignTechnicians(obj);
+            access.InsertTicket(ticket.TicketDesc,ticket.TicketLevel,ticket.TicketState,ticket.TicketOpenDate,ticket.TicketCloseDate,ticket.ProblemArea,ticket.ClientID,ticket.TechnitionID,ticket.CallCenterEmpID)
 
         }
         public static Ticket AssignTechnicians(Ticket obj)
