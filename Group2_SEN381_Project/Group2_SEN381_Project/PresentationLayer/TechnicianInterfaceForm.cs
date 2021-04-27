@@ -75,7 +75,7 @@ namespace Group2_SEN381_Project
             lblClientSurname.Text = problemClient.ClientSurname;
             lblClientBusinessName.Text = problemClient.BusinessName;
             lblClientPhone.Text = problemClient.ClientPhoneNumber;
-            lblClientAddress.Text = problemClient.ClientPhoneNumber;
+            lblClientAddress.Text = problemClient.ClientAddress;
         }
         //used to change the state of a ticket to resolved
         private void UpdateTicketState()
