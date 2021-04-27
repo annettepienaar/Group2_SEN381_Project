@@ -7,27 +7,30 @@ using System.Threading.Tasks;
 namespace Group2_SEN381_Project.BusinessLogicLayer
 {
     public class CallCentreEmployee : Employee
-    {
-        private string address;
+    { 
         private string empID;
         private string name;
         private string surname;
+        private string address;
         private string phoneNum;
+        private string password;
 
-        public CallCentreEmployee(string address, string empID, string name, string surname, string phoneNum)
+        public CallCentreEmployee(string empID, string name, string surname, string address, string phoneNum, string password)
         {
-            this.address = address;
             this.empID = empID;
             this.name = name;
             this.surname = surname;
+            this.address = address;
             this.phoneNum = phoneNum;
+            this.password = password;
         }
 
-        public override string EmpID { get { return empID; } set { empID = value; } }
-        public override string Name { get { return name; } set { name = value; } }
-        public override string Surname { get { return surname; } set { surname = value; } }
-        public override string PhoneNum { get { return phoneNum; } set { phoneNum = value; } }
-        public override string Address { get { return address; } set { address = value; } }
+        public override string EmpID { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public override string Name { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public override string Surname { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public override string PhoneNum { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public override string Address { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public override string Password { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         public override bool Equals(object obj)
         {

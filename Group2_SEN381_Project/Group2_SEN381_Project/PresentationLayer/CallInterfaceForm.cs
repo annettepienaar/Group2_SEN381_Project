@@ -87,10 +87,10 @@ namespace Group2_SEN381_Project
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            bool clientFound;
+            bool clientFound = false;
             Client clients = ClientHandler.Search(txtClientID.Text);
 
-            if (clients.ClientID != null)
+            if (clients != null)
             {
                 clientFound = true;
             }

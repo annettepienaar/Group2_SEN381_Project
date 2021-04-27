@@ -10,20 +10,29 @@ namespace Group2_SEN381_Project.BusinessLogicLayer
 {
     public class TechnicianEmployee : Employee
     {
-        private string address;
         private string empID;
         private string name;
         private string surname;
+        private string address;
         private string phoneNum;
         private string password;
         private List<Specialization> specializations; 
-        public TechnicianEmployee(string address, string empID, string name, string surname, string phoneNum)
+
+        public TechnicianEmployee(string empID, string name, string surname, string address, string phoneNum, string password)
         {
-            this.address = address;
             this.empID = empID;
             this.name = name;
             this.surname = surname;
+            this.address = address;
             this.phoneNum = phoneNum;
+            this.password = password;
+        }
+        public override string EmpID { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public override string Name { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public override string Surname { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public override string PhoneNum { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public override string Address { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public override string Password { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
             this.specializations = TicketHandler.GetTechnicianSpecs(this.empID);
 
         }
