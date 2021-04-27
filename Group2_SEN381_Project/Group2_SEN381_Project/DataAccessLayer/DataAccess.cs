@@ -74,6 +74,24 @@ namespace Group2_SEN381_Project.DataAccessLayer
             return dataTable;
 		}
 
+        //Service Package Search
+        public DataTable SearchServicePackage(string packageID)
+        {
+            DataTable dataTable = new DataTable();
+            string query = $"SELECT * FROM Service_Package WHERE SP_ID = {packageID}";
+
+            try
+            {
+                dataAdapter = new SqlDataAdapter(query, connection);
+                dataAdapter.Fill(dataTable);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error has occurred: ", ex.Message);
+            }
+            return dataTable;
+        }
+
         //inserts for employee, client, calls, tickets, service packages
         #region Insert Into Database
         public void InsertEmployee(string id, string name, string surname, string address, string phone)

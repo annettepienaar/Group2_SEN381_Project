@@ -55,6 +55,7 @@
     <Compile Include="BusinessLogicLayer\Employee.cs" />
     <Compile Include="BusinessLogicLayer\SatisfactionEmployee.cs" />
     <Compile Include="BusinessLogicLayer\TechnicianEmployee.cs" />
+    <Compile Include="DataAccessLayer\ServicePackageHandler.cs" />
     <Compile Include="DataAccessLayer\TicketHandler.cs" />
     <Compile Include="PresentationLayer\CallInterfaceForm.cs">
       <SubType>Form</SubType>
@@ -68,6 +69,12 @@
     </Compile>
     <Compile Include="PresentationLayer\ClientForm.Designer.cs">
       <DependentUpon>ClientForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\CreateServicePackageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\CreateServicePackageForm.Designer.cs">
+      <DependentUpon>CreateServicePackageForm.cs</DependentUpon>
     </Compile>
     <Compile Include="PresentationLayer\LoginForm.cs">
       <SubType>Form</SubType>
@@ -102,11 +109,17 @@
     <EmbeddedResource Include="PresentationLayer\ClientForm.resx">
       <DependentUpon>ClientForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\CreateServicePackageForm.resx">
+      <DependentUpon>CreateServicePackageForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PresentationLayer\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PresentationLayer\ParentForm.resx">
       <DependentUpon>ParentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\ServiceMetricsForm.resx">
+      <DependentUpon>ServiceMetricsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PresentationLayer\TechnitionInterfaceForm.resx">
       <DependentUpon>TechnitionInterfaceForm.cs</DependentUpon>
