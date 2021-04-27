@@ -72,6 +72,12 @@
     <Compile Include="PresentationLayer\ClientForm.Designer.cs">
       <DependentUpon>ClientForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="PresentationLayer\CreateServicePackageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\CreateServicePackageForm.Designer.cs">
+      <DependentUpon>CreateServicePackageForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="PresentationLayer\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
