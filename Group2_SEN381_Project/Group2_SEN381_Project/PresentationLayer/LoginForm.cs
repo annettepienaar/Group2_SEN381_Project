@@ -14,21 +14,13 @@ namespace Group2_SEN381_Project.PresentationLayer
 {
     public partial class LoginForm : Form
     {
-        public LoginForm()
+        ChildFormHandler childFormHandler;
+        public LoginForm(ChildFormHandler childFormHandler)
         {
             InitializeComponent();
             EnableDoubleBuffering();
-        }
-
-        private void LoginForm_Load(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void lblHeading_Click(object sender, EventArgs e)
-        {
-
-        }
+            this.childFormHandler = childFormHandler;
+        }       
         
         public void EnableDoubleBuffering()
         {
@@ -48,13 +40,16 @@ namespace Group2_SEN381_Project.PresentationLayer
                 if (empObject is CallCentreEmployee)
                 {
                     //Change to form
+                    childFormHandler.OpenChildForm(new CallInterfaceForm());
                     MessageBox.Show("CallCentreEmployee");
                 } else if (empObject is TechnicianEmployee)
                 {
+                    childFormHandler.OpenChildForm(new TechnitionInterfaceForm());
                     MessageBox.Show("TechnicianEmployee");
                     //Change to form
                 } else if (empObject is SatisfactionEmployee)
                 {
+                    childFormHandler.OpenChildForm(new ServiceMetricsForm());
                     MessageBox.Show("SatisfactionEmployee");
                     //Change to form
                 }
