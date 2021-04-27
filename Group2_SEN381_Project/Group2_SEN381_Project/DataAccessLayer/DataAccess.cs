@@ -56,6 +56,24 @@ namespace Group2_SEN381_Project.DataAccessLayer
             return data;
         }
 
+        //Ticket Search
+        public DataTable SearchTicket(string ticketID)
+		{
+            DataTable dataTable = new DataTable();
+            string query = $"SELECT * FROM TICKET WHERE Ticket_ID = {ticketID}";
+
+			try
+			{
+                dataAdapter = new SqlDataAdapter(query, connection);
+                dataAdapter.Fill(dataTable);
+			}
+			catch (Exception ex)
+			{
+                MessageBox.Show("An error has occurred: ", ex.Message);
+			}
+            return dataTable;
+		}
+
         //inserts for employee, client, calls, tickets, service packages
         #region Insert Into Database
         public void InsertEmployee(string id, string name, string surname, string address, string phone)
