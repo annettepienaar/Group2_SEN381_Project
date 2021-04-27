@@ -20,7 +20,7 @@ namespace Group2_SEN381_Project.DataAccessLayer
         {
             DataAccess access = new DataAccess();
             Ticket ticket = AssignTechnicians(obj);
-            access.InsertTicket(ticket.TicketDesc,ticket.TicketLevel,ticket.TicketState,ticket.TicketOpenDate,ticket.TicketCloseDate,ticket.ProblemArea,ticket.ClientID,ticket.TechnitionID,ticket.CallCenterEmpID)
+            access.InsertTicket(ticket.TicketDesc, ticket.TicketLevel, ticket.TicketState, ticket.TicketOpenDate, ticket.TicketCloseDate, ticket.ProblemArea, ticket.ClientID, ticket.TechnitionID, ticket.CallCenterEmpID);
 
         }
         public static Ticket AssignTechnicians(Ticket obj)
