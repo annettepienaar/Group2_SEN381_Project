@@ -18,7 +18,7 @@ namespace Group2_SEN381_Project.DataAccessLayer
 
         public DataAccess()
         {
-            connString = $@"DataSource = .; InitialCatalog = SEN381_Project; IntegratedSecurity = True;";
+            connString = $@"Data Source = .; Initial Catalog = SEN381_Project; Integrated Security = True;";
             connection = new SqlConnection(connString);
         }
 
@@ -38,12 +38,32 @@ namespace Group2_SEN381_Project.DataAccessLayer
             return tblEntries;
         }
 
+        public DataTable GetEmployee(string username)
+        {
+            string select = $@"SELECT * FROM Employee WHERE Emp_ID = '{username}'";
+
+            DataTable tblEntries = new DataTable();
+
+            try
+            {
+                dataAdapter = new SqlDataAdapter(select, connection);
+                dataAdapter.Fill(tblEntries);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error has occoured", ex.Message);
+            }
+
+            return tblEntries;
+        }
+
+        //need to insert employee, client, calls, tickets, service packages
 
         //Client search
         public DataTable SearchClient(string id)
         {
             DataTable data = new DataTable();
-            string select = $"SELECT FROM Client WHERE Client_ID = {id}";
+            string select = $"SELECT * FROM Client WHERE Client_ID = '{id}'";
             try
             {
                 dataAdapter = new SqlDataAdapter(select, connection);
@@ -51,7 +71,7 @@ namespace Group2_SEN381_Project.DataAccessLayer
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error has occoured", ex.Message);
+                MessageBox.Show(ex.Message, "An error has occoured");
             }
             return data;
         }
