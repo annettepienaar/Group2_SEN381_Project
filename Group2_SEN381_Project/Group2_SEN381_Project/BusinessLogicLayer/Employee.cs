@@ -15,15 +15,12 @@ namespace Group2_SEN381_Project.BusinessLogicLayer
         private string phoneNum;
         private string password;
 
-        public abstract string Password { get; set; }
+        public abstract string Password { get; }
         public abstract string EmpID { get; set; }
         public abstract string Name { get; set; }
         public abstract string Surname { get; set; }
         public abstract string PhoneNum { get; set; }
         public abstract string Address { get; set; }
-
-        public abstract void getPhoneNum();
-        public abstract void getEmpID();
 
         public override bool Equals(object obj)
         {

@@ -20,7 +20,7 @@ namespace Group2_SEN381_Project.DataAccessLayer
         public static void Add(Ticket obj)
         {
             DataAccess access = new DataAccess();
-            TicketHandler.AssignTechnicians(obj);
+            AssignTechnicians(obj);
 
         }
         public static Ticket AssignTechnicians(Ticket obj)
