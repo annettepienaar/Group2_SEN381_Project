@@ -145,10 +145,9 @@ namespace Group2_SEN381_Project
             this.cboxUrgencyLevel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.cboxUrgencyLevel.FormattingEnabled = true;
             this.cboxUrgencyLevel.Items.AddRange(new object[] {
-            "A",
-            "B",
-            "C",
-            "D"});
+            "Low",
+            "Medium",
+            "High"});
             this.cboxUrgencyLevel.Location = new System.Drawing.Point(618, 100);
             this.cboxUrgencyLevel.Name = "cboxUrgencyLevel";
             this.cboxUrgencyLevel.Size = new System.Drawing.Size(236, 26);

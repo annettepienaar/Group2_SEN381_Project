@@ -10,12 +10,7 @@ namespace Group2_SEN381_Project.DataAccessLayer
 {
     public static class TicketHandler
     {
-        //public static void Add(Ticket obj)
-        //{
-        //    DataAccess dataAccess = new DataAccess();
-        //    dataAccess.InsertTicket(obj.TicketDesc,obj.TicketLevel,obj.TicketState,obj.TicketOpenDate,obj.TicketCloseDate,obj.ClientID, ,obj.CallCenterEmpID);
-        //}
-
+        //adds a ticket to the database
         public static void Add(Ticket obj)
         {
             DataAccess access = new DataAccess();
@@ -23,6 +18,8 @@ namespace Group2_SEN381_Project.DataAccessLayer
             access.InsertTicket(ticket.TicketDesc, ticket.TicketLevel, ticket.TicketState, ticket.TicketOpenDate, ticket.TicketCloseDate, ticket.ProblemArea, ticket.ClientID, ticket.TechnitionID, ticket.CallCenterEmpID);
 
         }
+
+        //assigns an open technician to the ticket.
         public static Ticket AssignTechnicians(Ticket obj)
         {
             string problemArea = obj.ProblemArea;
@@ -51,6 +48,7 @@ namespace Group2_SEN381_Project.DataAccessLayer
             return obj;
 
         }
+        //returns a list of specializations for technician objects
         public static List<Specialization> GetTechnicianSpecs(string empID)
         {
             DataAccess access = new DataAccess();
@@ -78,6 +76,7 @@ namespace Group2_SEN381_Project.DataAccessLayer
             return new Ticket(row[0].ToString(),row[1].ToString(), row[2].ToString(), row[6].ToString(), row[7].ToString(), row[8].ToString(), row[3].ToString(), row[4].ToString(), row[5].ToString(), row[6].ToString());
         }
 
+        //Gets list of open tickets for specific Technician
         public static List<Ticket> GetTechOpenTickets(string empID)
         {
             List<Ticket> tickets = new List<Ticket>();

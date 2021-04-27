@@ -18,7 +18,7 @@ namespace Group2_SEN381_Project.DataAccessLayer
 
         public DataAccess()
         {
-            connString = $@"Data Source = .; Initial Catalog = SEN381_Project; Integrated Security = True;";
+            connString = $@"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = SEN381_Project; Integrated Security = True;";
             connection = new SqlConnection(connString);
         }
 
@@ -177,7 +177,7 @@ namespace Group2_SEN381_Project.DataAccessLayer
         public DataTable SearchTicket(string ticketID)
 		{
             DataTable dataTable = new DataTable();
-            string query = $"SELECT * FROM TICKET WHERE Ticket_ID = {ticketID}";
+            string query = $"SELECT * FROM Ticket WHERE Ticket_ID = '{ticketID}'";
 
 			try
 			{
@@ -190,6 +190,24 @@ namespace Group2_SEN381_Project.DataAccessLayer
 			}
             return dataTable;
 		}
+
+        //Search service package
+        public DataTable SearchSP(string spName)
+        {
+            DataTable dataTable = new DataTable();
+            string query = $"SELECT SP_ID FROM Service_Package WHERE SP_Name = '{spName}'";
+
+            try
+            {
+                dataAdapter = new SqlDataAdapter(query, connection);
+                dataAdapter.Fill(dataTable);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error has occurred: ", ex.Message);
+            }
+            return dataTable;
+        }
 
         //inserts for employee, client, calls, tickets, service packages
         #region Insert Into Database
@@ -215,7 +233,7 @@ namespace Group2_SEN381_Project.DataAccessLayer
             try
             {
                 connection.Open();
-                string insert = $@"INSERT INTO Client (Client_ID, Name, Surname, Business_Name, Phone, Address, SP_ID) VALUES ({id},{name},{surname},{bName},{phone},{address},{spID})";
+                string insert = $@"INSERT INTO Client (Client_ID, Name, Surname, Business_Name, Phone, Address, SP_ID) VALUES ('{id}','{name}','{surname}','{bName}','{phone}','{address}','{spID}')";
                 modifyCMD = new SqlCommand(insert, connection);
                 modifyCMD.ExecuteNonQuery();
                 connection.Close();

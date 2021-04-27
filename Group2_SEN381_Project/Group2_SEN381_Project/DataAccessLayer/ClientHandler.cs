@@ -13,7 +13,9 @@ namespace Group2_SEN381_Project.DataAccessLayer
         public static void Add(Client obj)
         {
             DataAccess access = new DataAccess();
-            access.InsertClient(obj.ClientID,obj.ClientName,obj.ClientSurname,obj.BusinessName,obj.ClientPhoneNumber,obj.ClientAddress,obj.ServicePackage);
+            DataTable dt = access.SearchSP(obj.ServicePackage);
+
+            access.InsertClient(obj.ClientID,obj.ClientName,obj.ClientSurname,obj.BusinessName,obj.ClientPhoneNumber,obj.ClientAddress,dt.Rows[0][0].ToString());
         }
 
         public static Client Search(string id)

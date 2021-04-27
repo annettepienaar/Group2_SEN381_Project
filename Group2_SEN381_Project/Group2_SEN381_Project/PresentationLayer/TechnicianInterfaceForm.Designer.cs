@@ -45,7 +45,6 @@ namespace Group2_SEN381_Project
             this.txtProblemDescription = new System.Windows.Forms.TextBox();
             this.lblUrgencyLevel = new System.Windows.Forms.Label();
             this.lblUrgencyTitle = new System.Windows.Forms.Label();
-            this.cbStatus = new System.Windows.Forms.ComboBox();
             this.lblDescriptionTitle = new System.Windows.Forms.Label();
             this.lblProblemNumber = new System.Windows.Forms.Label();
             this.lblStatusTitle = new System.Windows.Forms.Label();
@@ -53,6 +52,9 @@ namespace Group2_SEN381_Project
             this.pnlTicketDisplay = new System.Windows.Forms.Panel();
             this.lbAssignedTickets = new System.Windows.Forms.ListBox();
             this.lblAssignedTickets = new System.Windows.Forms.Label();
+            this.lblStatus = new System.Windows.Forms.Label();
+            this.btnIssueResolved = new System.Windows.Forms.Button();
+            this.btnReloadTickets = new System.Windows.Forms.Button();
             this.gbClientDetails.SuspendLayout();
             this.pnlTicketDisplay.SuspendLayout();
             this.SuspendLayout();
@@ -227,18 +229,6 @@ namespace Group2_SEN381_Project
             this.lblUrgencyTitle.TabIndex = 17;
             this.lblUrgencyTitle.Text = "Urgency:";
             // 
-            // cbStatus
-            // 
-            this.cbStatus.FormattingEnabled = true;
-            this.cbStatus.Items.AddRange(new object[] {
-            "Minor",
-            "Medium",
-            "Major"});
-            this.cbStatus.Location = new System.Drawing.Point(332, 50);
-            this.cbStatus.Name = "cbStatus";
-            this.cbStatus.Size = new System.Drawing.Size(121, 21);
-            this.cbStatus.TabIndex = 16;
-            // 
             // lblDescriptionTitle
             // 
             this.lblDescriptionTitle.AutoSize = true;
@@ -297,6 +287,7 @@ namespace Group2_SEN381_Project
             this.lbAssignedTickets.Name = "lbAssignedTickets";
             this.lbAssignedTickets.Size = new System.Drawing.Size(143, 407);
             this.lbAssignedTickets.TabIndex = 1;
+            this.lbAssignedTickets.SelectedIndexChanged += new System.EventHandler(this.lbAssignedTickets_SelectedIndexChanged);
             // 
             // lblAssignedTickets
             // 
@@ -308,16 +299,48 @@ namespace Group2_SEN381_Project
             this.lblAssignedTickets.TabIndex = 0;
             this.lblAssignedTickets.Text = "Assigned Tickets";
             // 
+            // lblStatus
+            // 
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblStatus.Location = new System.Drawing.Point(328, 51);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(72, 20);
+            this.lblStatus.TabIndex = 21;
+            this.lblStatus.Text = "STATUS";
+            // 
+            // btnIssueResolved
+            // 
+            this.btnIssueResolved.Location = new System.Drawing.Point(665, 85);
+            this.btnIssueResolved.Name = "btnIssueResolved";
+            this.btnIssueResolved.Size = new System.Drawing.Size(106, 39);
+            this.btnIssueResolved.TabIndex = 22;
+            this.btnIssueResolved.Text = "Issue Resolved";
+            this.btnIssueResolved.UseVisualStyleBackColor = true;
+            this.btnIssueResolved.Click += new System.EventHandler(this.btnIssueResolved_Click);
+            // 
+            // btnReloadTickets
+            // 
+            this.btnReloadTickets.Location = new System.Drawing.Point(665, 20);
+            this.btnReloadTickets.Name = "btnReloadTickets";
+            this.btnReloadTickets.Size = new System.Drawing.Size(106, 39);
+            this.btnReloadTickets.TabIndex = 23;
+            this.btnReloadTickets.Text = "Reload Tickets";
+            this.btnReloadTickets.UseVisualStyleBackColor = true;
+            this.btnReloadTickets.Click += new System.EventHandler(this.btnReloadTickets_Click);
+            // 
             // TechnitionInterfaceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnReloadTickets);
+            this.Controls.Add(this.btnIssueResolved);
+            this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.gbClientDetails);
             this.Controls.Add(this.txtProblemDescription);
             this.Controls.Add(this.lblUrgencyLevel);
             this.Controls.Add(this.lblUrgencyTitle);
-            this.Controls.Add(this.cbStatus);
             this.Controls.Add(this.lblDescriptionTitle);
             this.Controls.Add(this.lblProblemNumber);
             this.Controls.Add(this.lblStatusTitle);
@@ -353,7 +376,6 @@ namespace Group2_SEN381_Project
         private System.Windows.Forms.TextBox txtProblemDescription;
         private System.Windows.Forms.Label lblUrgencyLevel;
         private System.Windows.Forms.Label lblUrgencyTitle;
-        private System.Windows.Forms.ComboBox cbStatus;
         private System.Windows.Forms.Label lblDescriptionTitle;
         private System.Windows.Forms.Label lblProblemNumber;
         private System.Windows.Forms.Label lblStatusTitle;
@@ -361,5 +383,8 @@ namespace Group2_SEN381_Project
         private System.Windows.Forms.Panel pnlTicketDisplay;
         private System.Windows.Forms.ListBox lbAssignedTickets;
         private System.Windows.Forms.Label lblAssignedTickets;
+        private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.Button btnIssueResolved;
+        private System.Windows.Forms.Button btnReloadTickets;
     }
 }
