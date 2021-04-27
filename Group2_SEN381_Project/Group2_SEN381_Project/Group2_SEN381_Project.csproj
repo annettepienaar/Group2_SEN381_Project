@@ -108,6 +108,9 @@
     <EmbeddedResource Include="PresentationLayer\ParentForm.resx">
       <DependentUpon>ParentForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\TechnitionInterfaceForm.resx">
+      <DependentUpon>TechnitionInterfaceForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -144,4 +147,4 @@
     <Content Include="Resources\checkmarkRed_no_16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-</Project> 
+</Project>
