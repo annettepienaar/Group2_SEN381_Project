@@ -62,17 +62,20 @@ namespace Group2_SEN381_Project.DataAccessLayer
                 specs.Add(new Specialization(dr["Spec_ID"].ToString(), dr["Spec_Name"].ToString(), dr["Spec_Description"].ToString()));
             }
 
+            return specs;
+        }
+
         //Returns a specific ticket based on a ticket-ID
         public static Ticket GetTicket(string ticketID)
-		{
+	    {
             DataAccess dataAccess = new DataAccess();
             DataTable dataTable = new DataTable();
 
             dataTable = dataAccess.SearchTicket(ticketID);
             DataRow row = dataTable.Rows[0];
 
-            return specs;
-            return new Ticket(row[0].ToString(),row[1].ToString(), row[2].ToString(), row[6].ToString(), row[7].ToString(), row[8].ToString(), row[3].ToString(), row[4].ToString(), row[5].ToString());
+            
+            return new Ticket(row[0].ToString(),row[1].ToString(), row[2].ToString(), row[6].ToString(), row[7].ToString(), row[8].ToString(), row[3].ToString(), row[4].ToString(), row[5].ToString(), row[6].ToString());
         }
 
     }
