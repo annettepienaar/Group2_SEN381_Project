@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Group2_SEN381_Project.DataAccessLayer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,7 +13,6 @@ namespace Group2_SEN381_Project
 {
     public partial class TechnitionInterfaceForm : Form
     {
-        //private DataAccess dataAccess = new DataAccess();
         //public TechnitionInterfaceForm()
         //{
         //    InitializeComponent();
@@ -20,7 +20,7 @@ namespace Group2_SEN381_Project
 
         //public Ticket getTicket()
         //{
-
+            
         //}
 
         //public void AssignTicket()

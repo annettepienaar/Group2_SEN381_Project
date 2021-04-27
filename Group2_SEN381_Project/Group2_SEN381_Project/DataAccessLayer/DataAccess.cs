@@ -38,6 +38,26 @@ namespace Group2_SEN381_Project.DataAccessLayer
             return tblEntries;
         }
 
+        public DataTable GetEmployee(string username)
+        {
+            string select = $@"SELECT * FROM Employee WHERE Emp_ID = '{username}'";
+
+            DataTable tblEntries = new DataTable();
+
+            try
+            {
+                dataAdapter = new SqlDataAdapter(select, connection);
+                dataAdapter.Fill(tblEntries);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error has occoured", ex.Message);
+            }
+
+            return tblEntries;
+        }
+
+        //need to insert employee, client, calls, tickets, service packages
 
         //Client search
         public DataTable SearchClient(string id)
@@ -75,6 +95,24 @@ namespace Group2_SEN381_Project.DataAccessLayer
                 }               
             }            
         }
+
+        //Ticket Search
+        public DataTable SearchTicket(string ticketID)
+		{
+            DataTable dataTable = new DataTable();
+            string query = $"SELECT * FROM TICKET WHERE Ticket_ID = {ticketID}";
+
+			try
+			{
+                dataAdapter = new SqlDataAdapter(query, connection);
+                dataAdapter.Fill(dataTable);
+			}
+			catch (Exception ex)
+			{
+                MessageBox.Show("An error has occurred: ", ex.Message);
+			}
+            return dataTable;
+		}
 
         //inserts for employee, client, calls, tickets, service packages
         #region Insert Into Database

@@ -56,6 +56,7 @@
     <Compile Include="BusinessLogicLayer\SatisfactionEmployee.cs" />
     <Compile Include="BusinessLogicLayer\TechnicianEmployee.cs" />
     <Compile Include="DataAccessLayer\TicketHandler.cs" />
+    <Compile Include="DataAccessLayer\EmployeeHandler.cs" />
     <Compile Include="PresentationLayer\CallInterfaceForm.cs">
       <SubType>Form</SubType>
     </Compile>
