@@ -20,13 +20,19 @@ namespace Group2_SEN381_Project.DataAccessLayer
         {
             DataAccess access = new DataAccess();
             DataTable data = new DataTable();
+            Client client = null;
 
             data = access.SearchClient(id);
 
             //List<Client> clients = new List<Client>();
 
-            DataRow row = data.Rows[0];
-            return new Client(row[0].ToString(), row[1].ToString(), row[2].ToString(), row[3].ToString(), row[4].ToString(), row[5].ToString(), row[6].ToString());
+            
+            if (data.Rows.Count > 0)
+            {
+                DataRow row = data.Rows[0];
+                client = new Client(row[0].ToString(), row[1].ToString(), row[2].ToString(), row[3].ToString(), row[4].ToString(), row[5].ToString(), row[6].ToString());
+            }
+            return client;
 
             //foreach (DataRow dr in data.Rows)
             //{

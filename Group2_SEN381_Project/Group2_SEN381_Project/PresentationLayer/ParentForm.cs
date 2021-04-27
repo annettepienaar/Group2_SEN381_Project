@@ -12,14 +12,16 @@ namespace Group2_SEN381_Project.PresentationLayer
 {
     public partial class ParentForm : Form
     {
+        ChildFormHandler childFormHandler;
         public ParentForm()
         {
             InitializeComponent(); 
 
             EnableDoubleBuffering();
 
+            childFormHandler = new ChildFormHandler(pnlChildForm, btnLoginName);
             //Open the login form by default when the form is initialized
-            OpenChildForm(new CallInterfaceForm());
+            childFormHandler.OpenChildForm(new LoginForm(childFormHandler));
         }
 
         public void EnableDoubleBuffering()
@@ -39,7 +41,8 @@ namespace Group2_SEN381_Project.PresentationLayer
         }
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new LoginForm());
+            childFormHandler.OpenChildForm(new LoginForm(childFormHandler));
+            childFormHandler.ChangeUserDisplay("");
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -81,34 +84,6 @@ namespace Group2_SEN381_Project.PresentationLayer
         }
 
         #endregion
-
-        #endregion
-
-        #region Child Form Container
-
-        //Code to open Child form where is will close the previous form and add the new one to the childContainer panel
-        private Form activeForm = null;
-        private void OpenChildForm(Form childForm)
-        {
-
-            if (activeForm != null)
-            {
-                activeForm.Close();
-            }
-
-            activeForm = childForm;
-
-            childForm.TopLevel = false;
-            childForm.FormBorderStyle = FormBorderStyle.None;
-            childForm.Dock = DockStyle.Fill;
-
-            pnlChildForm.Controls.Add(childForm);
-            pnlChildForm.Tag = childForm;
-            
-            childForm.BringToFront();
-            childForm.Show();
-
-        }
 
         #endregion
 

@@ -168,6 +168,13 @@
             this.cboxServicePackage.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboxServicePackage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.cboxServicePackage.FormattingEnabled = true;
+            this.cboxServicePackage.Items.AddRange(new object[] {
+            "Bronze",
+            "Silver",
+            "Gold",
+            "Premium Bronze",
+            "Premium Silver",
+            "Premium Gold"});
             this.cboxServicePackage.Location = new System.Drawing.Point(30, 439);
             this.cboxServicePackage.Margin = new System.Windows.Forms.Padding(5);
             this.cboxServicePackage.Name = "cboxServicePackage";
@@ -184,6 +191,7 @@
             this.txtClientID.MaxLength = 10;
             this.txtClientID.Multiline = true;
             this.txtClientID.Name = "txtClientID";
+            this.txtClientID.ReadOnly = true;
             this.txtClientID.Size = new System.Drawing.Size(223, 26);
             this.txtClientID.TabIndex = 10;
             this.txtClientID.WordWrap = false;
@@ -309,6 +317,7 @@
             // 
             // pnlMenuBar
             // 
+            this.pnlMenuBar.BackColor = System.Drawing.Color.White;
             this.pnlMenuBar.Controls.Add(this.pictureBox1);
             this.pnlMenuBar.Controls.Add(this.btnExit);
             this.pnlMenuBar.Dock = System.Windows.Forms.DockStyle.Top;
@@ -353,8 +362,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackColor = System.Drawing.Color.Teal;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(318, 620);
             this.Controls.Add(this.pnlMenuBar);

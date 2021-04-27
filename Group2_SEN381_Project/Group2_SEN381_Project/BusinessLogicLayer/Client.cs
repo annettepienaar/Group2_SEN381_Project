@@ -7,7 +7,7 @@ using Group2_SEN381_Project.BusinessLogicLayer;
 
 namespace Group2_SEN381_Project
 {
-    class Client
+    public class Client
     {
         private string clientID, clientName, clientSurname, businessName, clientPhoneNum, clientAddress, servicePackage;
 

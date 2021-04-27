@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Group2_SEN381_Project.BusinessLogicLayer
 {
-    class Call
+    public class Call
     {
         private string callID, clientID, empID;
         private DateTime callStartTime, callEndTime;

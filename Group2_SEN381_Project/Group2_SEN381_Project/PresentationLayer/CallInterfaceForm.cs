@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Group2_SEN381_Project.BusinessLogicLayer;
 
 namespace Group2_SEN381_Project
 {
@@ -18,7 +19,7 @@ namespace Group2_SEN381_Project
         //This is the employee that logs in
         public string callInterfaceID = "Koosie";
 
-        public CallInterfaceForm()
+        public CallInterfaceForm(CallCentreEmployee callCentreEmployee)
         {
             InitializeComponent();
 
@@ -87,10 +88,10 @@ namespace Group2_SEN381_Project
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            bool clientFound;
+            bool clientFound = false;
             Client clients = ClientHandler.Search(txtClientID.Text);
 
-            if (clients.ClientID != null)
+            if (clients != null)
             {
                 clientFound = true;
             }
@@ -154,9 +155,9 @@ namespace Group2_SEN381_Project
 
         private void CreateTicket()
         {
-            string technicianId = "", ticketId = "", ticketState = "", closeDate = "";
+            string technicianId = "", ticketId = "", ticketState = "Unresolved", closeDate = "";
             string currentDate = DateTime.Now.ToString("dd/mm/yyy");
-            Ticket ticket = new Ticket(ticketId, rtxtProblemDesc.Text, cboxUrgencyLevel.Text, txtClientID.Text, technicianId, callInterfaceID, ticketState, currentDate, closeDate);
+            Ticket ticket = new Ticket(ticketId, rtxtProblemDesc.Text, cboxUrgencyLevel.Text, ticketState, currentDate, closeDate, cboxProblemArea.SelectedText, txtClientID.Text, technicianId, callInterfaceID);
 
             TicketHandler.Add(ticket);
         }
