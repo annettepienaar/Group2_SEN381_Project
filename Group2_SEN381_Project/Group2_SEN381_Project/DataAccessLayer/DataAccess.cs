@@ -43,7 +43,7 @@ namespace Group2_SEN381_Project.DataAccessLayer
         public DataTable SearchClient(string id)
         {
             DataTable data = new DataTable();
-            string select = $"SELECT FROM Client WHERE Client_ID = {id}";
+            string select = $"SELECT * FROM Client WHERE Client_ID = '{id}'";
             try
             {
                 dataAdapter = new SqlDataAdapter(select, connection);
@@ -51,7 +51,7 @@ namespace Group2_SEN381_Project.DataAccessLayer
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error has occoured", ex.Message);
+                MessageBox.Show(ex.Message, "An error has occoured");
             }
             return data;
         }
