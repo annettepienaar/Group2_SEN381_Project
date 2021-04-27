@@ -64,6 +64,7 @@
       <DependentUpon>CallInterfaceForm.cs</DependentUpon>
     </Compile>
     <Compile Include="BusinessLogicLayer\Client.cs" />
+    <Compile Include="PresentationLayer\ChildFormHandler.cs" />
     <Compile Include="PresentationLayer\ClientForm.cs">
       <SubType>Form</SubType>
     </Compile>

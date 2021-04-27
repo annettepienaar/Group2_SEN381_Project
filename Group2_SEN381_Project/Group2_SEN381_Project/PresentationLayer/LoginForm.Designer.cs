@@ -151,7 +151,6 @@
             this.Controls.Add(this.panel1);
             this.Name = "LoginForm";
             this.Text = "LoginForm";
-            this.Load += new System.EventHandler(this.LoginForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

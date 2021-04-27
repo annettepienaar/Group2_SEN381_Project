@@ -317,6 +317,7 @@
             // 
             // pnlMenuBar
             // 
+            this.pnlMenuBar.BackColor = System.Drawing.Color.White;
             this.pnlMenuBar.Controls.Add(this.pictureBox1);
             this.pnlMenuBar.Controls.Add(this.btnExit);
             this.pnlMenuBar.Dock = System.Windows.Forms.DockStyle.Top;
@@ -361,8 +362,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackColor = System.Drawing.Color.Teal;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(318, 620);
             this.Controls.Add(this.pnlMenuBar);
