@@ -39,10 +39,16 @@ namespace Group2_SEN381_Project
         //code for switching between tickets in ticket list
         private void lbAssignedTickets_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string selectedItem = lbAssignedTickets.SelectedItem.ToString();
-            string selectedID = selectedItem.Substring(0, 1);
-            UpdateInformation(selectedID);
+            if (lbAssignedTickets.SelectedIndex == -1)
+            {
 
+            }
+            else
+            {
+                string selectedItem = lbAssignedTickets.SelectedItem.ToString();
+                string selectedID = selectedItem.Substring(0, 1);
+                UpdateInformation(selectedID);
+            }
         }
         //updates the information on the page
         private void UpdateInformation(string id)
@@ -69,21 +75,31 @@ namespace Group2_SEN381_Project
             lblClientSurname.Text = problemClient.ClientSurname;
             lblClientBusinessName.Text = problemClient.BusinessName;
             lblClientPhone.Text = problemClient.ClientPhoneNumber;
-            lblClientAddress.Text = problemClient.ClientPhoneNumber;
+            lblClientAddress.Text = problemClient.ClientAddress;
         }
         //used to change the state of a ticket to resolved
         private void UpdateTicketState()
         {
-            string selectedItem = lbAssignedTickets.SelectedItem.ToString();
-            string selectedID = selectedItem.Substring(0, 1);
-
-            foreach (Ticket item in techTickets)
+            if (lbAssignedTickets.SelectedItem == null)
             {
-                if (item.TicketID == selectedID)
+                MessageBox.Show("Please select a ticket");
+            }
+            else
+            {
+                string selectedItem = lbAssignedTickets.SelectedItem.ToString();
+                string selectedID = selectedItem.Substring(0, 1);
+
+                foreach (Ticket item in techTickets)
                 {
-                    item.TicketState = "Resolved";
+                    if (item.TicketID == selectedID)
+                    {
+                        item.TicketState = "Resolved";
+                        item.TicketCloseDate = DateTime.Now.ToString("yyyy-MM-dd");
+                        TicketHandler.UpdateTicket(item);
+                    }
                 }
             }
+           
         }
 
         private void btnIssueResolved_Click(object sender, EventArgs e)
