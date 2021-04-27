@@ -36,5 +36,10 @@ namespace Group2_SEN381_Project.PresentationLayer
 				ServicePackageHandler.AddSP(new ServicePackage("2021FA0008", txtName.Text, txtDescription.Text, txtReleaseDate.Text, txtCloseDate.Text));
 			}
 		}
-	}
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+			this.Close();
+        }
+    }
 }

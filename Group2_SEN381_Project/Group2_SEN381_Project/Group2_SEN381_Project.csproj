@@ -160,6 +160,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\checkmarkRed_no_16.png" />
+    <None Include="Resources\Refresh_White_16.png" />
+    <None Include="Resources\Refresh_161.png" />
+    <None Include="Resources\Refresh_16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
