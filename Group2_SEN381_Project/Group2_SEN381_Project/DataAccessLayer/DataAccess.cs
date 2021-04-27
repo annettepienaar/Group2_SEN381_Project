@@ -18,7 +18,7 @@ namespace Group2_SEN381_Project.DataAccessLayer
 
         public DataAccess()
         {
-            connString = $@"DataSource = .; InitialCatalog = SEN381_Project; IntegratedSecurity = True;";
+            connString = $@"Data Source = .; Initial Catalog = SEN381_Project; Integrated Security = True;";
             connection = new SqlConnection(connString);
         }
 
