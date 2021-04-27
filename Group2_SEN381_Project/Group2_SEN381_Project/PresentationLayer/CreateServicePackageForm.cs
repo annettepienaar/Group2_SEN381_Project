@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Group2_SEN381_Project.BusinessLogicLayer;
+using Group2_SEN381_Project.DataAccessLayer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +17,24 @@ namespace Group2_SEN381_Project.PresentationLayer
 		public CreateServicePackageForm()
 		{
 			InitializeComponent();
+		}
+
+		private void lblName_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void btnCreate_Click(object sender, EventArgs e)
+		{
+			if (txtName.Text == "" || txtReleaseDate.Text == "" || txtCloseDate.Text == "" || txtDescription.Text == "")
+			{
+				MessageBox.Show("Please ensure you provide all the required information.");
+			}
+			else
+			{
+				//TO DO: Implement new ID-requirements
+				ServicePackageHandler.AddSP(new ServicePackage("2021FA0008", txtName.Text, txtDescription.Text, txtReleaseDate.Text, txtCloseDate.Text));
+			}
 		}
 	}
 }
