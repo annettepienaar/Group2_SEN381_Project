@@ -18,7 +18,7 @@ namespace Group2_SEN381_Project.DataAccessLayer
 
         public DataAccess()
         {
-            connString = $@"DataSource = .; InitialCatalog = SEN381_Project; IntegratedSecurity = True;";
+            connString = $@"Data Source = .; Initial Catalog = SEN381_Project; Integrated Security = True;";
             connection = new SqlConnection(connString);
         }
 
@@ -26,6 +26,39 @@ namespace Group2_SEN381_Project.DataAccessLayer
         {
             DataTable tblEntries = new DataTable();
             string select = $"SELECT * FROM {tblName}";
+            try
+            {
+                dataAdapter = new SqlDataAdapter(select, connection);
+                dataAdapter.Fill(tblEntries);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error has occoured", ex.Message);
+            }
+            return tblEntries;
+        }
+        //Gets all technician employees and there specialization
+        public DataTable GetTechnicians()
+        {
+            DataTable tblEntries = new DataTable();
+            string select = $"SELECT * FROM Employee WHERE Emp_ID LIKE 'T%'";
+            try
+            {
+                dataAdapter = new SqlDataAdapter(select, connection);
+                dataAdapter.Fill(tblEntries);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error has occoured", ex.Message);
+            }
+            return tblEntries;
+        }
+        //Get specializations of each technician
+
+        public DataTable GetTechSpecializations(string empID)
+        {
+            DataTable tblEntries = new DataTable();
+            string select = $"SELECT S.Spec_ID, S.Spec_Name, S.Spec_Description  FROM Specialization S INNER JOIN Employee_Specialization ES ON ES.Spec_ID = S.Spec_ID WHERE ES.Emp_ID = '{empID}'";
             try
             {
                 dataAdapter = new SqlDataAdapter(select, connection);
@@ -109,7 +142,7 @@ namespace Group2_SEN381_Project.DataAccessLayer
 
         }
 
-        public void InsertTicket( string desc, string level, string state, string openDate, string closeDate, string clientID, string techID, string empID)
+        public void InsertTicket(string desc, string level, string state, string openDate, string closeDate, string clientID, string techID, string empID)
         {
             try
             {

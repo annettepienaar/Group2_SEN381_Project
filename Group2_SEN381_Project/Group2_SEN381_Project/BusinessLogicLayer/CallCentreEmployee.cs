@@ -23,11 +23,11 @@ namespace Group2_SEN381_Project.BusinessLogicLayer
             this.phoneNum = phoneNum;
         }
 
-        protected override string EmpID { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        protected override string Name { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        protected override string Surname { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        protected override string PhoneNum { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        protected override string Address { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public override string EmpID { get { return empID; } set { empID = value; } }
+        public override string Name { get { return name; } set { name = value; } }
+        public override string Surname { get { return surname; } set { surname = value; } }
+        public override string PhoneNum { get { return phoneNum; } set { phoneNum = value; } }
+        public override string Address { get { return address; } set { address = value; } }
 
         public override bool Equals(object obj)
         {
@@ -39,11 +39,6 @@ namespace Group2_SEN381_Project.BusinessLogicLayer
                    phoneNum == employee.phoneNum;
         }
 
-        public override void getEmpID()
-        {
-            throw new NotImplementedException();
-        }
-
         public override int GetHashCode()
         {
             int hashCode = 1608904604;
@@ -53,11 +48,6 @@ namespace Group2_SEN381_Project.BusinessLogicLayer
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(surname);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(phoneNum);
             return hashCode;
-        }
-
-        public override void getPhoneNum()
-        {
-            throw new NotImplementedException();
         }
     }
 }

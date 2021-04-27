@@ -13,14 +13,14 @@ namespace Group2_SEN381_Project.BusinessLogicLayer
         private string name;
         private string surname;
         private string phoneNum;
+        private string password;
 
-        protected abstract string EmpID { get; set; }
-        protected abstract string Name { get; set; }
-        protected abstract string Surname { get; set; }
-        protected abstract string PhoneNum { get; set; }
-        protected abstract string Address { get; set; }
+        public abstract string EmpID { get; set; }
+        public abstract string Name { get; set; }
+        public abstract string Surname { get; set; }
+        public abstract string PhoneNum { get; set; }
+        public abstract string Address { get; set; }
+        public abstract string Password { get; set; }
 
-        public abstract void getPhoneNum();
-        public abstract void getEmpID();
     }
 }
