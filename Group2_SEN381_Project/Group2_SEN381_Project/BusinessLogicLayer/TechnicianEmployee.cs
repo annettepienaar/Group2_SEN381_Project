@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Group2_SEN381_Project.DataAccessLayer;
+using System.Data;
 
 namespace Group2_SEN381_Project.BusinessLogicLayer
 {
@@ -24,23 +26,17 @@ namespace Group2_SEN381_Project.BusinessLogicLayer
             this.address = address;
             this.phoneNum = phoneNum;
             this.password = password;
+            this.specializations = TicketHandler.GetTechnicianSpecs(this.empID);
         }
-        public override string EmpID { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public override string Name { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public override string Surname { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public override string PhoneNum { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public override string Address { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public override string Password { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+       
+        public override string EmpID { get { return empID; } set { empID = value; } }
+        public override string Name { get { return name; } set { name = value; } }
+        public override string Surname { get { return surname; } set { surname = value; } }
+        public override string PhoneNum { get { return phoneNum; } set { phoneNum = value; } }
+        public override string Address { get { return address; } set { address = value; } }
 
-        public override void getEmpID()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void getPhoneNum()
-        {
-            throw new NotImplementedException();
-        }
+        public override string Password { get { return password; } }
+        public List<Specialization> Specializations { get { return specializations; } }
 
         public override int GetHashCode()
         {

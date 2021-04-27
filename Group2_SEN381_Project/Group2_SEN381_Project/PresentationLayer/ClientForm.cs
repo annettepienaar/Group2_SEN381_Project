@@ -16,6 +16,9 @@ namespace Group2_SEN381_Project.PresentationLayer
         public ClientForm()
         {
             InitializeComponent();
+
+
+            txtClientID.Text = NextClientID();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -64,6 +67,29 @@ namespace Group2_SEN381_Project.PresentationLayer
                 MessageBox.Show("Crutial information is missing, Please ensure all crutial information is added");
             }
             
+        }
+
+        private string NextClientID()
+        {
+            DataAccess access = new DataAccess();
+            string nextClient;
+            string lastClient = access.FindClientId();
+            double numbers = double.Parse(lastClient.Substring(1));
+            char character = char.Parse(lastClient.Substring(0,1));
+
+            if (numbers <= 99999999)
+            {
+                numbers += 1;
+            }
+            else
+            {
+                numbers = 0;
+                character++;
+            }
+
+            nextClient = character + numbers.ToString("00000000");
+
+            return nextClient;
         }
 
         private void ClientForm_FormClosed(object sender, FormClosedEventArgs e)

@@ -37,6 +37,69 @@ namespace Group2_SEN381_Project.DataAccessLayer
             }
             return tblEntries;
         }
+        //Gets all technician employees and there specialization
+        public DataTable GetTechnicians()
+        {
+            DataTable tblEntries = new DataTable();
+            string select = $"SELECT * FROM Employee WHERE Emp_ID LIKE 'T%'";
+            try
+            {
+                dataAdapter = new SqlDataAdapter(select, connection);
+                dataAdapter.Fill(tblEntries);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error has occoured", ex.Message);
+            }
+            return tblEntries;
+        }
+        //Get specializations of each technician
+
+        public DataTable GetTechSpecializations(string empID)
+        {
+            DataTable tblEntries = new DataTable();
+            string select = $"SELECT S.Spec_ID, S.Spec_Name, S.Spec_Description  FROM Specialization S INNER JOIN Employee_Specialization ES ON ES.Spec_ID = S.Spec_ID WHERE ES.Emp_ID = '{empID}'";
+            try
+            {
+                dataAdapter = new SqlDataAdapter(select, connection);
+                dataAdapter.Fill(tblEntries);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error has occoured", ex.Message);
+            }
+            return tblEntries;
+        }
+        //Get a list of all active tickets
+        public DataTable GetActiveTickets(string problemArea)
+        {
+            DataTable tblEntries = new DataTable();
+            string select = "SELECT E.Emp_ID, ISNULL(E.All_Tickets,0) - ISNULL(A.Closed_Tickets,0) AS Total_Open_Tickets" +
+                "FROM(SELECT E.Emp_ID, COUNT(*) AS All_Tickets" +
+                    "FROM Employee E" +
+                    "INNER JOIN Employee_Specialization ES ON E.Emp_ID = ES.Emp_ID" +
+                    "INNER JOIN Specialization S ON S.Spec_ID = ES.Spec_ID" +
+                    "INNER JOIN Ticket T ON E.Emp_ID = T.Technician_ID" +
+                    $"WHERE S.Spec_Name = '{problemArea}'" +
+                    "GROUP BY E.Emp_ID) AS E" +
+                "LEFT JOIN(SELECT E.Emp_ID, COUNT(*) AS Closed_Tickets" +
+                    "FROM Employee E" +
+                    "INNER JOIN Employee_Specialization ES ON E.Emp_ID = ES.Emp_ID" +
+                    "INNER JOIN Specialization S ON S.Spec_ID = ES.Spec_ID" +
+                    "INNER JOIN Ticket T ON E.Emp_ID = T.Technician_ID" +
+                    $"WHERE S.Spec_Name = '{problemArea}' AND T.Close_Date != '1900-01-01'" +
+                    "GROUP BY E.Emp_ID) AS A ON A.Emp_ID = E.Emp_ID";
+            try
+            {
+                dataAdapter = new SqlDataAdapter(select, connection);
+                dataAdapter.Fill(tblEntries);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error has occoured", ex.Message);
+            }
+            return tblEntries;
+        }
 
         public DataTable GetEmployee(string username)
         {
@@ -57,8 +120,6 @@ namespace Group2_SEN381_Project.DataAccessLayer
             return tblEntries;
         }
 
-        //need to insert employee, client, calls, tickets, service packages
-
         //Client search
         public DataTable SearchClient(string id)
         {
@@ -74,6 +135,26 @@ namespace Group2_SEN381_Project.DataAccessLayer
                 MessageBox.Show(ex.Message, "An error has occoured");
             }
             return data;
+        }
+
+        //Find the last client for new one to be added
+        public string FindClientId()
+        {
+            string newId = "";
+            using (connection)
+            {
+                connection.Open();
+                string select = $"SELECT Top 1 * FROM Client ORDER BY Client_ID DESC";
+                using (modifyCMD = new SqlCommand(select, connection))
+                {
+                    SqlDataReader data = modifyCMD.ExecuteReader();
+                    if (data.Read())
+                    {
+                        newId = data.GetValue(0).ToString();
+                    }
+                    return newId;
+                }               
+            }            
         }
 
         //Ticket Search
@@ -147,12 +228,12 @@ namespace Group2_SEN381_Project.DataAccessLayer
 
         }
 
-        public void InsertTicket( string desc, string level, string state, string openDate, string closeDate, string clientID, string techID, string empID)
+        public void InsertTicket( string desc, string level, string state, string openDate, string closeDate, string problemArea, string clientID, string techID, string empID)
         {
             try
             {
                 connection.Open();
-                string insert = $@"INSERT INTO Ticket (Ticket_Description, Ticket_Level, Ticket_State, Open_Date, Close_Date, Client_ID, Technician_ID, Call_Centre_Emp_ID) VALUES ({desc},{level},{state},{openDate},{closeDate},{clientID}, {techID}, {empID})";
+                string insert = $@"INSERT INTO Ticket (Ticket_Description, Ticket_Level, Ticket_State, Open_Date, Close_Date, Problem_Area, Client_ID, Technician_ID, Call_Centre_ID) VALUES ({desc},{level},{state},{openDate},{closeDate},{problemArea},{clientID}, {techID}, {empID})";
                 modifyCMD= new SqlCommand(insert, connection);
                 modifyCMD.ExecuteNonQuery();
                 connection.Close();

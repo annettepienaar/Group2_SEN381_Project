@@ -154,9 +154,9 @@ namespace Group2_SEN381_Project
 
         private void CreateTicket()
         {
-            string technicianId = "", ticketId = "", ticketState = "", closeDate = "";
+            string technicianId = "", ticketId = "", ticketState = "Unresolved", closeDate = "";
             string currentDate = DateTime.Now.ToString("dd/mm/yyy");
-            Ticket ticket = new Ticket(ticketId, rtxtProblemDesc.Text, cboxUrgencyLevel.Text, txtClientID.Text, technicianId, callInterfaceID, ticketState, currentDate, closeDate);
+            Ticket ticket = new Ticket(ticketId, rtxtProblemDesc.Text, cboxUrgencyLevel.Text, ticketState, currentDate, closeDate, cboxProblemArea.SelectedText, txtClientID.Text, technicianId, callInterfaceID);
 
             TicketHandler.Add(ticket);
         }

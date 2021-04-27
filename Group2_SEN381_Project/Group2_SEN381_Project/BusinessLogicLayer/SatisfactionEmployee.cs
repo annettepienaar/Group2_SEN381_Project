@@ -42,11 +42,6 @@ namespace Group2_SEN381_Project.BusinessLogicLayer
                    phoneNum == employee.phoneNum;
         }
 
-        public override void getEmpID()
-        {
-           
-        }
-
         public override int GetHashCode()
         {
             int hashCode = 1608904604;
@@ -57,12 +52,6 @@ namespace Group2_SEN381_Project.BusinessLogicLayer
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(phoneNum);
             return hashCode;
         }
-
-        public override void getPhoneNum()
-        {
-            
-        }
-
         public override string ToString()
         {
             return base.ToString();
