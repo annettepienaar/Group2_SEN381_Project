@@ -18,7 +18,8 @@ namespace Group2_SEN381_Project.DataAccessLayer
 
         public DataAccess()
         {
-            connString = $@"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = SEN381_Project; Integrated Security = True;";
+            //connString = $@"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = SEN381_Project; Integrated Security = True;";
+            connString = $@"Data Source = .; Initial Catalog = SEN381_Project; Integrated Security = True;";
             connection = new SqlConnection(connString);
         }
 
