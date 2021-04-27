@@ -110,6 +110,9 @@
     <EmbeddedResource Include="PresentationLayer\ParentForm.resx">
       <DependentUpon>ParentForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\ServiceMetricsForm.resx">
+      <DependentUpon>ServiceMetricsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PresentationLayer\TechnicianInterfaceForm.resx">
       <DependentUpon>TechnicianInterfaceForm.cs</DependentUpon>
     </EmbeddedResource>
