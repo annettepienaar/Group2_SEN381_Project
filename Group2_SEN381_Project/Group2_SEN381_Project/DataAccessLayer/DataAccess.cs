@@ -141,7 +141,7 @@ namespace Group2_SEN381_Project.DataAccessLayer
 
         public DataTable GetCalls(string clientID)
         {
-            string select = $@"SELECT * FROM [cALL] WHERE Client_ID = '{clientID}'";
+            string select = $@"SELECT Call_ID AS 'Call ID', Start_Time AS 'Start Time', End_Time AS 'End Time', Emp_ID AS 'Employee ID' FROM [Call] WHERE Client_ID = '{clientID}'";
 
             DataTable tblEntries = new DataTable();
 
