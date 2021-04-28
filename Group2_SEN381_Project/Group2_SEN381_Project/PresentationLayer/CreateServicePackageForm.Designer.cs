@@ -71,6 +71,7 @@ namespace Group2_SEN381_Project.PresentationLayer
             this.txtDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtDescription.Location = new System.Drawing.Point(35, 281);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
@@ -82,6 +83,7 @@ namespace Group2_SEN381_Project.PresentationLayer
             this.txtCloseDate.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtCloseDate.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCloseDate.Location = new System.Drawing.Point(35, 230);
             this.txtCloseDate.Multiline = true;
             this.txtCloseDate.Name = "txtCloseDate";
@@ -94,6 +96,7 @@ namespace Group2_SEN381_Project.PresentationLayer
             this.txtReleaseDate.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtReleaseDate.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtReleaseDate.Location = new System.Drawing.Point(35, 179);
             this.txtReleaseDate.Multiline = true;
             this.txtReleaseDate.Name = "txtReleaseDate";
@@ -106,6 +109,7 @@ namespace Group2_SEN381_Project.PresentationLayer
             this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtName.Location = new System.Drawing.Point(35, 128);
             this.txtName.Multiline = true;
             this.txtName.Name = "txtName";
@@ -246,6 +250,7 @@ namespace Group2_SEN381_Project.PresentationLayer
             this.ClientSize = new System.Drawing.Size(319, 540);
             this.Controls.Add(this.pnlMenuBar);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CreateServicePackageForm";
             this.Text = "CreateServicePackageForm";
             this.panel1.ResumeLayout(false);

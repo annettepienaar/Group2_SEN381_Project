@@ -22,5 +22,11 @@ namespace Group2_SEN381_Project.PresentationLayer
         {
 
         }
+
+        private void btnAddServicePackage_Click(object sender, EventArgs e)
+        {
+            CreateServicePackageForm createServicePackageForm = new CreateServicePackageForm();
+            createServicePackageForm.Show();
+        }
     }
 }
