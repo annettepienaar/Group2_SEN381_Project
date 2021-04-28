@@ -17,12 +17,14 @@ namespace Group2_SEN381_Project
     {
         //Equals null at end of testing phase
         //This is the employee that logs in
-        public string callInterfaceID = "Koosie";
+        public string callInterfaceID = "C001";
+        BindingSource source;
 
         public CallInterfaceForm(CallCentreEmployee callCentreEmployee)
         {
             InitializeComponent();
 
+            source = new BindingSource();
         }
 
         #region Clock button
@@ -105,6 +107,8 @@ namespace Group2_SEN381_Project
             if (clientFound)
             {
                 pBoxCustomerFound.Image = Properties.Resources.checkmark_yes_16;
+                source.DataSource = CallHandler.GetCall(txtClientID.Text);
+                dgvAllCalls.DataSource = source;
             }
             else
             {

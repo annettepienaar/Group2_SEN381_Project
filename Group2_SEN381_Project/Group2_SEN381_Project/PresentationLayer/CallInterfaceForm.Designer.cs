@@ -53,10 +53,12 @@ namespace Group2_SEN381_Project
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.dgvAllCalls = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxCustomerFound)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAllCalls)).BeginInit();
             this.SuspendLayout();
             // 
             // txtClientID
@@ -133,8 +135,9 @@ namespace Group2_SEN381_Project
             this.rtxtProblemDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtxtProblemDesc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.rtxtProblemDesc.Location = new System.Drawing.Point(170, 133);
+            this.rtxtProblemDesc.MaxLength = 150;
             this.rtxtProblemDesc.Name = "rtxtProblemDesc";
-            this.rtxtProblemDesc.Size = new System.Drawing.Size(684, 355);
+            this.rtxtProblemDesc.Size = new System.Drawing.Size(684, 158);
             this.rtxtProblemDesc.TabIndex = 8;
             this.rtxtProblemDesc.Text = "";
             // 
@@ -159,7 +162,7 @@ namespace Group2_SEN381_Project
             this.lblProblemArea.AutoSize = true;
             this.lblProblemArea.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProblemArea.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblProblemArea.Location = new System.Drawing.Point(169, 500);
+            this.lblProblemArea.Location = new System.Drawing.Point(169, 301);
             this.lblProblemArea.Name = "lblProblemArea";
             this.lblProblemArea.Size = new System.Drawing.Size(98, 18);
             this.lblProblemArea.TabIndex = 10;
@@ -176,7 +179,7 @@ namespace Group2_SEN381_Project
             "Electronics",
             "Mechanic",
             "Electrician"});
-            this.cboxProblemArea.Location = new System.Drawing.Point(270, 496);
+            this.cboxProblemArea.Location = new System.Drawing.Point(270, 297);
             this.cboxProblemArea.Name = "cboxProblemArea";
             this.cboxProblemArea.Size = new System.Drawing.Size(141, 26);
             this.cboxProblemArea.TabIndex = 11;
@@ -305,6 +308,7 @@ namespace Group2_SEN381_Project
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panel3.Controls.Add(this.dgvAllCalls);
             this.panel3.Controls.Add(this.pBoxCustomerFound);
             this.panel3.Controls.Add(this.label5);
             this.panel3.Controls.Add(this.label4);
@@ -362,6 +366,14 @@ namespace Group2_SEN381_Project
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // dgvAllCalls
+            // 
+            this.dgvAllCalls.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAllCalls.Location = new System.Drawing.Point(247, 385);
+            this.dgvAllCalls.Name = "dgvAllCalls";
+            this.dgvAllCalls.Size = new System.Drawing.Size(544, 138);
+            this.dgvAllCalls.TabIndex = 15;
+            // 
             // CallInterfaceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -379,6 +391,7 @@ namespace Group2_SEN381_Project
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxCustomerFound)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAllCalls)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -407,5 +420,6 @@ namespace Group2_SEN381_Project
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox pBoxCustomerFound;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.DataGridView dgvAllCalls;
     }
 }
