@@ -316,12 +316,12 @@ namespace Group2_SEN381_Project.DataAccessLayer
 
         }
 
-        public void InsertTicket( string desc, string level, string state, string openDate, string closeDate, string problemArea, string clientID, string techID, string empID)
+        public void InsertCreationTicket(string desc, string level, string state, string openDate, string closeDate, string problemArea, string clientID, string empID)
         {
             try
             {
                 connection.Open();
-                string insert = $@"INSERT INTO Ticket (Ticket_Description, Ticket_Level, Ticket_State, Open_Date, Close_Date, Problem_Area, Client_ID, Technician_ID, Call_Centre_ID) VALUES ({desc},{level},{state},{openDate},{closeDate},{problemArea},{clientID}, {techID}, {empID})";
+                string insert = $@"INSERT INTO Creation_Ticket (Ticket_Description, Ticket_Level, Ticket_State, Open_Date, Close_Date, Problem_Area, Client_ID, Call_Centre_ID) VALUES ('{desc}', '{level}', '{state}', '{openDate}', '{closeDate}', '{problemArea}', '{clientID}', '{empID}')";
                 modifyCMD= new SqlCommand(insert, connection);
                 modifyCMD.ExecuteNonQuery();
                 connection.Close();
@@ -329,8 +329,7 @@ namespace Group2_SEN381_Project.DataAccessLayer
             catch (Exception ex)
             {
                 MessageBox.Show("An error has occoured", ex.Message);
-            }
-            
+            }            
         }
 
         public void InsertSP(string name, string desc, string releaseDate, string closeDate)

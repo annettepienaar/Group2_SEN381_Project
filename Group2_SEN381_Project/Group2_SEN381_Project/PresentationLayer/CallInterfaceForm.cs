@@ -57,7 +57,8 @@ namespace Group2_SEN381_Project
                         //TODO
                         //Send Data to the DB
                         //Send customerId, urgencyLevel, problemDesc, problemArea, currentDate, callInterfaceID
-                        CreateTicket();
+
+                        TicketHandler.TicketCreation(rtxtProblemDesc.Text, cboxUrgencyLevel.SelectedText, "Unresolved", DateTime.Now.ToString("dd/mm/yyy"), "", cboxProblemArea.SelectedText, txtClientID.Text, callInterfaceID);
                         break;
                     case DialogResult.No:
                         clockRunning = false;
@@ -166,14 +167,14 @@ namespace Group2_SEN381_Project
             }
         }
 
-        private void CreateTicket()
-        {
-            string technicianId = "", ticketId = "", ticketState = "Unresolved", closeDate = "";
-            string currentDate = DateTime.Now.ToString("dd/mm/yyy");
-            Ticket ticket = new Ticket(ticketId, rtxtProblemDesc.Text, cboxUrgencyLevel.Text, ticketState, currentDate, closeDate, cboxProblemArea.SelectedText, txtClientID.Text, technicianId, callInterfaceID);
+        //private void CreateTicket()
+        //{
+        //    string technicianId = "", ticketId = "", ticketState = "Unresolved", closeDate = "";
+        //    string currentDate = DateTime.Now.ToString("dd/mm/yyy");
+        //    Ticket ticket = new Ticket(ticketId, rtxtProblemDesc.Text, cboxUrgencyLevel.Text, ticketState, currentDate, closeDate, cboxProblemArea.SelectedText, txtClientID.Text, technicianId, callInterfaceID);
 
-            TicketHandler.Add(ticket);
-        }
+        //    TicketHandler.Add(ticket);
+        //}
 
         private void CallInterfaceForm_Load(object sender, EventArgs e)
         {
