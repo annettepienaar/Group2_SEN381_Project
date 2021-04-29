@@ -50,22 +50,23 @@ namespace Group2_SEN381_Project
                         btnStartStop.BackColor = Color.FromArgb(34, 220, 76);
                         btnStartStop.FlatAppearance.MouseOverBackColor = Color.FromArgb(34, 200, 76);
                         btnStartStop.Text = "START CALL";
-                        lblCallEnd.Text = DateTime.Now.ToString("hh:mm:ss");
+                        lblCallEnd.Text = DateTime.Now.ToString("HH:mm:ss");
 
                         btnClear.Enabled = true;
 
-                        //TODO
-                        //Send Data to the DB
-                        //Send customerId, urgencyLevel, problemDesc, problemArea, currentDate, callInterfaceID
+                        string startTime = DateTime.Now.ToString("yyyy-MM-dd") + " " + lblStartTime.Text;
+                        string endTime = DateTime.Now.ToString("yyyy-MM-dd") + " " + lblCallEnd.Text;
+                        CallHandler.Call(startTime, endTime, txtClientID.Text, callInterfaceID);
 
-                        TicketHandler.TicketCreation(rtxtProblemDesc.Text, cboxUrgencyLevel.SelectedText, "Unresolved", DateTime.Now.ToString("dd/mm/yyy"), "", cboxProblemArea.SelectedText, txtClientID.Text, callInterfaceID);
+                        string openDate = DateTime.Now.ToString("yyyy-MM-dd");
+                        TicketHandler.TicketCreation(rtxtProblemDesc.Text, cboxUrgencyLevel.SelectedItem.ToString(), "Unresolved", openDate, "", cboxProblemArea.SelectedItem.ToString(), txtClientID.Text, callInterfaceID);
                         break;
                     case DialogResult.No:
                         clockRunning = false;
                         btnStartStop.BackColor = Color.FromArgb(34, 220, 76);
                         btnStartStop.FlatAppearance.MouseOverBackColor = Color.FromArgb(34, 200, 76);
                         btnStartStop.Text = "START CALL";
-                        lblCallEnd.Text = DateTime.Now.ToString("hh:mm:ss");
+                        lblCallEnd.Text = DateTime.Now.ToString("HH:mm:ss");
 
                         btnClear.Enabled = true;
 
@@ -85,7 +86,7 @@ namespace Group2_SEN381_Project
                 counter = 0;
                 timer1.Start();
                 lblCallEnd.Text = null;
-                lblStartTime.Text = DateTime.Now.ToString("hh:mm:ss");
+                lblStartTime.Text = DateTime.Now.ToString("HH:mm:ss");
 
                 btnClear.Enabled = false;
             }

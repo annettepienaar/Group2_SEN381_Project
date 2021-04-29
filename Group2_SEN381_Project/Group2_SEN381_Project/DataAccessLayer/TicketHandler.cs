@@ -104,5 +104,15 @@ namespace Group2_SEN381_Project.DataAccessLayer
             access.UpdateTicket(obj.TicketID, obj.TicketDesc, obj.TicketLevel, obj.TicketState, obj.TicketOpenDate, obj.TicketCloseDate, obj.ClientID, obj.TechnitionID, obj.CallCenterEmpID);
         }
 
+        public static void EscalateTicket(string ticketID, string ticketDescription, string ticketLevel, string openDate, string closeDate, string problemArea, string clientID, string callCenterID)
+        {
+            DataAccess dataAccess = new DataAccess();
+            dataAccess.DeleteAssignedTicket(ticketID);
+
+            string ticketState = "On-Hold";
+
+            dataAccess.InsertCreationTicket(ticketDescription, ticketLevel, ticketState, openDate, closeDate, problemArea, clientID, callCenterID);
+        }
+
     }
 }
