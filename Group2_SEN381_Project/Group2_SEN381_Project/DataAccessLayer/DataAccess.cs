@@ -338,12 +338,12 @@ namespace Group2_SEN381_Project.DataAccessLayer
             }            
         }
 
-        public void InsertSP(string name, string desc, string releaseDate, string closeDate)
+        public void InsertSP(string name, string type, string priority, string epName, string epModel, string epSerialnum, string releaseDate, string closeDate)
         {
             try
             {
                 connection.Open();
-                string insert = $@"INSERT INTO Service_Package (Package_Name, Package_Description, Release_Date, Close_Date) VALUES ('{name}','{desc}','{releaseDate}','{closeDate}')";
+                string insert = $@"INSERT INTO Service_Package (SP_Name, SP_Type, SP_Priority, EP_Name, EP_Model, EP_SerialNum, SP_Release_Date, SP_Close_Date) VALUES ('{name}','{type}','{priority}','{epName}','{epModel}','{epSerialnum}','{releaseDate}','{closeDate}')";
                 SqlCommand insertcmd = new SqlCommand(insert, connection);
                 insertcmd.ExecuteNonQuery();
                 connection.Close();
@@ -359,12 +359,12 @@ namespace Group2_SEN381_Project.DataAccessLayer
 
         //updates for service packages, tickets, employee, client
         #region Update Tables
-        public void UpdateSP(string id, string name, string desc, string releaseDate, string closeDate)
+        public void UpdateSP(string id, string name, string type, string priority, string epName, string epModel, string epSerialnum, string releaseDate, string closeDate)
         {
             try
             {
                 connection.Open();
-                string update = $@"UPDATE Service_Package SET Package_Name = {name},Package_Description = {desc},Release_Date = {releaseDate},Close_Date = {closeDate} WHERE SP_ID = {id}";
+                string update = $@"UPDATE Service_Package SET SP_Name = '{name}',SP_Type = '{type}', SP_Priority = '{priority}', EP_Name = '{epName}', EP_Model = '{epModel}', EP_SerialNum = '{epSerialnum}', SP_Release_Date = '{releaseDate}', SP_Close_Date = '{closeDate}' WHERE SP_ID = '{id}'";
                 modifyCMD = new SqlCommand(update, connection);
                 modifyCMD.ExecuteNonQuery();
                 connection.Close();

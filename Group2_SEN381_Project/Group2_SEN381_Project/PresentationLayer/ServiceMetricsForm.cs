@@ -39,8 +39,9 @@ namespace Group2_SEN381_Project.PresentationLayer
 			else
 			{
 				ServicePackage selectedSP = spList[index];
-				ServicePackageHandler.UpdateSP(selectedSP.SPID, selectedSP.SPName, txtDescription.Text, txtReleaseDate.Text, txtReleaseDate.Text);
+				ServicePackageHandler.UpdateSP(selectedSP.SPID, txtSPName.Text, txtSPType.Text, txtSPPriority.Text, txtEPName.Text, txtEPModel.Text, txtEPSerialnum.Text, txtReleaseDate.Text, txtReleaseDate.Text);
 				spList = ServicePackageHandler.GetAllSP();
+				lbServicePackages.DataSource = spList;
 			}
 
 		}
@@ -55,18 +56,18 @@ namespace Group2_SEN381_Project.PresentationLayer
             else
             {
                 ServicePackage selectedSP = spList[index];
-                lblPackageName.Text = selectedSP.SPName;
+                txtSPID.Text = selectedSP.SPID;
+				txtSPName.Text = selectedSP.SPName;
+				txtSPType.Text = selectedSP.SPType;
+				txtSPPriority.Text = selectedSP.SPPriority;
+				txtEPName.Text = selectedSP.EPName;
+				txtEPModel.Text = selectedSP.EPModel;
+				txtEPSerialnum.Text = selectedSP.EPSerialnum;
                 txtReleaseDate.Text = selectedSP.SPReleaseDate;
                 txtCloseDate.Text = selectedSP.SPCloseDate;
-                txtDescription.Text = selectedSP.SPDesc;
             }
         }
 
-
-        //	// TO DO:
-        //	// Display Service Package subcriber-count
-        //	// Display Performance metrics
-        //}
 
     }
 }

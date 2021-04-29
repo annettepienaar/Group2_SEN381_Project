@@ -15,7 +15,7 @@ namespace Group2_SEN381_Project.DataAccessLayer
 		public static void AddSP(ServicePackage obj)
 		{
 			DataAccess dataAccess = new DataAccess();
-			dataAccess.InsertSP(obj.SPName, obj.SPDesc, obj.SPReleaseDate, obj.SPCloseDate);
+			dataAccess.InsertSP(obj.SPName, obj.SPType, obj.SPPriority, obj.EPName, obj.EPModel, obj.EPSerialnum, obj.SPReleaseDate, obj.SPCloseDate);
 		}
 
 
@@ -30,33 +30,25 @@ namespace Group2_SEN381_Project.DataAccessLayer
 
 			foreach (DataRow row in dataTable.Rows)
 			{
-				spList.Add(new ServicePackage(row[0].ToString(), row[1].ToString(), row[2].ToString(), row[3].ToString(), row[4].ToString()));
+				spList.Add(new ServicePackage(row[0].ToString(), row[1].ToString(), row[2].ToString(), row[3].ToString(), row[4].ToString(), row[5].ToString(), row[6].ToString(), row[7].ToString(), row[8].ToString()));
 			}
 
 			return spList;
 		}
 
-
-		public static void UpdateSP(string spID, string spName, string spDesc, string spReleaseDate, string spCloseDate)
+		//Sends updated Service Package to Database
+		public static void UpdateSP(string spID, string spName, string spType, string spPriority, string epName, string epModel, string epSerialnum, string spReleaseDate, string spCloseDate)
 		{
 			DataAccess dataAccess = new DataAccess();
-			dataAccess.UpdateSP(spID, spName, spDesc, spReleaseDate, spCloseDate);
+			dataAccess.UpdateSP(spID, spName, spType, spPriority, epName, epModel, epSerialnum, spReleaseDate, spCloseDate);
 		}
 		#endregion
 
-		public static void CalcPerformanc()
+		//Calculates total subscribers of a SP
+		public static void CalcTotalSubscribers()
 		{
-			//TO DO
+			
 		}
 
-		// Generates the ID for a Service Package
-		/*public string GenerateID(ServicePackage sp)
-		{
-			// Output Example: 2021AB0001
-			string year = DateTime.Today.Year.ToString();
-			
-			string spType = sp.
-		
-		}*/
 	}
 }
