@@ -40,7 +40,9 @@ namespace Group2_SEN381_Project.PresentationLayer
 			{
 				ServicePackage selectedSP = spList[index];
 				ServicePackageHandler.UpdateSP(selectedSP.SPID, selectedSP.SPName, txtDescription.Text, txtReleaseDate.Text, txtReleaseDate.Text);
+				spList = ServicePackageHandler.GetAllSP();
 			}
+
 		}
 
         private void lbServicePackages_SelectedIndexChanged(object sender, EventArgs e)

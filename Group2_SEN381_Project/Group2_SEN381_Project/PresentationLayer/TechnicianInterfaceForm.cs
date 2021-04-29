@@ -122,21 +122,55 @@ namespace Group2_SEN381_Project
 
         private void clearLabels()
         {
-            lblProblemNumber.Text = "";
-            lblStatus.Text = "";
-            lblUrgencyLevel.Text = "";
-            txtProblemDescription.Text = "";
-            lblClientID.Text = "";
-            lblClientName.Text = "";
-            lblClientSurname.Text = "";
-            lblClientBusinessName.Text = "";
-            lblClientPhone.Text = "";
-            lblClientAddress.Text = "";
+            lblProblemNumber.Text = String.Empty;
+            lblStatus.Text = String.Empty;
+            lblUrgencyLevel.Text = String.Empty;
+            txtProblemDescription.Text = String.Empty;
+            lblClientID.Text = String.Empty;
+            lblClientName.Text = String.Empty;
+            lblClientSurname.Text = String.Empty;
+            lblClientBusinessName.Text = String.Empty;
+            lblClientPhone.Text = String.Empty;
+            lblClientAddress.Text = String.Empty;
         }
 
         private void btnReloadTickets_Click(object sender, EventArgs e)
         {
             LoadList();
+            clearLabels();
+        }
+
+        private void btnEscalate_Click(object sender, EventArgs e)
+        {
+            string message = "Are you sure the ticket should be escalated?";
+            string caption = "Ticket Escalation";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            MessageBoxIcon icon = MessageBoxIcon.Question;
+            DialogResult result;
+            result = MessageBox.Show(message, caption, buttons, icon);
+
+            string openDate = "";
+            string closeDate = "";
+            string problemArea = "";
+            string empID = "";
+
+            foreach (Ticket item in techTickets)
+            {
+                if (lblProblemNumber.Text.Equals(item.TicketID))
+                {
+                    openDate = item.TicketOpenDate;
+                    closeDate = item.TicketCloseDate;
+                    problemArea = item.ProblemArea;
+                    empID = item.CallCenterEmpID;
+                }
+            }
+
+            if (result == DialogResult.Yes)
+            {
+                TicketHandler.EscalateTicket(lblProblemNumber.Text, txtProblemDescription.Text, lblUrgencyLevel.Text, openDate, closeDate, problemArea, lblClientID.Text, empID);
+
+                clearLabels();
+            }
         }
     }
 }

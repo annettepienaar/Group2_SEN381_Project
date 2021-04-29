@@ -10,14 +10,19 @@ namespace Group2_SEN381_Project.DataAccessLayer
 {
     public static class TicketHandler
     {
-        //adds a ticket to the database
-        public static void Add(Ticket obj)
+        public static void TicketCreation(string desc, string level, string state, string openDate, string closeDate, string problemArea, string clientID, string empID)
         {
-            DataAccess access = new DataAccess();
-            Ticket ticket = AssignTechnicians(obj);
-            access.InsertTicket(ticket.TicketDesc, ticket.TicketLevel, ticket.TicketState, ticket.TicketOpenDate, ticket.TicketCloseDate, ticket.ProblemArea, ticket.ClientID, ticket.TechnitionID, ticket.CallCenterEmpID);
-
+            DataAccess dataAccess = new DataAccess();
+            dataAccess.InsertCreationTicket(desc, level, state, openDate, closeDate, problemArea, clientID, empID);
         }
+        //adds a ticket to the database
+        //public static void Add(Ticket obj)
+        //{
+        //    DataAccess access = new DataAccess();
+        //    Ticket ticket = AssignTechnicians(obj);
+        //    access.InsertTicket(ticket.TicketDesc, ticket.TicketLevel, ticket.TicketState, ticket.TicketOpenDate, ticket.TicketCloseDate, ticket.ProblemArea, ticket.ClientID, ticket.TechnitionID, ticket.CallCenterEmpID);
+
+        //}
 
         //assigns an open technician to the ticket.
         public static Ticket AssignTechnicians(Ticket obj)
@@ -34,12 +39,10 @@ namespace Group2_SEN381_Project.DataAccessLayer
 
             foreach (DataRow dr in data.Rows)
             {
-                System.Windows.Forms.MessageBox.Show($"{dr[0].ToString()} {int.Parse(dr[1].ToString())}");
-                technicianOpenTickets.Add(dr[0].ToString(), int.Parse(dr[1].ToString()));
+                technicianOpenTickets.Add(dr["Emp_ID"].ToString(), int.Parse(dr["Total_Open_Tickets"].ToString()));
             }
-            foreach (KeyValuePair<string,int> item in technicianOpenTickets)
+            foreach (KeyValuePair<string, int> item in technicianOpenTickets)
             {
-                //System.Windows.Forms.MessageBox.Show($"{item.Key} {item.Value}");
                 if (item.Value < min)
                 {
                     min = item.Value;
@@ -48,7 +51,6 @@ namespace Group2_SEN381_Project.DataAccessLayer
             }
 
             obj.TechnitionID = techID;
-            //System.Windows.Forms.MessageBox.Show(obj.TechnitionID);
 
             return obj;
 
@@ -70,15 +72,15 @@ namespace Group2_SEN381_Project.DataAccessLayer
 
         //Returns a specific ticket based on a ticket-ID
         public static Ticket GetTicket(string ticketID)
-	    {
+        {
             DataAccess dataAccess = new DataAccess();
             DataTable dataTable = new DataTable();
 
             dataTable = dataAccess.SearchTicket(ticketID);
             DataRow row = dataTable.Rows[0];
 
-            
-            return new Ticket(row[0].ToString(),row[1].ToString(), row[2].ToString(), row[6].ToString(), row[7].ToString(), row[8].ToString(), row[3].ToString(), row[4].ToString(), row[5].ToString(), row[6].ToString());
+
+            return new Ticket(row[0].ToString(), row[1].ToString(), row[2].ToString(), row[6].ToString(), row[7].ToString(), row[8].ToString(), row[3].ToString(), row[4].ToString(), row[5].ToString(), row[6].ToString());
         }
 
         //Gets list of open tickets for specific Technician
@@ -88,9 +90,9 @@ namespace Group2_SEN381_Project.DataAccessLayer
             DataAccess access = new DataAccess();
             DataTable data = access.GetTechOpenTicket(empID);
 
-            foreach(DataRow dr in data.Rows)
+            foreach (DataRow dr in data.Rows)
             {
-                tickets.Add(new Ticket(dr["Ticket_ID"].ToString(), dr["Ticket_Description"].ToString(), dr["Ticket_Level"].ToString(), dr["Ticket_State"].ToString(),dr["Open_Date"].ToString(), dr["Close_Date"].ToString(), dr["Problem_Area"].ToString(), dr["Client_ID"].ToString(), dr["Technician_ID"].ToString(), dr["Call_Center_ID"].ToString()));
+                tickets.Add(new Ticket(dr["Ticket_ID"].ToString(), dr["Ticket_Description"].ToString(), dr["Ticket_Level"].ToString(), dr["Ticket_State"].ToString(), dr["Open_Date"].ToString(), dr["Close_Date"].ToString(), dr["Problem_Area"].ToString(), dr["Client_ID"].ToString(), dr["Technician_ID"].ToString(), dr["Call_Center_ID"].ToString()));
             }
 
             return tickets;
@@ -100,6 +102,16 @@ namespace Group2_SEN381_Project.DataAccessLayer
         {
             DataAccess access = new DataAccess();
             access.UpdateTicket(obj.TicketID, obj.TicketDesc, obj.TicketLevel, obj.TicketState, obj.TicketOpenDate, obj.TicketCloseDate, obj.ClientID, obj.TechnitionID, obj.CallCenterEmpID);
+        }
+
+        public static void EscalateTicket(string ticketID, string ticketDescription, string ticketLevel, string openDate, string closeDate, string problemArea, string clientID, string callCenterID)
+        {
+            DataAccess dataAccess = new DataAccess();
+            dataAccess.DeleteAssignedTicket(ticketID);
+
+            string ticketState = "On-Hold";
+
+            dataAccess.InsertCreationTicket(ticketDescription, ticketLevel, ticketState, openDate, closeDate, problemArea, clientID, callCenterID);
         }
 
     }

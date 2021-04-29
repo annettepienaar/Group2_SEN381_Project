@@ -113,7 +113,7 @@ namespace Group2_SEN381_Project.DataAccessLayer
         {
 
             DataTable tblEntries = new DataTable();
-            string select = $"SELECT * FROM Ticket WHERE Technician_ID = '{empID}' AND Close_Date = '1900-01-01'";
+            string select = $"SELECT * FROM Assigned_Ticket WHERE Technician_ID = '{empID}' AND Close_Date = '1900-01-01'";
             try
             {
                 dataAdapter = new SqlDataAdapter(select, connection);
@@ -147,11 +147,11 @@ namespace Group2_SEN381_Project.DataAccessLayer
 
         public DataTable GetClientTickets(string clientID)
         {
-            string select = $@"SELECT Ticket.Open_Date AS 'Open Date', Ticket.Close_Date AS 'Close Date', Ticket.Ticket_ID AS 'ID', CONCAT(Employee.Emp_Name, ' ', Employee.Emp_Surname) AS 'Employee', Ticket.Problem_Area AS 'Problem Area', Ticket.Ticket_State AS 'State'
+            string select = $@"SELECT Assigned_Ticket.Open_Date AS 'Open Date', Assigned_Ticket.Close_Date AS 'Close Date', Assigned_Ticket.Ticket_ID AS 'ID', CONCAT(Employee.Emp_Name, ' ', Employee.Emp_Surname) AS 'Employee', Assigned_Ticket.Problem_Area AS 'Problem Area', Assigned_Ticket.Ticket_State AS 'State'
                             FROM Employee
-                            JOIN Ticket
-                            ON Employee.Emp_ID = Ticket.Call_Center_ID
-                            WHERE Ticket.Client_ID = '{clientID}'";
+                            JOIN Assigned_Ticket
+                            ON Employee.Emp_ID = Assigned_Ticket.Call_Center_ID
+                            WHERE Assigned_Ticket.Client_ID = '{clientID}'";
 
             DataTable tblEntries = new DataTable();
 
@@ -322,21 +322,20 @@ namespace Group2_SEN381_Project.DataAccessLayer
 
         }
 
-        public void InsertTicket( string desc, string level, string state, string openDate, string closeDate, string problemArea, string clientID, string techID, string empID)
+        public void InsertCreationTicket(string desc, string level, string state, string openDate, string closeDate, string problemArea, string clientID, string empID)
         {
             try
             {
                 connection.Open();
-                string insert = $@"INSERT INTO Ticket (Ticket_Description, Ticket_Level, Ticket_State, Open_Date, Close_Date, Problem_Area, Client_ID, Technician_ID, Call_Center_ID) VALUES ('{desc}','{level}','{state}','{openDate}','{closeDate}','{problemArea}','{clientID}', '{techID}', '{empID}')";
+                string insert = $@"INSERT INTO Created_Ticket (Ticket_Description, Ticket_Level, Ticket_State, Open_Date, Close_Date, Problem_Area, Client_ID, Call_Center_ID) VALUES ('{desc}', '{level}', '{state}', '{openDate}', '{closeDate}', '{problemArea}', '{clientID}', '{empID}')";
                 modifyCMD= new SqlCommand(insert, connection);
                 modifyCMD.ExecuteNonQuery();
                 connection.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "An error has occoured");
-            }
-            
+                MessageBox.Show("An error has occoured", ex.Message);
+            }            
         }
 
         public void InsertSP(string name, string desc, string releaseDate, string closeDate)
@@ -382,7 +381,7 @@ namespace Group2_SEN381_Project.DataAccessLayer
             try
             {
                 connection.Open();
-                string update = $@"UPDATE Ticket SET Ticket_Description = '{desc}',Ticket_Level = '{level}',Ticket_State = '{state}',Open_Date = '{openDate}',Close_Date = '{closeDate}',Client_ID = '{clientID}',Technician_ID = '{techID}',Call_Center_ID = '{empID}' WHERE Ticket_ID = '{id}'";
+                string update = $@"UPDATE Assigned_Ticket SET Ticket_Description = '{desc}',Ticket_Level = '{level}',Ticket_State = '{state}',Open_Date = '{openDate}',Close_Date = '{closeDate}',Client_ID = '{clientID}' ,Call_Center_ID = '{empID}' WHERE Ticket_ID = '{id}'";
                 modifyCMD = new SqlCommand(update, connection);
                 modifyCMD.ExecuteNonQuery();
                 connection.Close();
@@ -468,6 +467,22 @@ namespace Group2_SEN381_Project.DataAccessLayer
             {
                 connection.Open();
                 string delete = $@"DELETE FROM Service_Package WHERE SP_ID = {id}";
+                modifyCMD = new SqlCommand(delete, connection);
+                modifyCMD.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error has occoured", ex.Message);
+            }
+        }
+
+        public void DeleteAssignedTicket(string ticketID)
+        {
+            try
+            {
+                connection.Open();
+                string delete = $@"DELETE FROM Assigned_Ticket WHERE Ticket_ID = '{ticketID}'";
                 modifyCMD = new SqlCommand(delete, connection);
                 modifyCMD.ExecuteNonQuery();
                 connection.Close();

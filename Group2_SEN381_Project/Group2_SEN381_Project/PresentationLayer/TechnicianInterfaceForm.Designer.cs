@@ -51,12 +51,13 @@ namespace Group2_SEN381_Project
             this.lblProblemTitle = new System.Windows.Forms.Label();
             this.pnlTicketDisplay = new System.Windows.Forms.Panel();
             this.lbAssignedTickets = new System.Windows.Forms.ListBox();
+            this.btnReloadTickets = new System.Windows.Forms.Button();
             this.lblAssignedTickets = new System.Windows.Forms.Label();
             this.lblStatus = new System.Windows.Forms.Label();
             this.btnIssueResolved = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnReloadTickets = new System.Windows.Forms.Button();
+            this.btnEscalate = new System.Windows.Forms.Button();
             this.gbClientDetails.SuspendLayout();
             this.pnlTicketDisplay.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -301,6 +302,25 @@ namespace Group2_SEN381_Project
             this.lbAssignedTickets.TabIndex = 1;
             this.lbAssignedTickets.SelectedIndexChanged += new System.EventHandler(this.lbAssignedTickets_SelectedIndexChanged);
             // 
+            // btnReloadTickets
+            // 
+            this.btnReloadTickets.BackColor = System.Drawing.Color.Teal;
+            this.btnReloadTickets.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnReloadTickets.FlatAppearance.BorderSize = 0;
+            this.btnReloadTickets.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReloadTickets.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReloadTickets.ForeColor = System.Drawing.Color.White;
+            this.btnReloadTickets.Image = global::Group2_SEN381_Project.Properties.Resources.Refresh_White_16;
+            this.btnReloadTickets.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.btnReloadTickets.Location = new System.Drawing.Point(9, 496);
+            this.btnReloadTickets.Name = "btnReloadTickets";
+            this.btnReloadTickets.Size = new System.Drawing.Size(135, 25);
+            this.btnReloadTickets.TabIndex = 23;
+            this.btnReloadTickets.Text = "REFRESH";
+            this.btnReloadTickets.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnReloadTickets.UseVisualStyleBackColor = false;
+            this.btnReloadTickets.Click += new System.EventHandler(this.btnReloadTickets_Click);
+            // 
             // lblAssignedTickets
             // 
             this.lblAssignedTickets.Dock = System.Windows.Forms.DockStyle.Top;
@@ -344,6 +364,7 @@ namespace Group2_SEN381_Project
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panel1.Controls.Add(this.btnEscalate);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.btnIssueResolved);
             this.panel1.Controls.Add(this.lblStatus);
@@ -372,24 +393,20 @@ namespace Group2_SEN381_Project
             this.label4.TabIndex = 24;
             this.label4.Text = "label4";
             // 
-            // btnReloadTickets
+            // btnEscalate
             // 
-            this.btnReloadTickets.BackColor = System.Drawing.Color.Teal;
-            this.btnReloadTickets.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnReloadTickets.FlatAppearance.BorderSize = 0;
-            this.btnReloadTickets.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReloadTickets.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReloadTickets.ForeColor = System.Drawing.Color.White;
-            this.btnReloadTickets.Image = global::Group2_SEN381_Project.Properties.Resources.Refresh_White_16;
-            this.btnReloadTickets.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnReloadTickets.Location = new System.Drawing.Point(9, 496);
-            this.btnReloadTickets.Name = "btnReloadTickets";
-            this.btnReloadTickets.Size = new System.Drawing.Size(135, 25);
-            this.btnReloadTickets.TabIndex = 23;
-            this.btnReloadTickets.Text = "REFRESH";
-            this.btnReloadTickets.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnReloadTickets.UseVisualStyleBackColor = false;
-            this.btnReloadTickets.Click += new System.EventHandler(this.btnReloadTickets_Click);
+            this.btnEscalate.BackColor = System.Drawing.Color.Teal;
+            this.btnEscalate.FlatAppearance.BorderSize = 0;
+            this.btnEscalate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEscalate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEscalate.ForeColor = System.Drawing.Color.White;
+            this.btnEscalate.Location = new System.Drawing.Point(553, 90);
+            this.btnEscalate.Name = "btnEscalate";
+            this.btnEscalate.Size = new System.Drawing.Size(299, 25);
+            this.btnEscalate.TabIndex = 25;
+            this.btnEscalate.Text = "ESCALATE";
+            this.btnEscalate.UseVisualStyleBackColor = false;
+            this.btnEscalate.Click += new System.EventHandler(this.btnEscalate_Click);
             // 
             // TechnitionInterfaceForm
             // 
@@ -440,5 +457,6 @@ namespace Group2_SEN381_Project
         private System.Windows.Forms.Button btnReloadTickets;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnEscalate;
     }
 }

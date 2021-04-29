@@ -36,8 +36,11 @@
             this.btnLogin = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnClearUsername = new System.Windows.Forms.Button();
+            this.lblIncorrect = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnClearPassword = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -52,9 +55,10 @@
             this.txtUsername.MaxLength = 45;
             this.txtUsername.Multiline = true;
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(211, 20);
+            this.txtUsername.Size = new System.Drawing.Size(189, 20);
             this.txtUsername.TabIndex = 0;
             this.txtUsername.WordWrap = false;
+            this.txtUsername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Textbox_KeyDown);
             // 
             // txtPassword
             // 
@@ -66,9 +70,10 @@
             this.txtPassword.Multiline = true;
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(211, 20);
+            this.txtPassword.Size = new System.Drawing.Size(189, 20);
             this.txtPassword.TabIndex = 1;
             this.txtPassword.WordWrap = false;
+            this.txtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Textbox_KeyDown);
             // 
             // contextMenuStrip1
             // 
@@ -108,16 +113,44 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.btnClearPassword);
+            this.panel1.Controls.Add(this.btnClearUsername);
+            this.panel1.Controls.Add(this.lblIncorrect);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnLogin);
             this.panel1.Controls.Add(this.txtPassword);
             this.panel1.Controls.Add(this.txtUsername);
             this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel1.Location = new System.Drawing.Point(243, 76);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(434, 427);
             this.panel1.TabIndex = 8;
+            // 
+            // btnClearUsername
+            // 
+            this.btnClearUsername.BackColor = System.Drawing.Color.White;
+            this.btnClearUsername.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnClearUsername.FlatAppearance.BorderSize = 0;
+            this.btnClearUsername.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Control;
+            this.btnClearUsername.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnClearUsername.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClearUsername.Image = global::Group2_SEN381_Project.Properties.Resources.Exit_16;
+            this.btnClearUsername.Location = new System.Drawing.Point(296, 232);
+            this.btnClearUsername.Name = "btnClearUsername";
+            this.btnClearUsername.Size = new System.Drawing.Size(25, 20);
+            this.btnClearUsername.TabIndex = 11;
+            this.btnClearUsername.UseVisualStyleBackColor = false;
+            this.btnClearUsername.Click += new System.EventHandler(this.btnClearUsername_Click);
+            // 
+            // lblIncorrect
+            // 
+            this.lblIncorrect.Location = new System.Drawing.Point(108, 329);
+            this.lblIncorrect.Name = "lblIncorrect";
+            this.lblIncorrect.Size = new System.Drawing.Size(211, 20);
+            this.lblIncorrect.TabIndex = 10;
+            this.lblIncorrect.Text = "Incorrect Username or Password";
             // 
             // label2
             // 
@@ -141,6 +174,22 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "Username";
             // 
+            // btnClearPassword
+            // 
+            this.btnClearPassword.BackColor = System.Drawing.Color.White;
+            this.btnClearPassword.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnClearPassword.FlatAppearance.BorderSize = 0;
+            this.btnClearPassword.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Control;
+            this.btnClearPassword.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnClearPassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClearPassword.Image = global::Group2_SEN381_Project.Properties.Resources.Exit_16;
+            this.btnClearPassword.Location = new System.Drawing.Point(296, 306);
+            this.btnClearPassword.Name = "btnClearPassword";
+            this.btnClearPassword.Size = new System.Drawing.Size(25, 20);
+            this.btnClearPassword.TabIndex = 12;
+            this.btnClearPassword.UseVisualStyleBackColor = false;
+            this.btnClearPassword.Click += new System.EventHandler(this.btnClearPassword_Click);
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -151,6 +200,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "LoginForm";
             this.Text = "LoginForm";
+            this.Load += new System.EventHandler(this.LoginForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -168,5 +218,8 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblIncorrect;
+        private System.Windows.Forms.Button btnClearUsername;
+        private System.Windows.Forms.Button btnClearPassword;
     }
 }

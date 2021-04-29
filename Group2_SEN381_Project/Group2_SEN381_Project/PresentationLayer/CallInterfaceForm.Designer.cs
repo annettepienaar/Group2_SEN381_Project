@@ -30,8 +30,12 @@ namespace Group2_SEN381_Project
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtClientID = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnCreateClient = new System.Windows.Forms.Button();
@@ -52,18 +56,20 @@ namespace Group2_SEN381_Project
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.dgvAllTickets = new System.Windows.Forms.DataGridView();
             this.dgvAllCalls = new System.Windows.Forms.DataGridView();
             this.pBoxCustomerFound = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.dgvAllTickets = new System.Windows.Forms.DataGridView();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAllTickets)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllCalls)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxCustomerFound)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAllTickets)).BeginInit();
             this.SuspendLayout();
             // 
             // txtClientID
@@ -114,7 +120,7 @@ namespace Group2_SEN381_Project
             this.lblProblemDesc.AutoSize = true;
             this.lblProblemDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProblemDesc.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblProblemDesc.Location = new System.Drawing.Point(167, 99);
+            this.lblProblemDesc.Location = new System.Drawing.Point(165, 102);
             this.lblProblemDesc.Name = "lblProblemDesc";
             this.lblProblemDesc.Size = new System.Drawing.Size(143, 18);
             this.lblProblemDesc.TabIndex = 5;
@@ -125,7 +131,7 @@ namespace Group2_SEN381_Project
             this.lblUrgencyLevel.AutoSize = true;
             this.lblUrgencyLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUrgencyLevel.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblUrgencyLevel.Location = new System.Drawing.Point(511, 100);
+            this.lblUrgencyLevel.Location = new System.Drawing.Point(511, 219);
             this.lblUrgencyLevel.Name = "lblUrgencyLevel";
             this.lblUrgencyLevel.Size = new System.Drawing.Size(101, 18);
             this.lblUrgencyLevel.TabIndex = 6;
@@ -133,16 +139,13 @@ namespace Group2_SEN381_Project
             // 
             // rtxtProblemDesc
             // 
-            this.rtxtProblemDesc.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.rtxtProblemDesc.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtxtProblemDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtxtProblemDesc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.rtxtProblemDesc.Location = new System.Drawing.Point(170, 133);
+            this.rtxtProblemDesc.Location = new System.Drawing.Point(170, 123);
             this.rtxtProblemDesc.MaxLength = 150;
             this.rtxtProblemDesc.Name = "rtxtProblemDesc";
-            this.rtxtProblemDesc.Size = new System.Drawing.Size(684, 62);
+            this.rtxtProblemDesc.Size = new System.Drawing.Size(684, 89);
             this.rtxtProblemDesc.TabIndex = 8;
             this.rtxtProblemDesc.Text = "";
             // 
@@ -156,18 +159,17 @@ namespace Group2_SEN381_Project
             "Low",
             "Medium",
             "High"});
-            this.cboxUrgencyLevel.Location = new System.Drawing.Point(618, 100);
+            this.cboxUrgencyLevel.Location = new System.Drawing.Point(514, 240);
             this.cboxUrgencyLevel.Name = "cboxUrgencyLevel";
-            this.cboxUrgencyLevel.Size = new System.Drawing.Size(236, 26);
+            this.cboxUrgencyLevel.Size = new System.Drawing.Size(340, 26);
             this.cboxUrgencyLevel.TabIndex = 9;
             // 
             // lblProblemArea
             // 
-            this.lblProblemArea.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblProblemArea.AutoSize = true;
             this.lblProblemArea.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProblemArea.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblProblemArea.Location = new System.Drawing.Point(167, 205);
+            this.lblProblemArea.Location = new System.Drawing.Point(167, 219);
             this.lblProblemArea.Name = "lblProblemArea";
             this.lblProblemArea.Size = new System.Drawing.Size(98, 18);
             this.lblProblemArea.TabIndex = 10;
@@ -175,7 +177,6 @@ namespace Group2_SEN381_Project
             // 
             // cboxProblemArea
             // 
-            this.cboxProblemArea.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cboxProblemArea.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboxProblemArea.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboxProblemArea.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -184,9 +185,9 @@ namespace Group2_SEN381_Project
             "Electronics",
             "Mechanic",
             "Electrician"});
-            this.cboxProblemArea.Location = new System.Drawing.Point(268, 201);
+            this.cboxProblemArea.Location = new System.Drawing.Point(170, 240);
             this.cboxProblemArea.Name = "cboxProblemArea";
-            this.cboxProblemArea.Size = new System.Drawing.Size(141, 26);
+            this.cboxProblemArea.Size = new System.Drawing.Size(281, 26);
             this.cboxProblemArea.TabIndex = 11;
             // 
             // btnStartStop
@@ -216,7 +217,6 @@ namespace Group2_SEN381_Project
             this.lblStartTime.Name = "lblStartTime";
             this.lblStartTime.Size = new System.Drawing.Size(112, 20);
             this.lblStartTime.TabIndex = 1;
-            this.lblStartTime.Text = "Start Time";
             this.lblStartTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblDuration
@@ -229,7 +229,6 @@ namespace Group2_SEN381_Project
             this.lblDuration.Name = "lblDuration";
             this.lblDuration.Size = new System.Drawing.Size(113, 20);
             this.lblDuration.TabIndex = 2;
-            this.lblDuration.Text = "Duration";
             this.lblDuration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel1
@@ -251,9 +250,9 @@ namespace Group2_SEN381_Project
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.ForeColor = System.Drawing.Color.White;
-            this.btnClear.Location = new System.Drawing.Point(26, 266);
+            this.btnClear.Location = new System.Drawing.Point(12, 255);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(109, 25);
+            this.btnClear.Size = new System.Drawing.Size(132, 25);
             this.btnClear.TabIndex = 16;
             this.btnClear.Text = "CLEAR";
             this.btnClear.UseVisualStyleBackColor = false;
@@ -296,7 +295,6 @@ namespace Group2_SEN381_Project
             this.lblCallEnd.Name = "lblCallEnd";
             this.lblCallEnd.Size = new System.Drawing.Size(113, 20);
             this.lblCallEnd.TabIndex = 11;
-            this.lblCallEnd.Text = "End Time";
             this.lblCallEnd.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
@@ -329,6 +327,8 @@ namespace Group2_SEN381_Project
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panel3.Controls.Add(this.label7);
+            this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.dgvAllTickets);
             this.panel3.Controls.Add(this.dgvAllCalls);
             this.panel3.Controls.Add(this.pBoxCustomerFound);
@@ -349,6 +349,56 @@ namespace Group2_SEN381_Project
             this.panel3.Size = new System.Drawing.Size(871, 531);
             this.panel3.TabIndex = 12;
             // 
+            // dgvAllTickets
+            // 
+            this.dgvAllTickets.AllowUserToAddRows = false;
+            this.dgvAllTickets.AllowUserToDeleteRows = false;
+            this.dgvAllTickets.AllowUserToResizeColumns = false;
+            this.dgvAllTickets.AllowUserToResizeRows = false;
+            this.dgvAllTickets.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvAllTickets.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvAllTickets.BackgroundColor = System.Drawing.Color.White;
+            this.dgvAllTickets.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvAllTickets.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAllTickets.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.dgvAllTickets.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAllTickets.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dgvAllTickets.EnableHeadersVisualStyles = false;
+            this.dgvAllTickets.GridColor = System.Drawing.Color.White;
+            this.dgvAllTickets.Location = new System.Drawing.Point(170, 423);
+            this.dgvAllTickets.Name = "dgvAllTickets";
+            this.dgvAllTickets.ReadOnly = true;
+            this.dgvAllTickets.RowHeadersVisible = false;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle9.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAllTickets.RowsDefaultCellStyle = dataGridViewCellStyle9;
+            this.dgvAllTickets.RowTemplate.Height = 25;
+            this.dgvAllTickets.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.dgvAllTickets.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvAllTickets.Size = new System.Drawing.Size(684, 100);
+            this.dgvAllTickets.TabIndex = 16;
+            // 
             // dgvAllCalls
             // 
             this.dgvAllCalls.AllowUserToAddRows = false;
@@ -357,23 +407,47 @@ namespace Group2_SEN381_Project
             this.dgvAllCalls.AllowUserToResizeRows = false;
             this.dgvAllCalls.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvAllCalls.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dgvAllCalls.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvAllCalls.BackgroundColor = System.Drawing.Color.White;
             this.dgvAllCalls.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvAllCalls.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAllCalls.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvAllCalls.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvAllCalls.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvAllCalls.GridColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dgvAllCalls.Location = new System.Drawing.Point(190, 248);
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAllCalls.DefaultCellStyle = dataGridViewCellStyle11;
+            this.dgvAllCalls.EnableHeadersVisualStyles = false;
+            this.dgvAllCalls.GridColor = System.Drawing.Color.White;
+            this.dgvAllCalls.Location = new System.Drawing.Point(170, 299);
             this.dgvAllCalls.Name = "dgvAllCalls";
+            this.dgvAllCalls.ReadOnly = true;
+            this.dgvAllCalls.RowHeadersVisible = false;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle12.NullValue = " ";
+            dataGridViewCellStyle12.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAllCalls.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvAllCalls.RowTemplate.Height = 25;
             this.dgvAllCalls.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.dgvAllCalls.Size = new System.Drawing.Size(638, 124);
+            this.dgvAllCalls.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvAllCalls.Size = new System.Drawing.Size(684, 100);
             this.dgvAllCalls.TabIndex = 15;
             this.dgvAllCalls.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAllCalls_CellContentClick);
             // 
@@ -416,32 +490,29 @@ namespace Group2_SEN381_Project
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // dgvAllTickets
+            // label6
             // 
-            this.dgvAllTickets.AllowUserToAddRows = false;
-            this.dgvAllTickets.AllowUserToDeleteRows = false;
-            this.dgvAllTickets.AllowUserToResizeColumns = false;
-            this.dgvAllTickets.AllowUserToResizeRows = false;
-            this.dgvAllTickets.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvAllTickets.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.dgvAllTickets.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvAllTickets.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvAllTickets.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvAllTickets.GridColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dgvAllTickets.Location = new System.Drawing.Point(190, 396);
-            this.dgvAllTickets.Name = "dgvAllTickets";
-            this.dgvAllTickets.RowTemplate.Height = 25;
-            this.dgvAllTickets.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.dgvAllTickets.Size = new System.Drawing.Size(638, 114);
-            this.dgvAllTickets.TabIndex = 16;
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.label6.Location = new System.Drawing.Point(167, 278);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(62, 18);
+            this.label6.TabIndex = 17;
+            this.label6.Text = "Call Log";
+            // 
+            // label7
+            // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.label7.Location = new System.Drawing.Point(167, 402);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(77, 18);
+            this.label7.TabIndex = 18;
+            this.label7.Text = "Ticket Log";
             // 
             // CallInterfaceForm
             // 
@@ -460,9 +531,9 @@ namespace Group2_SEN381_Project
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAllTickets)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllCalls)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxCustomerFound)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAllTickets)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -494,5 +565,7 @@ namespace Group2_SEN381_Project
         private System.Windows.Forms.DataGridView dgvAllCalls;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.DataGridView dgvAllTickets;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
     }
 }

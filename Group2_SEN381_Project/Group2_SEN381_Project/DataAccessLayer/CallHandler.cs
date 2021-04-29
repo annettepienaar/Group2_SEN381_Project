@@ -24,5 +24,11 @@ namespace Group2_SEN381_Project.DataAccessLayer
 
             return ticketTable;
         }
+
+        public static void Call(string startTime, string endTime, string clientID, string empID)
+        {
+            DataAccess dataAccess = new DataAccess();
+            dataAccess.InsertCall(startTime, endTime, clientID, empID);
+        }
     }
 }
