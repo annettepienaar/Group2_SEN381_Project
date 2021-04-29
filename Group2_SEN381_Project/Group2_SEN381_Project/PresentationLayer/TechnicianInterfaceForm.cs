@@ -168,6 +168,8 @@ namespace Group2_SEN381_Project
             if (result == DialogResult.Yes)
             {
                 TicketHandler.EscalateTicket(lblProblemNumber.Text, txtProblemDescription.Text, lblUrgencyLevel.Text, openDate, closeDate, problemArea, lblClientID.Text, empID);
+
+                clearLabels();
             }
         }
     }
