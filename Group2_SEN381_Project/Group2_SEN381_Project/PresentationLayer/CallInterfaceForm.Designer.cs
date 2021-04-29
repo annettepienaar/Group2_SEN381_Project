@@ -30,6 +30,8 @@ namespace Group2_SEN381_Project
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtClientID = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnCreateClient = new System.Windows.Forms.Button();
@@ -55,11 +57,13 @@ namespace Group2_SEN381_Project
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.dgvAllTickets = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllCalls)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxCustomerFound)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAllTickets)).BeginInit();
             this.SuspendLayout();
             // 
             // txtClientID
@@ -138,7 +142,7 @@ namespace Group2_SEN381_Project
             this.rtxtProblemDesc.Location = new System.Drawing.Point(170, 133);
             this.rtxtProblemDesc.MaxLength = 150;
             this.rtxtProblemDesc.Name = "rtxtProblemDesc";
-            this.rtxtProblemDesc.Size = new System.Drawing.Size(684, 158);
+            this.rtxtProblemDesc.Size = new System.Drawing.Size(684, 62);
             this.rtxtProblemDesc.TabIndex = 8;
             this.rtxtProblemDesc.Text = "";
             // 
@@ -163,7 +167,7 @@ namespace Group2_SEN381_Project
             this.lblProblemArea.AutoSize = true;
             this.lblProblemArea.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProblemArea.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblProblemArea.Location = new System.Drawing.Point(169, 301);
+            this.lblProblemArea.Location = new System.Drawing.Point(167, 205);
             this.lblProblemArea.Name = "lblProblemArea";
             this.lblProblemArea.Size = new System.Drawing.Size(98, 18);
             this.lblProblemArea.TabIndex = 10;
@@ -180,7 +184,7 @@ namespace Group2_SEN381_Project
             "Electronics",
             "Mechanic",
             "Electrician"});
-            this.cboxProblemArea.Location = new System.Drawing.Point(270, 297);
+            this.cboxProblemArea.Location = new System.Drawing.Point(268, 201);
             this.cboxProblemArea.Name = "cboxProblemArea";
             this.cboxProblemArea.Size = new System.Drawing.Size(141, 26);
             this.cboxProblemArea.TabIndex = 11;
@@ -325,6 +329,7 @@ namespace Group2_SEN381_Project
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panel3.Controls.Add(this.dgvAllTickets);
             this.panel3.Controls.Add(this.dgvAllCalls);
             this.panel3.Controls.Add(this.pBoxCustomerFound);
             this.panel3.Controls.Add(this.label5);
@@ -346,11 +351,31 @@ namespace Group2_SEN381_Project
             // 
             // dgvAllCalls
             // 
+            this.dgvAllCalls.AllowUserToAddRows = false;
+            this.dgvAllCalls.AllowUserToDeleteRows = false;
+            this.dgvAllCalls.AllowUserToResizeColumns = false;
+            this.dgvAllCalls.AllowUserToResizeRows = false;
+            this.dgvAllCalls.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvAllCalls.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dgvAllCalls.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvAllCalls.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAllCalls.Location = new System.Drawing.Point(297, 385);
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAllCalls.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvAllCalls.GridColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.dgvAllCalls.Location = new System.Drawing.Point(190, 248);
             this.dgvAllCalls.Name = "dgvAllCalls";
-            this.dgvAllCalls.Size = new System.Drawing.Size(444, 138);
+            this.dgvAllCalls.RowTemplate.Height = 25;
+            this.dgvAllCalls.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.dgvAllCalls.Size = new System.Drawing.Size(638, 124);
             this.dgvAllCalls.TabIndex = 15;
+            this.dgvAllCalls.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAllCalls_CellContentClick);
             // 
             // pBoxCustomerFound
             // 
@@ -391,6 +416,33 @@ namespace Group2_SEN381_Project
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // dgvAllTickets
+            // 
+            this.dgvAllTickets.AllowUserToAddRows = false;
+            this.dgvAllTickets.AllowUserToDeleteRows = false;
+            this.dgvAllTickets.AllowUserToResizeColumns = false;
+            this.dgvAllTickets.AllowUserToResizeRows = false;
+            this.dgvAllTickets.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvAllTickets.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dgvAllTickets.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvAllTickets.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAllTickets.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvAllTickets.GridColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.dgvAllTickets.Location = new System.Drawing.Point(190, 396);
+            this.dgvAllTickets.Name = "dgvAllTickets";
+            this.dgvAllTickets.RowTemplate.Height = 25;
+            this.dgvAllTickets.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.dgvAllTickets.Size = new System.Drawing.Size(638, 114);
+            this.dgvAllTickets.TabIndex = 16;
+            // 
             // CallInterfaceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -410,6 +462,7 @@ namespace Group2_SEN381_Project
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllCalls)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxCustomerFound)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAllTickets)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -440,5 +493,6 @@ namespace Group2_SEN381_Project
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.DataGridView dgvAllCalls;
         private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.DataGridView dgvAllTickets;
     }
 }

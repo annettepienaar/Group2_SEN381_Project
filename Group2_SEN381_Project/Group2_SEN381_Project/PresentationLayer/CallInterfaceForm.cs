@@ -18,13 +18,14 @@ namespace Group2_SEN381_Project
         //Equals null at end of testing phase
         //This is the employee that logs in
         public string callInterfaceID = "C001";
-        BindingSource source;
+        BindingSource sourceC, sourceT;
 
         public CallInterfaceForm(CallCentreEmployee callCentreEmployee)
         {
             InitializeComponent();
 
-            source = new BindingSource();
+            sourceC = new BindingSource();
+            sourceT = new BindingSource();
         }
 
         #region Clock button
@@ -112,8 +113,12 @@ namespace Group2_SEN381_Project
             if (clientFound)
             {
                 pBoxCustomerFound.Image = Properties.Resources.checkmark_yes_16;
-                source.DataSource = CallHandler.GetCall(txtClientID.Text);
-                dgvAllCalls.DataSource = source;
+
+                sourceC.DataSource = CallHandler.GetCall(txtClientID.Text);
+                sourceT.DataSource = CallHandler.GetTickets(txtClientID.Text);
+
+                dgvAllCalls.DataSource = sourceC;
+                dgvAllTickets.DataSource = sourceT;
             }
             else
             {
@@ -187,6 +192,11 @@ namespace Group2_SEN381_Project
             lblCallEnd.Text = String.Empty;
             lblDuration.Text = String.Empty;
             pBoxCustomerFound.Image = Properties.Resources.circle_16;
+        }
+
+        private void dgvAllCalls_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
         #endregion
 

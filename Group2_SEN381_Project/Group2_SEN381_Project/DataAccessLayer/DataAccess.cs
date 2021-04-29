@@ -139,9 +139,36 @@ namespace Group2_SEN381_Project.DataAccessLayer
             return tblEntries;
         }
 
-        public DataTable GetCalls(string clientID)
+        public DataTable GetClientTickets(string clientID)
         {
-            string select = $@"SELECT Call_ID AS 'Call ID', Start_Time AS 'Start Time', End_Time AS 'End Time', Emp_ID AS 'Employee ID' FROM [Call] WHERE Client_ID = '{clientID}'";
+            string select = $@"SELECT Ticket.Open_Date AS 'Open Date', Ticket.Close_Date AS 'Close Date', Ticket.Ticket_ID AS 'ID', CONCAT(Employee.Emp_Name, ' ', Employee.Emp_Surname) AS 'Employee', Ticket.Problem_Area AS 'Problem Area', Ticket.Ticket_State AS 'State'
+                            FROM Employee
+                            JOIN Ticket
+                            ON Employee.Emp_ID = Ticket.Call_Center_ID
+                            WHERE Ticket.Client_ID = '{clientID}'";
+
+            DataTable tblEntries = new DataTable();
+
+            try
+            {
+                dataAdapter = new SqlDataAdapter(select, connection);
+                dataAdapter.Fill(tblEntries);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error has occoured", ex.Message);
+            }
+
+            return tblEntries;
+        }
+
+        public DataTable GetClientCalls(string clientID)
+        {
+            string select = $@"SELECT [Call].Call_ID AS 'Call ID', [Call].Start_Time AS 'Start Time', [Call].End_Time AS 'End Time', CONCAT(Employee.Emp_Name, ' ', Employee.Emp_Surname) AS 'Employee'
+                            FROM Employee
+                            JOIN [Call]
+                            ON Employee.Emp_ID = [Call].Emp_ID
+                            WHERE [Call].Client_ID = '{clientID}'";
 
             DataTable tblEntries = new DataTable();
 
