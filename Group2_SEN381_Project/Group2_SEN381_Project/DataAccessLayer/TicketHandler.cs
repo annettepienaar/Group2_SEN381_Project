@@ -10,13 +10,16 @@ namespace Group2_SEN381_Project.DataAccessLayer
 {
     public static class TicketHandler
     {
-
-
+        public static void TicketCreation(string desc, string level, string state, string openDate, string closeDate, string problemArea, string clientID, string empID)
+        {
+            DataAccess dataAccess = new DataAccess();
+            dataAccess.InsertCreationTicket(desc, level, state, openDate, closeDate, problemArea, clientID, empID);
+        }
         //adds a ticket to the database
         //public static void Add(Ticket obj)
         //{
         //    DataAccess access = new DataAccess();
-        //    Ticket ticket = AssignTechnicians(obj);                                                                                                                            //Remove TechnicianID
+        //    Ticket ticket = AssignTechnicians(obj);
         //    access.InsertTicket(ticket.TicketDesc, ticket.TicketLevel, ticket.TicketState, ticket.TicketOpenDate, ticket.TicketCloseDate, ticket.ProblemArea, ticket.ClientID, ticket.TechnitionID, ticket.CallCenterEmpID);
 
         //}
@@ -34,25 +37,22 @@ namespace Group2_SEN381_Project.DataAccessLayer
 
         //    Dictionary<string, int> technicianOpenTickets = new Dictionary<string, int>();
 
-        //    foreach (DataRow dr in data.Rows)
-        //    {
-        //        System.Windows.Forms.MessageBox.Show($"{dr[0].ToString()} {int.Parse(dr[1].ToString())}");
-        //        technicianOpenTickets.Add(dr[0].ToString(), int.Parse(dr[1].ToString()));
-        //    }
-        //    foreach (KeyValuePair<string,int> item in technicianOpenTickets)
-        //    {
-        //        //System.Windows.Forms.MessageBox.Show($"{item.Key} {item.Value}");
-        //        if (item.Value < min)
-        //        {
-        //            min = item.Value;
-        //            techID = item.Key;
-        //        }
-        //    }
+            foreach (DataRow dr in data.Rows)
+            {
+                technicianOpenTickets.Add(dr["Emp_ID"].ToString(), int.Parse(dr["Total_Open_Tickets"].ToString()));
+            }
+            foreach (KeyValuePair<string, int> item in technicianOpenTickets)
+            {
+                if (item.Value < min)
+                {
+                    min = item.Value;
+                    techID = item.Key;
+                }
+            }
 
-        //    obj.TechnitionID = techID;
-        //    //System.Windows.Forms.MessageBox.Show(obj.TechnitionID);
+            obj.TechnitionID = techID;
 
-        //    return obj;
+            return obj;
 
         //}
         //returns a list of specializations for technician objects
@@ -71,17 +71,17 @@ namespace Group2_SEN381_Project.DataAccessLayer
         //}
 
         //Returns a specific ticket based on a ticket-ID
-     //   public static Ticket GetTicket(string ticketID)
-	    //{
-     //       DataAccess dataAccess = new DataAccess();
-     //       DataTable dataTable = new DataTable();
+        public static Ticket GetTicket(string ticketID)
+        {
+            DataAccess dataAccess = new DataAccess();
+            DataTable dataTable = new DataTable();
 
      //       dataTable = dataAccess.SearchTicket(ticketID);
      //       DataRow row = dataTable.Rows[0];
 
-            
-     //       return new Ticket(row[0].ToString(),row[1].ToString(), row[2].ToString(), row[6].ToString(), row[7].ToString(), row[8].ToString(), row[3].ToString(), row[4].ToString(), row[5].ToString(), row[6].ToString());
-     //   }
+
+            return new Ticket(row[0].ToString(), row[1].ToString(), row[2].ToString(), row[6].ToString(), row[7].ToString(), row[8].ToString(), row[3].ToString(), row[4].ToString(), row[5].ToString(), row[6].ToString());
+        }
 
         //Gets list of open tickets for specific Technician
         //public static List<Ticket> GetTechOpenTickets(string empID)
@@ -90,10 +90,10 @@ namespace Group2_SEN381_Project.DataAccessLayer
         //    DataAccess access = new DataAccess();
         //    DataTable data = access.GetTechOpenTicket(empID);
 
-        //    foreach(DataRow dr in data.Rows)
-        //    {
-        //        tickets.Add(new Ticket(dr["Ticket_ID"].ToString(), dr["Ticket_Description"].ToString(), dr["Ticket_Level"].ToString(), dr["Ticket_State"].ToString(),dr["Open_Date"].ToString(), dr["Close_Date"].ToString(), dr["Problem_Area"].ToString(), dr["Client_ID"].ToString(), dr["Technician_ID"].ToString(), dr["Call_Center_ID"].ToString()));
-        //    }
+            foreach (DataRow dr in data.Rows)
+            {
+                tickets.Add(new Ticket(dr["Ticket_ID"].ToString(), dr["Ticket_Description"].ToString(), dr["Ticket_Level"].ToString(), dr["Ticket_State"].ToString(), dr["Open_Date"].ToString(), dr["Close_Date"].ToString(), dr["Problem_Area"].ToString(), dr["Client_ID"].ToString(), dr["Technician_ID"].ToString(), dr["Call_Center_ID"].ToString()));
+            }
 
         //    return tickets;
         //}
