@@ -18,10 +18,18 @@ namespace Group2_SEN381_Project.PresentationLayer
         public LoginForm(ChildFormHandler childFormHandler)
         {
             InitializeComponent();
-            EnableDoubleBuffering();
             this.childFormHandler = childFormHandler;
-        }       
-        
+        }
+
+        #region Form Loading Changes
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+            EnableDoubleBuffering();
+            //Hide the incorrect username or password on start
+            lblIncorrect.Visible = false;
+        }
+        //Enabling double buffering helps to make the screen less flickery
         public void EnableDoubleBuffering()
         {
             this.SetStyle(ControlStyles.DoubleBuffer |
@@ -31,39 +39,73 @@ namespace Group2_SEN381_Project.PresentationLayer
             this.UpdateStyles();
         }
 
+        #endregion
+
+        #region Login Function
+
+        //Execute the login function for a enter key press and clicking the button
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            Employee empObject = EmployeeHandler.GetEmployee(txtUsername.Text);
+            Login();
+        }
 
-            if (empObject != null)
+        private void Textbox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
             {
-                if (txtPassword.Text.Equals(empObject.Password))
+                Login();
+            }
+        }
+
+        private void Login()
+        {
+            //Search for they employees who match the text in the username textbox
+            Employee empObject = EmployeeHandler.GetEmployee(txtUsername.Text.Trim());
+
+            //Hide the incorrect username or password on start
+            lblIncorrect.Visible = false;
+
+            //If the object found and its password match then open the form and change userDisplay
+            if (empObject != null && txtPassword.Text.Trim().Equals(empObject.Password))
+            {
+                if (empObject is CallCentreEmployee)
                 {
-                    if (empObject is CallCentreEmployee)
-                    {
-                        //Change to form
-                        childFormHandler.OpenChildForm(new CallInterfaceForm((CallCentreEmployee)empObject));
-                        childFormHandler.ChangeUserDisplay(empObject.Name + " " + empObject.Surname);
-                    }
-                    else if (empObject is TechnicianEmployee)
-                    {
-                        childFormHandler.OpenChildForm(new TechnitionInterfaceForm((TechnicianEmployee)empObject));
-                        childFormHandler.ChangeUserDisplay(empObject.Name + " " + empObject.Surname);
-                        //Change to form
-                    }
-                    else if (empObject is SatisfactionEmployee)
-                    {
-                        childFormHandler.OpenChildForm(new ServiceMetricsForm((SatisfactionEmployee)empObject));
-                        childFormHandler.ChangeUserDisplay(empObject.Name + " " + empObject.Surname);
-                        //Change to form
-                    }
+                    //Change to form
+                    childFormHandler.OpenChildForm(new CallInterfaceForm((CallCentreEmployee)empObject));
+                    childFormHandler.ChangeUserDisplay(empObject.Name + " " + empObject.Surname);
                 }
-                else
+                else if (empObject is TechnicianEmployee)
                 {
-                    txtUsername.Text = String.Empty;
-                    txtPassword.Text = String.Empty;
+                    childFormHandler.OpenChildForm(new TechnitionInterfaceForm((TechnicianEmployee)empObject));
+                    childFormHandler.ChangeUserDisplay(empObject.Name + " " + empObject.Surname);
+                    //Change to form
+                }
+                else if (empObject is SatisfactionEmployee)
+                {
+                    childFormHandler.OpenChildForm(new ServiceMetricsForm((SatisfactionEmployee)empObject));
+                    childFormHandler.ChangeUserDisplay(empObject.Name + " " + empObject.Surname);
+                    //Change to form
                 }
             }
+            else
+            {
+                //Clear the incorrect password if the username and password didnt match
+                txtPassword.Text = null;
+                //Show that either the username or the password where incorrect
+                lblIncorrect.Visible = true;
+            }
+        }
+
+        #endregion
+
+        private void btnClearUsername_Click(object sender, EventArgs e)
+        {
+            txtUsername.Text = null;
+        }
+
+        private void btnClearPassword_Click(object sender, EventArgs e)
+        {
+            txtPassword.Text = null;
         }
     }
 }
