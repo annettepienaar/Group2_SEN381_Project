@@ -21,7 +21,7 @@ namespace Group2_SEN381_Project.PresentationLayer
 			InitializeComponent();
 			spList = ServicePackageHandler.GetAllSP();
 			lbServicePackages.DataSource = spList;
-		}
+        }
 
 		private void btnAddServicePackage_Click(object sender, EventArgs e)
 		{
@@ -43,26 +43,28 @@ namespace Group2_SEN381_Project.PresentationLayer
 			}
 		}
 
-		private void lbServicePackages_SelectedIndexChanged(object sender, EventArgs e)
-		{
-			int index = lbServicePackages.SelectedIndex;
-			if (index == -1)
-			{
-				MessageBox.Show("Service Package not found.");
-			}
-			else
-			{
-				ServicePackage selectedSP = spList[index];
-				lblPackageName.Text = selectedSP.SPName;
-				txtReleaseDate.Text = selectedSP.SPReleaseDate;
-				txtCloseDate.Text = selectedSP.SPCloseDate;
-				txtDescription.Text = selectedSP.SPDesc;
-			}
+        private void lbServicePackages_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = lbServicePackages.SelectedIndex;
+            if (index == -1)
+            {
+                MessageBox.Show("Service Package not found.");
+            }
+            else
+            {
+                ServicePackage selectedSP = spList[index];
+                lblPackageName.Text = selectedSP.SPName;
+                txtReleaseDate.Text = selectedSP.SPReleaseDate;
+                txtCloseDate.Text = selectedSP.SPCloseDate;
+                txtDescription.Text = selectedSP.SPDesc;
+            }
+        }
 
-			// TO DO:
-			// Display Service Package subcriber-count
-			// Display Performance metrics
-		}
 
-	}
+        //	// TO DO:
+        //	// Display Service Package subcriber-count
+        //	// Display Performance metrics
+        //}
+
+    }
 }

@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblPerformanceAmount = new System.Windows.Forms.Label();
-            this.lblperformanceTitle = new System.Windows.Forms.Label();
             this.lblSubcriberAmount = new System.Windows.Forms.Label();
             this.lblSubcriberAmountTitle = new System.Windows.Forms.Label();
             this.txtDescription = new System.Windows.Forms.TextBox();
@@ -50,27 +48,6 @@
             this.pnlTicketDisplay.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // lblPerformanceAmount
-            // 
-            this.lblPerformanceAmount.BackColor = System.Drawing.Color.White;
-            this.lblPerformanceAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPerformanceAmount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblPerformanceAmount.Location = new System.Drawing.Point(172, 492);
-            this.lblPerformanceAmount.Name = "lblPerformanceAmount";
-            this.lblPerformanceAmount.Size = new System.Drawing.Size(296, 25);
-            this.lblPerformanceAmount.TabIndex = 42;
-            this.lblPerformanceAmount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblperformanceTitle
-            // 
-            this.lblperformanceTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblperformanceTitle.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblperformanceTitle.Location = new System.Drawing.Point(172, 466);
-            this.lblperformanceTitle.Name = "lblperformanceTitle";
-            this.lblperformanceTitle.Size = new System.Drawing.Size(101, 20);
-            this.lblperformanceTitle.TabIndex = 41;
-            this.lblperformanceTitle.Text = "Performance:";
             // 
             // lblSubcriberAmount
             // 
@@ -217,12 +194,15 @@
             // lbServicePackages
             // 
             this.lbServicePackages.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.lbServicePackages.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbServicePackages.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lbServicePackages.FormattingEnabled = true;
+            this.lbServicePackages.ItemHeight = 12;
             this.lbServicePackages.Location = new System.Drawing.Point(7, 57);
             this.lbServicePackages.Name = "lbServicePackages";
-            this.lbServicePackages.Size = new System.Drawing.Size(138, 420);
+            this.lbServicePackages.Size = new System.Drawing.Size(138, 412);
             this.lbServicePackages.TabIndex = 1;
+            this.lbServicePackages.SelectedIndexChanged += new System.EventHandler(this.lbServicePackages_SelectedIndexChanged);
             // 
             // lblServicePackagesTitle
             // 
@@ -241,8 +221,6 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.lblPerformanceAmount);
-            this.panel1.Controls.Add(this.lblperformanceTitle);
             this.panel1.Controls.Add(this.lblSubcriberAmount);
             this.panel1.Controls.Add(this.lblSubcriberAmountTitle);
             this.panel1.Controls.Add(this.txtDescription);
@@ -288,9 +266,6 @@
         }
 
 		#endregion
-
-		private System.Windows.Forms.Label lblPerformanceAmount;
-		private System.Windows.Forms.Label lblperformanceTitle;
 		private System.Windows.Forms.Label lblSubcriberAmount;
 		private System.Windows.Forms.Label lblSubcriberAmountTitle;
 		private System.Windows.Forms.TextBox txtDescription;
