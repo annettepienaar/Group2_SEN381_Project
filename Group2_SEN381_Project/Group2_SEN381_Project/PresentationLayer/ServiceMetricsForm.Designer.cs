@@ -95,6 +95,7 @@
             // 
             // txtDescription
             // 
+            this.txtDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtDescription.Location = new System.Drawing.Point(172, 164);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
@@ -118,6 +119,7 @@
             // 
             // txtCloseDate
             // 
+            this.txtCloseDate.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCloseDate.Location = new System.Drawing.Point(559, 94);
             this.txtCloseDate.Multiline = true;
             this.txtCloseDate.Name = "txtCloseDate";
@@ -136,6 +138,7 @@
             // 
             // txtReleaseDate
             // 
+            this.txtReleaseDate.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtReleaseDate.Location = new System.Drawing.Point(172, 94);
             this.txtReleaseDate.Multiline = true;
             this.txtReleaseDate.Name = "txtReleaseDate";
@@ -171,7 +174,6 @@
             this.lblPackageName.Name = "lblPackageName";
             this.lblPackageName.Size = new System.Drawing.Size(296, 25);
             this.lblPackageName.TabIndex = 31;
-            this.lblPackageName.Text = "PACKAGE";
             this.lblPackageName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblPackageNameTitle
@@ -210,6 +212,7 @@
             this.btnAddServicePackage.TabIndex = 2;
             this.btnAddServicePackage.Text = "ADD PACKAGE";
             this.btnAddServicePackage.UseVisualStyleBackColor = false;
+            this.btnAddServicePackage.Click += new System.EventHandler(this.btnAddServicePackage_Click);
             // 
             // lbServicePackages
             // 

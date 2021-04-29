@@ -23,6 +23,8 @@ namespace Group2_SEN381_Project.DataAccessLayer
             connection = new SqlConnection(connString);
         }
 
+        //Gets for all, technician, specialization, technician specializations, active tickets, open tickets, employee, call
+        #region Get  Methods
         public DataTable GetTable(string tblName)
         {
             DataTable tblEntries = new DataTable();
@@ -142,6 +144,28 @@ namespace Group2_SEN381_Project.DataAccessLayer
             return tblEntries;
         }
 
+        public DataTable GetCalls(string clientID)
+        {
+            string select = $@"SELECT Call_ID AS 'Call ID', Start_Time AS 'Start Time', End_Time AS 'End Time', Emp_ID AS 'Employee ID' FROM [Call] WHERE Client_ID = '{clientID}'";
+
+            DataTable tblEntries = new DataTable();
+
+            try
+            {
+                dataAdapter = new SqlDataAdapter(select, connection);
+                dataAdapter.Fill(tblEntries);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error has occoured", ex.Message);
+            }
+
+            return tblEntries;
+        }
+        #endregion
+
+        //Search for client, client id, ticker, service package
+        #region Search Methods
         //Client search
         public DataTable SearchClient(string id)
         {
@@ -214,6 +238,8 @@ namespace Group2_SEN381_Project.DataAccessLayer
             }
             return dataTable;
         }
+
+        #endregion
 
         //inserts for employee, client, calls, tickets, service packages
         #region Insert Into Database
