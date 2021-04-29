@@ -18,13 +18,14 @@ namespace Group2_SEN381_Project
         //Equals null at end of testing phase
         //This is the employee that logs in
         public string callInterfaceID = "C001";
-        BindingSource source;
+        BindingSource sourceC, sourceT;
 
         public CallInterfaceForm(CallCentreEmployee callCentreEmployee)
         {
             InitializeComponent();
 
-            source = new BindingSource();
+            sourceC = new BindingSource();
+            sourceT = new BindingSource();
         }
 
         #region Clock button
@@ -33,14 +34,15 @@ namespace Group2_SEN381_Project
         private void btnStartStop_Click(object sender, EventArgs e)
         {
             if (clockRunning)
-            {                
-
+            {
                 timer1.Stop();
                 
                 DialogResult dialog = MessageBox.Show("End Call and Submit Ticket?", "End Call", MessageBoxButtons.YesNoCancel);
                 switch (dialog)
                 {
                     case DialogResult.Cancel:
+                        btnClear.Enabled = false;
+
                         timer1.Start();
                         break;
                     case DialogResult.Yes:
@@ -49,6 +51,8 @@ namespace Group2_SEN381_Project
                         btnStartStop.FlatAppearance.MouseOverBackColor = Color.FromArgb(34, 200, 76);
                         btnStartStop.Text = "START CALL";
                         lblCallEnd.Text = DateTime.Now.ToString("hh:mm:ss");
+
+                        btnClear.Enabled = true;
 
                         //TODO
                         //Send Data to the DB
@@ -62,13 +66,13 @@ namespace Group2_SEN381_Project
                         btnStartStop.Text = "START CALL";
                         lblCallEnd.Text = DateTime.Now.ToString("hh:mm:ss");
 
+                        btnClear.Enabled = true;
+
                         //Just end Call, don't send data to DB
                         break;
                     default:
                         break;
                 }
-
-                
             }
             else
             {
@@ -81,6 +85,8 @@ namespace Group2_SEN381_Project
                 timer1.Start();
                 lblCallEnd.Text = null;
                 lblStartTime.Text = DateTime.Now.ToString("hh:mm:ss");
+
+                btnClear.Enabled = false;
             }
         }
 
@@ -107,8 +113,12 @@ namespace Group2_SEN381_Project
             if (clientFound)
             {
                 pBoxCustomerFound.Image = Properties.Resources.checkmark_yes_16;
-                source.DataSource = CallHandler.GetCall(txtClientID.Text);
-                dgvAllCalls.DataSource = source;
+
+                sourceC.DataSource = CallHandler.GetCall(txtClientID.Text);
+                sourceT.DataSource = CallHandler.GetTickets(txtClientID.Text);
+
+                dgvAllCalls.DataSource = sourceC;
+                dgvAllTickets.DataSource = sourceT;
             }
             else
             {
@@ -122,13 +132,12 @@ namespace Group2_SEN381_Project
         public static int flag = 0;
         private void btnCreateClient_Click(object sender, EventArgs e)
         {
-            Form form = new ClientForm();
+            Form form = new ClientForm(txtClientID);
             flag++;
             form.Show();
 
             //Disables button after click
             btnCreateClient.Enabled = false;
-            
         }
 
 
@@ -166,6 +175,30 @@ namespace Group2_SEN381_Project
             TicketHandler.Add(ticket);
         }
 
+        private void CallInterfaceForm_Load(object sender, EventArgs e)
+        {
+            //txtClientID.Text = ClientForm.clientID;
+        }
+
+        #region Clear Button
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtClientID.Text = String.Empty;
+            cboxUrgencyLevel.SelectedItem = null;
+            cboxProblemArea.SelectedItem = null;
+            rtxtProblemDesc.Text = String.Empty;
+            dgvAllCalls.DataSource = null;
+            lblStartTime.Text = String.Empty;
+            lblCallEnd.Text = String.Empty;
+            lblDuration.Text = String.Empty;
+            pBoxCustomerFound.Image = Properties.Resources.circle_16;
+        }
+
+        private void dgvAllCalls_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+        #endregion
 
         //DateTime callStart;
         //DateTime callEnd;

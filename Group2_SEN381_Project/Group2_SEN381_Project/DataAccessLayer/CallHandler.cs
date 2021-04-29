@@ -12,9 +12,17 @@ namespace Group2_SEN381_Project.DataAccessLayer
         public static DataTable GetCall(string clientID)
         {
             DataAccess dataAccess = new DataAccess();
-            DataTable callTable = dataAccess.GetCalls(clientID);
+            DataTable callTable = dataAccess.GetClientCalls(clientID);
 
             return callTable;
+        }
+
+        public static DataTable GetTickets(string clientID)
+        {
+            DataAccess dataAccess = new DataAccess();
+            DataTable ticketTable = dataAccess.GetClientTickets(clientID);
+
+            return ticketTable;
         }
     }
 }
