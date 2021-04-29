@@ -49,16 +49,16 @@ namespace Group2_SEN381_Project
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.dgvAllCalls = new System.Windows.Forms.DataGridView();
             this.pBoxCustomerFound = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.dgvAllCalls = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pBoxCustomerFound)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllCalls)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pBoxCustomerFound)).BeginInit();
             this.SuspendLayout();
             // 
             // txtClientID
@@ -327,6 +327,14 @@ namespace Group2_SEN381_Project
             this.panel3.Size = new System.Drawing.Size(871, 531);
             this.panel3.TabIndex = 12;
             // 
+            // dgvAllCalls
+            // 
+            this.dgvAllCalls.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAllCalls.Location = new System.Drawing.Point(297, 385);
+            this.dgvAllCalls.Name = "dgvAllCalls";
+            this.dgvAllCalls.Size = new System.Drawing.Size(444, 138);
+            this.dgvAllCalls.TabIndex = 15;
+            // 
             // pBoxCustomerFound
             // 
             this.pBoxCustomerFound.BackColor = System.Drawing.Color.White;
@@ -366,14 +374,6 @@ namespace Group2_SEN381_Project
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // dgvAllCalls
-            // 
-            this.dgvAllCalls.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAllCalls.Location = new System.Drawing.Point(247, 385);
-            this.dgvAllCalls.Name = "dgvAllCalls";
-            this.dgvAllCalls.Size = new System.Drawing.Size(544, 138);
-            this.dgvAllCalls.TabIndex = 15;
-            // 
             // CallInterfaceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -390,8 +390,8 @@ namespace Group2_SEN381_Project
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pBoxCustomerFound)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllCalls)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pBoxCustomerFound)).EndInit();
             this.ResumeLayout(false);
 
         }

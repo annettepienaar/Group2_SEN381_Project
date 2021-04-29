@@ -26,16 +26,20 @@ namespace Group2_SEN381_Project.DataAccessLayer
             int min = int.MaxValue;
             string techID = "";
             DataAccess access = new DataAccess();
-            DataTable data = access.GetActiveTickets(problemArea);
+            DataTable data = new DataTable();
+            data = access.GetActiveTickets(problemArea);
+            System.Windows.Forms.MessageBox.Show(data.Rows[0].ToString());
 
             Dictionary<string, int> technicianOpenTickets = new Dictionary<string, int>();
 
             foreach (DataRow dr in data.Rows)
             {
-                technicianOpenTickets.Add(dr["Emp_ID"].ToString(), int.Parse(dr["Total_Open_Tickets"].ToString()));
+                System.Windows.Forms.MessageBox.Show($"{dr[0].ToString()} {int.Parse(dr[1].ToString())}");
+                technicianOpenTickets.Add(dr[0].ToString(), int.Parse(dr[1].ToString()));
             }
             foreach (KeyValuePair<string,int> item in technicianOpenTickets)
             {
+                //System.Windows.Forms.MessageBox.Show($"{item.Key} {item.Value}");
                 if (item.Value < min)
                 {
                     min = item.Value;
@@ -44,7 +48,8 @@ namespace Group2_SEN381_Project.DataAccessLayer
             }
 
             obj.TechnitionID = techID;
-            
+            //System.Windows.Forms.MessageBox.Show(obj.TechnitionID);
+
             return obj;
 
         }

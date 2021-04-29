@@ -36,7 +36,7 @@ namespace Group2_SEN381_Project.DataAccessLayer
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error has occoured", ex.Message);
+                MessageBox.Show(ex.Message, "An error has occoured");
             }
             return tblEntries;
         }
@@ -52,7 +52,7 @@ namespace Group2_SEN381_Project.DataAccessLayer
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error has occoured", ex.Message);
+                MessageBox.Show(ex.Message, "An error has occoured");
             }
             return tblEntries;
         }
@@ -69,7 +69,7 @@ namespace Group2_SEN381_Project.DataAccessLayer
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error has occoured", ex.Message);
+                MessageBox.Show(ex.Message, "An error has occoured");
             }
             return tblEntries;
         }
@@ -77,29 +77,34 @@ namespace Group2_SEN381_Project.DataAccessLayer
         public DataTable GetActiveTickets(string problemArea)
         {
             DataTable tblEntries = new DataTable();
-            string select = "SELECT E.Emp_ID, ISNULL(E.All_Tickets,0) - ISNULL(A.Closed_Tickets,0) AS Total_Open_Tickets" +
-                "FROM(SELECT E.Emp_ID, COUNT(*) AS All_Tickets" +
-                    "FROM Employee E" +
-                    "INNER JOIN Employee_Specialization ES ON E.Emp_ID = ES.Emp_ID" +
-                    "INNER JOIN Specialization S ON S.Spec_ID = ES.Spec_ID" +
-                    "INNER JOIN Ticket T ON E.Emp_ID = T.Technician_ID" +
-                    $"WHERE S.Spec_Name = '{problemArea}'" +
-                    "GROUP BY E.Emp_ID) AS E" +
-                "LEFT JOIN(SELECT E.Emp_ID, COUNT(*) AS Closed_Tickets" +
-                    "FROM Employee E" +
-                    "INNER JOIN Employee_Specialization ES ON E.Emp_ID = ES.Emp_ID" +
-                    "INNER JOIN Specialization S ON S.Spec_ID = ES.Spec_ID" +
-                    "INNER JOIN Ticket T ON E.Emp_ID = T.Technician_ID" +
-                    $"WHERE S.Spec_Name = '{problemArea}' AND T.Close_Date != '1900-01-01'" +
-                    "GROUP BY E.Emp_ID) AS A ON A.Emp_ID = E.Emp_ID";
+            string select = "SELECT E.Emp_ID, ISNULL(E.All_Tickets,0) - ISNULL(A.Closed_Tickets,0) AS Total_Open_Tickets " +
+                "FROM(SELECT E.Emp_ID, COUNT(*) AS All_Tickets " +
+                    "FROM Employee E " +
+                    "INNER JOIN Employee_Specialization ES ON E.Emp_ID = ES.Emp_ID " +
+                    "INNER JOIN Specialization S ON S.Spec_ID = ES.Spec_ID " +
+                    "INNER JOIN Ticket T ON E.Emp_ID = T.Technician_ID " +
+                    $"WHERE S.Spec_Name = '{problemArea}' " +
+                    "GROUP BY E.Emp_ID) AS E " +
+                "LEFT JOIN(SELECT E.Emp_ID, COUNT(*) AS Closed_Tickets " +
+                    "FROM Employee E " +
+                    "INNER JOIN Employee_Specialization ES ON E.Emp_ID = ES.Emp_ID " +
+                    "INNER JOIN Specialization S ON S.Spec_ID = ES.Spec_ID " +
+                    "INNER JOIN Ticket T ON E.Emp_ID = T.Technician_ID " +
+                    $"WHERE S.Spec_Name = '{problemArea}' AND T.Close_Date != '1900-01-01' " +
+                    "GROUP BY E.Emp_ID) AS A ON A.Emp_ID = E.Emp_ID ";
+
+            //Database tesing
+            //string select = "SELECT Technician_ID FROM Ticket FULL OUTER JOIN Employee E ON E.Emp_ID = Ticket.Technician_ID";
             try
             {
+                connection.Open();
                 dataAdapter = new SqlDataAdapter(select, connection);
                 dataAdapter.Fill(tblEntries);
+                connection.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error has occoured", ex.Message);
+                MessageBox.Show(ex.Message, "An error has occoured");
             }
             return tblEntries;
         }
@@ -115,7 +120,7 @@ namespace Group2_SEN381_Project.DataAccessLayer
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error has occoured", ex.Message);
+                MessageBox.Show(ex.Message, "An error has occoured");
             }
             return tblEntries;
         }
@@ -133,7 +138,7 @@ namespace Group2_SEN381_Project.DataAccessLayer
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error has occoured", ex.Message);
+                MessageBox.Show(ex.Message, "An error has occoured");
             }
 
             return tblEntries;
@@ -141,7 +146,7 @@ namespace Group2_SEN381_Project.DataAccessLayer
 
         public DataTable GetCalls(string clientID)
         {
-            string select = $@"SELECT * FROM [cALL] WHERE Client_ID = '{clientID}'";
+            string select = $@"SELECT Call_ID AS 'Call ID', Start_Time AS 'Start Time', End_Time AS 'End Time', Emp_ID AS 'Employee ID' FROM [Call] WHERE Client_ID = '{clientID}'";
 
             DataTable tblEntries = new DataTable();
 
@@ -211,7 +216,7 @@ namespace Group2_SEN381_Project.DataAccessLayer
 			}
 			catch (Exception ex)
 			{
-                MessageBox.Show("An error has occurred: ", ex.Message);
+                MessageBox.Show(ex.Message, "An error has occurred: ");
 			}
             return dataTable;
 		}
@@ -229,7 +234,7 @@ namespace Group2_SEN381_Project.DataAccessLayer
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error has occurred: ", ex.Message);
+                MessageBox.Show(ex.Message, "An error has occurred: ");
             }
             return dataTable;
         }
@@ -243,14 +248,14 @@ namespace Group2_SEN381_Project.DataAccessLayer
             try
             {
                 connection.Open();
-                string insert = $@"INSERT INTO Employees (Emp_ID, Emp_Name, Emp_Surname, Emp_Address, Emp_Phone) VALUES ({id},{name},{surname},{address},{phone})";
+                string insert = $@"INSERT INTO Employee (Emp_ID, Emp_Name, Emp_Surname, Emp_Address, Emp_Phone) VALUES ('{id}','{name}','{surname}','{address}','{phone}')";
                 modifyCMD= new SqlCommand(insert, connection);
                 modifyCMD.ExecuteNonQuery();
                 connection.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error has occoured",ex.Message);
+                MessageBox.Show(ex.Message, "An error has occoured");
             }
             
         }
@@ -267,7 +272,7 @@ namespace Group2_SEN381_Project.DataAccessLayer
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error has occoured", ex.Message);
+                MessageBox.Show(ex.Message, "An error has occoured");
             }
             
         }
@@ -277,14 +282,14 @@ namespace Group2_SEN381_Project.DataAccessLayer
             try
             {
                 connection.Open();
-                string insert = $@"INSERT INTO Call (Start_Time, End_Time, Client_ID, Emp_ID) VALUES ({startTime},{endTime},{clientID},{empID})";
+                string insert = $@"INSERT INTO Call (Start_Time, End_Time, Client_ID, Emp_ID) VALUES ('{startTime}','{endTime}','{clientID}','{empID}')";
                 modifyCMD = new SqlCommand(insert, connection);
                 modifyCMD.ExecuteNonQuery();
                 connection.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error has occoured", ex.Message);
+                MessageBox.Show(ex.Message, "An error has occoured");
             }
 
         }
@@ -294,14 +299,14 @@ namespace Group2_SEN381_Project.DataAccessLayer
             try
             {
                 connection.Open();
-                string insert = $@"INSERT INTO Ticket (Ticket_Description, Ticket_Level, Ticket_State, Open_Date, Close_Date, Problem_Area, Client_ID, Technician_ID, Call_Centre_ID) VALUES ({desc},{level},{state},{openDate},{closeDate},{problemArea},{clientID}, {techID}, {empID})";
+                string insert = $@"INSERT INTO Ticket (Ticket_Description, Ticket_Level, Ticket_State, Open_Date, Close_Date, Problem_Area, Client_ID, Technician_ID, Call_Center_ID) VALUES ('{desc}','{level}','{state}','{openDate}','{closeDate}','{problemArea}','{clientID}', '{techID}', '{empID}')";
                 modifyCMD= new SqlCommand(insert, connection);
                 modifyCMD.ExecuteNonQuery();
                 connection.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error has occoured", ex.Message);
+                MessageBox.Show(ex.Message, "An error has occoured");
             }
             
         }
@@ -311,14 +316,14 @@ namespace Group2_SEN381_Project.DataAccessLayer
             try
             {
                 connection.Open();
-                string insert = $@"INSERT INTO Service_Package (Package_Name, Package_Description, Release_Date, Close_Date) VALUES ({name},{desc},{releaseDate},{closeDate})";
+                string insert = $@"INSERT INTO Service_Package (Package_Name, Package_Description, Release_Date, Close_Date) VALUES ('{name}','{desc}','{releaseDate}','{closeDate}')";
                 SqlCommand insertcmd = new SqlCommand(insert, connection);
                 insertcmd.ExecuteNonQuery();
                 connection.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error has occoured", ex.Message);
+                MessageBox.Show(ex.Message, "An error has occoured");
             }
             
         }
@@ -366,7 +371,7 @@ namespace Group2_SEN381_Project.DataAccessLayer
             try
             {
                 connection.Open();
-                string update = $@"UPDATE Employees SET Emp_Name = {name},Emp_Surname = {surname},Emp_Address = {address},Emp_Phone = {phone} WHERE Emp_ID = {id}";
+                string update = $@"UPDATE Employee SET Emp_Name = {name},Emp_Surname = {surname},Emp_Address = {address},Emp_Phone = {phone} WHERE Emp_ID = {id}";
                 modifyCMD = new SqlCommand(update, connection);
                 modifyCMD.ExecuteNonQuery();
                 connection.Close();

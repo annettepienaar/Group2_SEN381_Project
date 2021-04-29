@@ -115,6 +115,23 @@ namespace Group2_SEN381_Project
             {
                 UpdateTicketState();
             }
+
+            clearLabels();
+            LoadList();
+        }
+
+        private void clearLabels()
+        {
+            lblProblemNumber.Text = "";
+            lblStatus.Text = "";
+            lblUrgencyLevel.Text = "";
+            txtProblemDescription.Text = "";
+            lblClientID.Text = "";
+            lblClientName.Text = "";
+            lblClientSurname.Text = "";
+            lblClientBusinessName.Text = "";
+            lblClientPhone.Text = "";
+            lblClientAddress.Text = "";
         }
 
         private void btnReloadTickets_Click(object sender, EventArgs e)

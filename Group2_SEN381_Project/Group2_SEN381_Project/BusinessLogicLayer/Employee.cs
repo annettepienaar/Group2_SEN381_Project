@@ -22,27 +22,29 @@ namespace Group2_SEN381_Project.BusinessLogicLayer
         public abstract string PhoneNum { get; set; }
         public abstract string Address { get; set; }
 
-        public override bool Equals(object obj)
-        {
-            return obj is Employee employee &&
-                   address == employee.address &&
-                   empID == employee.empID &&
-                   name == employee.name &&
-                   surname == employee.surname &&
-                   phoneNum == employee.phoneNum &&
-                   password == employee.password;
-        }
 
-        public override int GetHashCode()
-        {
-            int hashCode = 91851540;
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(address);
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(empID);
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(name);
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(surname);
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(phoneNum);
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(password);
-            return hashCode;
-        }
+
+        //public override bool Equals(object obj)
+        //{
+        //    return obj is Employee employee &&
+        //           address == employee.address &&
+        //           empID == employee.empID &&
+        //           name == employee.name &&
+        //           surname == employee.surname &&
+        //           phoneNum == employee.phoneNum &&
+        //           password == employee.password;
+        //}
+
+        //public override int GetHashCode()
+        //{
+        //    int hashCode = 91851540;
+        //    hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(address);
+        //    hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(empID);
+        //    hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(name);
+        //    hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(surname);
+        //    hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(phoneNum);
+        //    hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(password);
+        //    return hashCode;
+        //}
     }
 }
