@@ -188,6 +188,9 @@ namespace Group2_SEN381_Project
             cboxProblemArea.SelectedItem = null;
             rtxtProblemDesc.Text = String.Empty;
             dgvAllCalls.DataSource = null;
+            dgvAllTickets.DataSource = null;
+            cboxProblemArea.Text = null;
+            cboxUrgencyLevel.Text = null;
             lblStartTime.Text = String.Empty;
             lblCallEnd.Text = String.Empty;
             lblDuration.Text = String.Empty;
