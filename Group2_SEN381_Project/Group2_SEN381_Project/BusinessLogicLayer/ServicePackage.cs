@@ -46,5 +46,10 @@ namespace Group2_SEN381_Project.BusinessLogicLayer
 			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(spCloseDate);
 			return hashCode;
 		}
-	}
+
+        public override string ToString()
+        {
+			return SPID +"   "+ SPName;
+        }
+    }
 }

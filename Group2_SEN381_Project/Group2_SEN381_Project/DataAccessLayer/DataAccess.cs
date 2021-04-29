@@ -25,6 +25,7 @@ namespace Group2_SEN381_Project.DataAccessLayer
 
         //Gets for all, technician, specialization, technician specializations, active tickets, open tickets, employee, call
         #region Get  Methods
+
         public DataTable GetTable(string tblName)
         {
             DataTable tblEntries = new DataTable();
