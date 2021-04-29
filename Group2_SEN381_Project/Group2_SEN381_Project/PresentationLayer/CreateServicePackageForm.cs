@@ -41,5 +41,25 @@ namespace Group2_SEN381_Project.PresentationLayer
         {
 			this.Close();
         }
-    }
+
+		private void CreateServicePackageForm_Load(object sender, EventArgs e)
+		{
+
+		}
+
+		private void btnCreate_Click_1(object sender, EventArgs e)
+		{
+
+		}
+
+		private void txtDescription_TextChanged(object sender, EventArgs e)
+		{
+
+		}
+
+		private void lblDescription_Click(object sender, EventArgs e)
+		{
+
+		}
+	}
 }
