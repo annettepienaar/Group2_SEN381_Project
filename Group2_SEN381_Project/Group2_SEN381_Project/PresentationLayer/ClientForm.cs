@@ -13,6 +13,8 @@ namespace Group2_SEN381_Project.PresentationLayer
 {
     public partial class ClientForm : Form
     {
+        public string clientID = "";
+
         public ClientForm()
         {
             InitializeComponent();
@@ -61,6 +63,7 @@ namespace Group2_SEN381_Project.PresentationLayer
             if (txtClientID.Text != "" && txtName.Text != "" && txtSurname.Text != "" && txtPhone.Text != "" && txtAddress.Text != "" && cboxServicePackage.Text != "")
             {
                 ClientHandler.Add(new Client(txtClientID.Text, txtName.Text, txtSurname.Text, txtBusinessName.Text, txtPhone.Text, txtAddress.Text, cboxServicePackage.Text));
+                clientID = txtClientID.Text;
                 this.Close();
             }
             else

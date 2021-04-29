@@ -33,14 +33,15 @@ namespace Group2_SEN381_Project
         private void btnStartStop_Click(object sender, EventArgs e)
         {
             if (clockRunning)
-            {                
-
+            {
                 timer1.Stop();
                 
                 DialogResult dialog = MessageBox.Show("End Call and Submit Ticket?", "End Call", MessageBoxButtons.YesNoCancel);
                 switch (dialog)
                 {
                     case DialogResult.Cancel:
+                        btnClear.Enabled = false;
+
                         timer1.Start();
                         break;
                     case DialogResult.Yes:
@@ -49,6 +50,8 @@ namespace Group2_SEN381_Project
                         btnStartStop.FlatAppearance.MouseOverBackColor = Color.FromArgb(34, 200, 76);
                         btnStartStop.Text = "START CALL";
                         lblCallEnd.Text = DateTime.Now.ToString("hh:mm:ss");
+
+                        btnClear.Enabled = true;
 
                         //TODO
                         //Send Data to the DB
@@ -62,13 +65,13 @@ namespace Group2_SEN381_Project
                         btnStartStop.Text = "START CALL";
                         lblCallEnd.Text = DateTime.Now.ToString("hh:mm:ss");
 
+                        btnClear.Enabled = true;
+
                         //Just end Call, don't send data to DB
                         break;
                     default:
                         break;
                 }
-
-                
             }
             else
             {
@@ -81,6 +84,8 @@ namespace Group2_SEN381_Project
                 timer1.Start();
                 lblCallEnd.Text = null;
                 lblStartTime.Text = DateTime.Now.ToString("hh:mm:ss");
+
+                btnClear.Enabled = false;
             }
         }
 
@@ -128,7 +133,6 @@ namespace Group2_SEN381_Project
 
             //Disables button after click
             btnCreateClient.Enabled = false;
-            
         }
 
 
@@ -164,6 +168,23 @@ namespace Group2_SEN381_Project
             Ticket ticket = new Ticket(ticketId, rtxtProblemDesc.Text, cboxUrgencyLevel.Text, ticketState, currentDate, closeDate, cboxProblemArea.SelectedText, txtClientID.Text, technicianId, callInterfaceID);
 
             TicketHandler.Add(ticket);
+        }
+
+        private void CallInterfaceForm_Load(object sender, EventArgs e)
+        {
+            //txtClientID.Text = ClientForm.clientID;
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtClientID.Text = String.Empty;
+            cboxUrgencyLevel.SelectedItem = null;
+            cboxProblemArea.SelectedItem = null;
+            rtxtProblemDesc.Text = String.Empty;
+            dgvAllCalls.DataSource = null;
+            lblStartTime.Text = String.Empty;
+            lblCallEnd.Text = String.Empty;
+            lblDuration.Text = String.Empty;
         }
 
 

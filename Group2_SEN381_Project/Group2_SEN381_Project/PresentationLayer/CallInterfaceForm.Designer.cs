@@ -54,6 +54,7 @@ namespace Group2_SEN381_Project
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.btnClear = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -230,6 +231,7 @@ namespace Group2_SEN381_Project
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panel1.Controls.Add(this.btnClear);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.btnStartStop);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
@@ -374,6 +376,21 @@ namespace Group2_SEN381_Project
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // btnClear
+            // 
+            this.btnClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(136)))), ((int)(((byte)(132)))));
+            this.btnClear.FlatAppearance.BorderSize = 0;
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.ForeColor = System.Drawing.Color.White;
+            this.btnClear.Location = new System.Drawing.Point(26, 266);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(109, 25);
+            this.btnClear.TabIndex = 16;
+            this.btnClear.Text = "CLEAR";
+            this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
             // CallInterfaceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -384,6 +401,7 @@ namespace Group2_SEN381_Project
             this.Controls.Add(this.panel3);
             this.Name = "CallInterfaceForm";
             this.Text = "CallInterfaceForm";
+            this.Load += new System.EventHandler(this.CallInterfaceForm_Load);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.CallInterfaceForm_MouseMove);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -421,5 +439,6 @@ namespace Group2_SEN381_Project
         private System.Windows.Forms.PictureBox pBoxCustomerFound;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.DataGridView dgvAllCalls;
+        private System.Windows.Forms.Button btnClear;
     }
 }
