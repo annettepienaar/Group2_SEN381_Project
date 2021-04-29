@@ -127,7 +127,7 @@ namespace Group2_SEN381_Project
         public static int flag = 0;
         private void btnCreateClient_Click(object sender, EventArgs e)
         {
-            Form form = new ClientForm();
+            Form form = new ClientForm(txtClientID);
             flag++;
             form.Show();
 

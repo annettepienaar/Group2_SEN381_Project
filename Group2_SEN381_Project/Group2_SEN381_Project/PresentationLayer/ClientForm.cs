@@ -13,12 +13,13 @@ namespace Group2_SEN381_Project.PresentationLayer
 {
     public partial class ClientForm : Form
     {
-        public string clientID = "";
+        TextBox txtClient = null;
 
-        public ClientForm()
+        public ClientForm(TextBox txtClient)
         {
             InitializeComponent();
 
+            this.txtClient = txtClient;
 
             txtClientID.Text = NextClientID();
         }
@@ -63,14 +64,15 @@ namespace Group2_SEN381_Project.PresentationLayer
             if (txtClientID.Text != "" && txtName.Text != "" && txtSurname.Text != "" && txtPhone.Text != "" && txtAddress.Text != "" && cboxServicePackage.Text != "")
             {
                 ClientHandler.Add(new Client(txtClientID.Text, txtName.Text, txtSurname.Text, txtBusinessName.Text, txtPhone.Text, txtAddress.Text, cboxServicePackage.Text));
-                clientID = txtClientID.Text;
+
+                txtClient.Text = txtClientID.Text;
+
                 this.Close();
             }
             else
             {
                 MessageBox.Show("Crutial information is missing, Please ensure all crutial information is added");
-            }
-            
+            }            
         }
 
         private string NextClientID()
