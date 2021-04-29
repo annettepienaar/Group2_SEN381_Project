@@ -17,7 +17,7 @@ namespace Group2_SEN381_Project
     {
         //Equals null at end of testing phase
         //This is the employee that logs in
-        public string callInterfaceID = "Koosie";
+        public string callInterfaceID = "C001";
 
         public CallInterfaceForm(CallCentreEmployee callCentreEmployee)
         {
@@ -156,7 +156,7 @@ namespace Group2_SEN381_Project
         private void CreateTicket()
         {
             string technicianId = "", ticketId = "", ticketState = "Unresolved", closeDate = "";
-            string currentDate = DateTime.Now.ToString("dd/mm/yyy");
+            string currentDate = DateTime.Now.ToString("yyyy-MM-dd");
             Ticket ticket = new Ticket(ticketId, rtxtProblemDesc.Text, cboxUrgencyLevel.Text, ticketState, currentDate, closeDate, cboxProblemArea.SelectedText, txtClientID.Text, technicianId, callInterfaceID);
 
             TicketHandler.Add(ticket);
