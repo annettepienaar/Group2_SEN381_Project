@@ -189,7 +189,6 @@
             // pnlTicketDisplay
             // 
             this.pnlTicketDisplay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.pnlTicketDisplay.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlTicketDisplay.Controls.Add(this.btnAddServicePackage);
             this.pnlTicketDisplay.Controls.Add(this.lbServicePackages);
             this.pnlTicketDisplay.Controls.Add(this.lblServicePackagesTitle);
@@ -232,7 +231,7 @@
             this.lblServicePackagesTitle.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.lblServicePackagesTitle.Location = new System.Drawing.Point(0, 0);
             this.lblServicePackagesTitle.Name = "lblServicePackagesTitle";
-            this.lblServicePackagesTitle.Size = new System.Drawing.Size(152, 54);
+            this.lblServicePackagesTitle.Size = new System.Drawing.Size(154, 54);
             this.lblServicePackagesTitle.TabIndex = 0;
             this.lblServicePackagesTitle.Text = "Assigned Tickets";
             this.lblServicePackagesTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
