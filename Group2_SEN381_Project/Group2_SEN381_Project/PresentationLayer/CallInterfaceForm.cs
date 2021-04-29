@@ -175,6 +175,7 @@ namespace Group2_SEN381_Project
             //txtClientID.Text = ClientForm.clientID;
         }
 
+        #region Clear Button
         private void btnClear_Click(object sender, EventArgs e)
         {
             txtClientID.Text = String.Empty;
@@ -185,8 +186,9 @@ namespace Group2_SEN381_Project
             lblStartTime.Text = String.Empty;
             lblCallEnd.Text = String.Empty;
             lblDuration.Text = String.Empty;
+            pBoxCustomerFound.Image = Properties.Resources.circle_16;
         }
-
+        #endregion
 
         //DateTime callStart;
         //DateTime callEnd;
