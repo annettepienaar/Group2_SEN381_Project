@@ -146,11 +146,11 @@ namespace Group2_SEN381_Project.DataAccessLayer
 
         public DataTable GetClientTickets(string clientID)
         {
-            string select = $@"SELECT Ticket.Open_Date AS 'Open Date', Ticket.Close_Date AS 'Close Date', Ticket.Ticket_ID AS 'ID', CONCAT(Employee.Emp_Name, ' ', Employee.Emp_Surname) AS 'Employee', Ticket.Problem_Area AS 'Problem Area', Ticket.Ticket_State AS 'State'
+            string select = $@"SELECT Assigned_Ticket.Open_Date AS 'Open Date', Assigned_Ticket.Close_Date AS 'Close Date', Assigned_Ticket.Ticket_ID AS 'ID', CONCAT(Employee.Emp_Name, ' ', Employee.Emp_Surname) AS 'Employee', Assigned_Ticket.Problem_Area AS 'Problem Area', Assigned_Ticket.Ticket_State AS 'State'
                             FROM Employee
-                            JOIN Ticket
-                            ON Employee.Emp_ID = Ticket.Call_Center_ID
-                            WHERE Ticket.Client_ID = '{clientID}'";
+                            JOIN Assigned_Ticket
+                            ON Employee.Emp_ID = Assigned_Ticket.Call_Center_ID
+                            WHERE Assigned_Ticket.Client_ID = '{clientID}'";
 
             DataTable tblEntries = new DataTable();
 
@@ -326,7 +326,7 @@ namespace Group2_SEN381_Project.DataAccessLayer
             try
             {
                 connection.Open();
-                string insert = $@"INSERT INTO Creation_Ticket (Ticket_Description, Ticket_Level, Ticket_State, Open_Date, Close_Date, Problem_Area, Client_ID, Call_Centre_ID) VALUES ('{desc}', '{level}', '{state}', '{openDate}', '{closeDate}', '{problemArea}', '{clientID}', '{empID}')";
+                string insert = $@"INSERT INTO Created_Ticket (Ticket_Description, Ticket_Level, Ticket_State, Open_Date, Close_Date, Problem_Area, Client_ID, Call_Center_ID) VALUES ('{desc}', '{level}', '{state}', '{openDate}', '{closeDate}', '{problemArea}', '{clientID}', '{empID}')";
                 modifyCMD= new SqlCommand(insert, connection);
                 modifyCMD.ExecuteNonQuery();
                 connection.Close();
