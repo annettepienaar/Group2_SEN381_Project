@@ -21,7 +21,7 @@ namespace Group2_SEN381_Project.PresentationLayer
 			InitializeComponent();
 			spList = ServicePackageHandler.GetAllSP();
 			lbServicePackages.DataSource = spList;
-		}
+        }
 
 		private void btnAddServicePackage_Click(object sender, EventArgs e)
 		{
@@ -39,32 +39,37 @@ namespace Group2_SEN381_Project.PresentationLayer
 			else
 			{
 				ServicePackage selectedSP = spList[index];
-				ServicePackageHandler.UpdateSP(selectedSP.SPID, selectedSP.SPName, txtDescription.Text, txtReleaseDate.Text, txtReleaseDate.Text);
+				ServicePackageHandler.UpdateSP(selectedSP.SPID, txtSPName.Text, txtSPType.Text, txtSPPriority.Text, txtEPName.Text, txtEPModel.Text, txtEPSerialnum.Text, txtReleaseDate.Text, txtReleaseDate.Text);
 				spList = ServicePackageHandler.GetAllSP();
+				lbServicePackages.DataSource = spList;
 			}
 
 		}
 
-		private void lbServicePackages_SelectedIndexChanged(object sender, EventArgs e)
-		{
-			int index = lbServicePackages.SelectedIndex;
-			if (index == -1)
-			{
-				MessageBox.Show("Service Package not found.");
-			}
-			else
-			{
-				ServicePackage selectedSP = spList[index];
-				lblPackageName.Text = selectedSP.SPName;
+        private void lbServicePackages_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = lbServicePackages.SelectedIndex;
+            if (index == -1)
+            {
+                MessageBox.Show("Service Package not found.");
+            }
+            else
+            {
+				
+                ServicePackage selectedSP = spList[index];
+				txtSPID.Text = selectedSP.SPID;
+				txtSPName.Text = selectedSP.SPName;
+				txtSPType.Text = selectedSP.SPType;
+				txtSPPriority.Text = selectedSP.SPPriority;
+				txtEPName.Text = selectedSP.EPName;
+				txtEPModel.Text = selectedSP.EPModel;
+				txtEPSerialnum.Text = selectedSP.EPSerialnum;
 				txtReleaseDate.Text = selectedSP.SPReleaseDate;
-				txtCloseDate.Text = selectedSP.SPCloseDate;
-				txtDescription.Text = selectedSP.SPDesc;
-			}
+                txtCloseDate.Text = selectedSP.SPCloseDate;
+				txtSubscriberAmount.Text = ServicePackageHandler.CalcTotalSubscribers(selectedSP.SPID);
+            }
+        }
 
-			// TO DO:
-			// Display Service Package subcriber-count
-			// Display Performance metrics
-		}
 
-	}
+    }
 }

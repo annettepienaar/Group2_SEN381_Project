@@ -25,6 +25,26 @@ namespace Group2_SEN381_Project.DataAccessLayer
 
         //Gets for all, technician, specialization, technician specializations, active tickets, open tickets, employee, call
         #region Get  Methods
+        
+        //Gets count of subscribers to a Service Package
+        public int CountSubscribers(string id)
+        {
+            int count;
+            string select = $"SELECT COUNT(*) FROM Client WHERE SP_ID = '{id}'";
+            
+            using (connection)
+            {
+                using (modifyCMD = new SqlCommand(select, connection))
+                {
+                    connection.Open();
+                    count = (int)modifyCMD.ExecuteScalar();
+                }
+            }
+            return count;            
+            
+        }
+
+        //Gets the table of specified tableName
         public DataTable GetTable(string tblName)
         {
             DataTable tblEntries = new DataTable();
@@ -108,6 +128,8 @@ namespace Group2_SEN381_Project.DataAccessLayer
             }
             return tblEntries;
         }
+
+        //Gets Open tickets
         public DataTable GetTechOpenTicket(string empID)
         {
 
@@ -125,6 +147,7 @@ namespace Group2_SEN381_Project.DataAccessLayer
             return tblEntries;
         }
 
+        //Gets employees based on employee id
         public DataTable GetEmployee(string username)
         {
             string select = $@"SELECT * FROM Employee WHERE Emp_ID = '{username}'";
@@ -144,6 +167,7 @@ namespace Group2_SEN381_Project.DataAccessLayer
             return tblEntries;
         }
 
+        //Gets tickets based on client id
         public DataTable GetClientTickets(string clientID)
         {
             string select = $@"SELECT Assigned_Ticket.Open_Date AS 'Open Date', Assigned_Ticket.Close_Date AS 'Close Date', Assigned_Ticket.Ticket_ID AS 'ID', CONCAT(Employee.Emp_Name, ' ', Employee.Emp_Surname) AS 'Employee', Assigned_Ticket.Problem_Area AS 'Problem Area', Assigned_Ticket.Ticket_State AS 'State'
@@ -167,6 +191,7 @@ namespace Group2_SEN381_Project.DataAccessLayer
             return tblEntries;
         }
 
+        //Gets client calls based on client id
         public DataTable GetClientCalls(string clientID)
         {
             string select = $@"SELECT [Call].Call_ID AS 'Call ID', [Call].Start_Time AS 'Start Time', [Call].End_Time AS 'End Time', CONCAT(Employee.Emp_Name, ' ', Employee.Emp_Surname) AS 'Employee'
@@ -266,6 +291,24 @@ namespace Group2_SEN381_Project.DataAccessLayer
             return dataTable;
         }
 
+        //Check if service package ID exists
+        public bool SPExists(string spID)
+		{
+            DataTable dataTable = new DataTable();
+            string query = $"SELECT SP_ID FROM Service_Package WHERE SP_ID = '{spID}'";
+
+            try
+            {
+                dataAdapter = new SqlDataAdapter(query, connection);
+                dataAdapter.Fill(dataTable);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error has occurred: ", ex.Message);
+            }
+
+            return (dataTable.Rows.Count > 0);
+        }
         #endregion
 
         //inserts for employee, client, calls, tickets, service packages
@@ -337,12 +380,12 @@ namespace Group2_SEN381_Project.DataAccessLayer
             }            
         }
 
-        public void InsertSP(string name, string desc, string releaseDate, string closeDate)
+        public void InsertSP(string id, string name, string type, string priority, string epName, string epModel, string epSerialnum, string releaseDate, string closeDate)
         {
             try
             {
                 connection.Open();
-                string insert = $@"INSERT INTO Service_Package (Package_Name, Package_Description, Release_Date, Close_Date) VALUES ('{name}','{desc}','{releaseDate}','{closeDate}')";
+                string insert = $@"INSERT INTO Service_Package (SP_ID, SP_Name, SP_Type, SP_Priority, EP_Name, EP_Model, EP_SerialNum, SP_Release_Date, SP_Close_Date) VALUES ('{id}','{name}','{type}','{priority}','{epName}','{epModel}','{epSerialnum}','{releaseDate}','{closeDate}')";
                 SqlCommand insertcmd = new SqlCommand(insert, connection);
                 insertcmd.ExecuteNonQuery();
                 connection.Close();
@@ -358,12 +401,12 @@ namespace Group2_SEN381_Project.DataAccessLayer
 
         //updates for service packages, tickets, employee, client
         #region Update Tables
-        public void UpdateSP(string id, string name, string desc, string releaseDate, string closeDate)
+        public void UpdateSP(string id, string name, string type, string priority, string epName, string epModel, string epSerialnum, string releaseDate, string closeDate)
         {
             try
             {
                 connection.Open();
-                string update = $@"UPDATE Service_Package SET Package_Name = {name},Package_Description = {desc},Release_Date = {releaseDate},Close_Date = {closeDate} WHERE SP_ID = {id}";
+                string update = $@"UPDATE Service_Package SET SP_Name = '{name}',SP_Type = '{type}', SP_Priority = '{priority}', EP_Name = '{epName}', EP_Model = '{epModel}', EP_SerialNum = '{epSerialnum}', SP_Release_Date = '{releaseDate}', SP_Close_Date = '{closeDate}' WHERE SP_ID = '{id}'";
                 modifyCMD = new SqlCommand(update, connection);
                 modifyCMD.ExecuteNonQuery();
                 connection.Close();
