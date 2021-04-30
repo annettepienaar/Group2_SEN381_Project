@@ -414,7 +414,7 @@ namespace Group2_SEN381_Project.DataAccessLayer
             try
             {
                 connection.Open();
-                string insert = $@"UPDATE Client SET Name = {name},Surname = {surname},Business_Name = {bName},Phone = {phone},Address = {address},SP_ID = {spID} WHERE Client_ID = {id}";
+                string insert = $@"UPDATE Client SET Name = '{name}',Surname = '{surname}',Business_Name = '{bName}',Phone = '{phone}',Address = '{address}',SP_ID = '{spID}' WHERE Client_ID = '{id}'";
                 SqlCommand insertcmd = new SqlCommand(insert, connection);
                 insertcmd.ExecuteNonQuery();
                 connection.Close();

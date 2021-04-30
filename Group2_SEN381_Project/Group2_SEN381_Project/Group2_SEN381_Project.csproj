@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessLogicLayer\Call.cs" />
+    <Compile Include="BusinessLogicLayer\ClientManagementEmployee.cs" />
     <Compile Include="BusinessLogicLayer\Specialization.cs" />
     <Compile Include="DataAccessLayer\CallHandler.cs" />
     <Compile Include="DataAccessLayer\ClientHandler.cs" />
@@ -72,6 +73,12 @@
     </Compile>
     <Compile Include="PresentationLayer\ClientForm.Designer.cs">
       <DependentUpon>ClientForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\ClientManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\ClientManagementForm.Designer.cs">
+      <DependentUpon>ClientManagementForm.cs</DependentUpon>
     </Compile>
     <Compile Include="PresentationLayer\CreateServicePackageForm.cs">
       <SubType>Form</SubType>
@@ -111,6 +118,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PresentationLayer\ClientForm.resx">
       <DependentUpon>ClientForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\ClientManagementForm.resx">
+      <DependentUpon>ClientManagementForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PresentationLayer\CreateServicePackageForm.resx">
       <DependentUpon>CreateServicePackageForm.cs</DependentUpon>

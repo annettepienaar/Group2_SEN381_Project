@@ -56,8 +56,8 @@ namespace Group2_SEN381_Project
             this.lblStatus = new System.Windows.Forms.Label();
             this.btnIssueResolved = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
             this.btnEscalate = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             this.gbClientDetails.SuspendLayout();
             this.pnlTicketDisplay.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -288,7 +288,7 @@ namespace Group2_SEN381_Project
             this.pnlTicketDisplay.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlTicketDisplay.Location = new System.Drawing.Point(0, 0);
             this.pnlTicketDisplay.Name = "pnlTicketDisplay";
-            this.pnlTicketDisplay.Size = new System.Drawing.Size(151, 531);
+            this.pnlTicketDisplay.Size = new System.Drawing.Size(151, 570);
             this.pnlTicketDisplay.TabIndex = 11;
             // 
             // lbAssignedTickets
@@ -377,21 +377,10 @@ namespace Group2_SEN381_Project
             this.panel1.Controls.Add(this.lblStatusTitle);
             this.panel1.Controls.Add(this.lblProblemTitle);
             this.panel1.Controls.Add(this.pnlTicketDisplay);
-            this.panel1.Location = new System.Drawing.Point(18, 9);
+            this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(871, 531);
+            this.panel1.Size = new System.Drawing.Size(900, 570);
             this.panel1.TabIndex = 24;
-            // 
-            // label4
-            // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label4.BackColor = System.Drawing.Color.Teal;
-            this.label4.Location = new System.Drawing.Point(155, 4);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(1, 523);
-            this.label4.TabIndex = 24;
-            this.label4.Text = "label4";
             // 
             // btnEscalate
             // 
@@ -408,13 +397,25 @@ namespace Group2_SEN381_Project
             this.btnEscalate.UseVisualStyleBackColor = false;
             this.btnEscalate.Click += new System.EventHandler(this.btnEscalate_Click);
             // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label4.BackColor = System.Drawing.Color.Teal;
+            this.label4.Location = new System.Drawing.Point(155, 4);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(1, 562);
+            this.label4.TabIndex = 24;
+            this.label4.Text = "label4";
+            // 
             // TechnitionInterfaceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Teal;
-            this.ClientSize = new System.Drawing.Size(908, 555);
+            this.ClientSize = new System.Drawing.Size(924, 594);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "TechnitionInterfaceForm";
             this.Text = "TechnitionInterfaceForm";
             this.Load += new System.EventHandler(this.TechnitionInterfaceForm_Load);

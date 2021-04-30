@@ -22,7 +22,6 @@ namespace Group2_SEN381_Project.PresentationLayer
         }
 
         #region Form Loading Changes
-
         private void LoginForm_Load(object sender, EventArgs e)
         {
             EnableDoubleBuffering();
@@ -85,6 +84,10 @@ namespace Group2_SEN381_Project.PresentationLayer
                     childFormHandler.OpenChildForm(new ServiceMetricsForm((SatisfactionEmployee)empObject));
                     childFormHandler.ChangeUserDisplay(empObject.Name + " " + empObject.Surname);
                     //Change to form
+                }else if (empObject is ClientManagementEmployee)
+                {
+                    childFormHandler.OpenChildForm(new ClientManagementForm((ClientManagementEmployee)empObject));
+                    childFormHandler.ChangeUserDisplay(empObject.Name + " " + empObject.Surname);
                 }
             }
             else
@@ -98,6 +101,7 @@ namespace Group2_SEN381_Project.PresentationLayer
 
         #endregion
 
+        #region Button Clear Code
         private void btnClearUsername_Click(object sender, EventArgs e)
         {
             txtUsername.Text = null;
@@ -107,5 +111,6 @@ namespace Group2_SEN381_Project.PresentationLayer
         {
             txtPassword.Text = null;
         }
+        #endregion
     }
 }

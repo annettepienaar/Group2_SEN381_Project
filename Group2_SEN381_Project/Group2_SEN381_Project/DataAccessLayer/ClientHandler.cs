@@ -42,5 +42,25 @@ namespace Group2_SEN381_Project.DataAccessLayer
             //}
             //return clients;
         }
+
+        public static List<Client> GetClients()
+        {
+            DataAccess data = new DataAccess();
+            List<Client> lstClient = new List<Client>();
+
+            DataTable tbl = data.GetTable("Client");
+
+            foreach (DataRow row in tbl.Rows)
+            {
+                lstClient.Add(new Client(row[0].ToString(), row[1].ToString(), row[2].ToString(), row[3].ToString(), row[4].ToString(), row[5].ToString(), row[6].ToString()));
+            }
+
+            return lstClient;
+        }
+
+        public static void UpdateClient(string id, string name, string surname, string businessName, string phoneNumber, string address, string sp)
+        {
+            new DataAccess().UpdateClient(id, name, surname, businessName, phoneNumber, address, sp);
+        }
     }
 }

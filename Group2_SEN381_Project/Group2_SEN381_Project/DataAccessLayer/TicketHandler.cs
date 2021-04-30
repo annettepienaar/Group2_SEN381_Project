@@ -114,5 +114,9 @@ namespace Group2_SEN381_Project.DataAccessLayer
             dataAccess.InsertCreationTicket(ticketDescription, ticketLevel, ticketState, openDate, closeDate, problemArea, clientID, callCenterID);
         }
 
+        public static DataTable GetClientTicketTable(string clientID)
+        {
+            return new DataAccess().GetClientTickets(clientID);
+        }
     }
 }

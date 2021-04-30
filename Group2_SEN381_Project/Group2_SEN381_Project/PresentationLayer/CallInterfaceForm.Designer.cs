@@ -56,14 +56,14 @@ namespace Group2_SEN381_Project
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.dgvAllTickets = new System.Windows.Forms.DataGridView();
             this.dgvAllCalls = new System.Windows.Forms.DataGridView();
             this.pBoxCustomerFound = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -120,7 +120,7 @@ namespace Group2_SEN381_Project
             this.lblProblemDesc.AutoSize = true;
             this.lblProblemDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProblemDesc.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblProblemDesc.Location = new System.Drawing.Point(165, 102);
+            this.lblProblemDesc.Location = new System.Drawing.Point(165, 119);
             this.lblProblemDesc.Name = "lblProblemDesc";
             this.lblProblemDesc.Size = new System.Drawing.Size(143, 18);
             this.lblProblemDesc.TabIndex = 5;
@@ -131,7 +131,7 @@ namespace Group2_SEN381_Project
             this.lblUrgencyLevel.AutoSize = true;
             this.lblUrgencyLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUrgencyLevel.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblUrgencyLevel.Location = new System.Drawing.Point(511, 219);
+            this.lblUrgencyLevel.Location = new System.Drawing.Point(511, 236);
             this.lblUrgencyLevel.Name = "lblUrgencyLevel";
             this.lblUrgencyLevel.Size = new System.Drawing.Size(101, 18);
             this.lblUrgencyLevel.TabIndex = 6;
@@ -142,10 +142,10 @@ namespace Group2_SEN381_Project
             this.rtxtProblemDesc.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtxtProblemDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtxtProblemDesc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.rtxtProblemDesc.Location = new System.Drawing.Point(170, 123);
+            this.rtxtProblemDesc.Location = new System.Drawing.Point(170, 140);
             this.rtxtProblemDesc.MaxLength = 150;
             this.rtxtProblemDesc.Name = "rtxtProblemDesc";
-            this.rtxtProblemDesc.Size = new System.Drawing.Size(684, 89);
+            this.rtxtProblemDesc.Size = new System.Drawing.Size(713, 89);
             this.rtxtProblemDesc.TabIndex = 8;
             this.rtxtProblemDesc.Text = "";
             // 
@@ -159,7 +159,7 @@ namespace Group2_SEN381_Project
             "Low",
             "Medium",
             "High"});
-            this.cboxUrgencyLevel.Location = new System.Drawing.Point(514, 240);
+            this.cboxUrgencyLevel.Location = new System.Drawing.Point(514, 257);
             this.cboxUrgencyLevel.Name = "cboxUrgencyLevel";
             this.cboxUrgencyLevel.Size = new System.Drawing.Size(340, 26);
             this.cboxUrgencyLevel.TabIndex = 9;
@@ -169,7 +169,7 @@ namespace Group2_SEN381_Project
             this.lblProblemArea.AutoSize = true;
             this.lblProblemArea.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProblemArea.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblProblemArea.Location = new System.Drawing.Point(167, 219);
+            this.lblProblemArea.Location = new System.Drawing.Point(167, 236);
             this.lblProblemArea.Name = "lblProblemArea";
             this.lblProblemArea.Size = new System.Drawing.Size(98, 18);
             this.lblProblemArea.TabIndex = 10;
@@ -185,7 +185,7 @@ namespace Group2_SEN381_Project
             "Electronics",
             "Mechanic",
             "Electrician"});
-            this.cboxProblemArea.Location = new System.Drawing.Point(170, 240);
+            this.cboxProblemArea.Location = new System.Drawing.Point(170, 257);
             this.cboxProblemArea.Name = "cboxProblemArea";
             this.cboxProblemArea.Size = new System.Drawing.Size(281, 26);
             this.cboxProblemArea.TabIndex = 11;
@@ -240,7 +240,7 @@ namespace Group2_SEN381_Project
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(154, 531);
+            this.panel1.Size = new System.Drawing.Size(154, 570);
             this.panel1.TabIndex = 0;
             // 
             // btnClear
@@ -344,10 +344,34 @@ namespace Group2_SEN381_Project
             this.panel3.Controls.Add(this.btnSearch);
             this.panel3.Controls.Add(this.txtClientID);
             this.panel3.Controls.Add(this.panel1);
-            this.panel3.Location = new System.Drawing.Point(18, 9);
+            this.panel3.Location = new System.Drawing.Point(12, 12);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(871, 531);
+            this.panel3.Size = new System.Drawing.Size(900, 570);
             this.panel3.TabIndex = 12;
+            // 
+            // label7
+            // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.label7.Location = new System.Drawing.Point(167, 441);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(77, 18);
+            this.label7.TabIndex = 18;
+            this.label7.Text = "Ticket Log";
+            // 
+            // label6
+            // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.label6.Location = new System.Drawing.Point(167, 317);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(62, 18);
+            this.label6.TabIndex = 17;
+            this.label6.Text = "Call Log";
             // 
             // dgvAllTickets
             // 
@@ -380,7 +404,7 @@ namespace Group2_SEN381_Project
             this.dgvAllTickets.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvAllTickets.EnableHeadersVisualStyles = false;
             this.dgvAllTickets.GridColor = System.Drawing.Color.White;
-            this.dgvAllTickets.Location = new System.Drawing.Point(170, 423);
+            this.dgvAllTickets.Location = new System.Drawing.Point(170, 462);
             this.dgvAllTickets.Name = "dgvAllTickets";
             this.dgvAllTickets.ReadOnly = true;
             this.dgvAllTickets.RowHeadersVisible = false;
@@ -396,7 +420,7 @@ namespace Group2_SEN381_Project
             this.dgvAllTickets.RowTemplate.Height = 25;
             this.dgvAllTickets.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.dgvAllTickets.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAllTickets.Size = new System.Drawing.Size(684, 100);
+            this.dgvAllTickets.Size = new System.Drawing.Size(713, 100);
             this.dgvAllTickets.TabIndex = 16;
             // 
             // dgvAllCalls
@@ -430,7 +454,7 @@ namespace Group2_SEN381_Project
             this.dgvAllCalls.DefaultCellStyle = dataGridViewCellStyle11;
             this.dgvAllCalls.EnableHeadersVisualStyles = false;
             this.dgvAllCalls.GridColor = System.Drawing.Color.White;
-            this.dgvAllCalls.Location = new System.Drawing.Point(170, 299);
+            this.dgvAllCalls.Location = new System.Drawing.Point(170, 338);
             this.dgvAllCalls.Name = "dgvAllCalls";
             this.dgvAllCalls.ReadOnly = true;
             this.dgvAllCalls.RowHeadersVisible = false;
@@ -447,7 +471,7 @@ namespace Group2_SEN381_Project
             this.dgvAllCalls.RowTemplate.Height = 25;
             this.dgvAllCalls.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.dgvAllCalls.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAllCalls.Size = new System.Drawing.Size(684, 100);
+            this.dgvAllCalls.Size = new System.Drawing.Size(713, 100);
             this.dgvAllCalls.TabIndex = 15;
             this.dgvAllCalls.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAllCalls_CellContentClick);
             // 
@@ -481,7 +505,7 @@ namespace Group2_SEN381_Project
             this.label4.BackColor = System.Drawing.Color.Teal;
             this.label4.Location = new System.Drawing.Point(158, 10);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(1, 513);
+            this.label4.Size = new System.Drawing.Size(1, 552);
             this.label4.TabIndex = 12;
             this.label4.Text = "label4";
             // 
@@ -490,38 +514,15 @@ namespace Group2_SEN381_Project
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // label6
-            // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.label6.Location = new System.Drawing.Point(167, 278);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(62, 18);
-            this.label6.TabIndex = 17;
-            this.label6.Text = "Call Log";
-            // 
-            // label7
-            // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.label7.Location = new System.Drawing.Point(167, 402);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(77, 18);
-            this.label7.TabIndex = 18;
-            this.label7.Text = "Ticket Log";
-            // 
             // CallInterfaceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Teal;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(908, 555);
+            this.ClientSize = new System.Drawing.Size(924, 594);
             this.Controls.Add(this.panel3);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CallInterfaceForm";
             this.Text = "CallInterfaceForm";
             this.Load += new System.EventHandler(this.CallInterfaceForm_Load);

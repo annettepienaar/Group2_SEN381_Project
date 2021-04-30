@@ -9,19 +9,20 @@ namespace Group2_SEN381_Project
 {
     public class Client
     {
-        private string clientID, clientName, clientSurname, businessName, clientPhoneNum, clientAddress, servicePackage;
+        private string clientID, clientName, clientSurname, businessName, phoneNumber, clientAddress, servicePackage;
 
-        public Client(string id, string name, string surname, string businessName, string number, string address, string sp)
+        public Client(string id, string name, string surname, string businessName, string phoneNumber, string address, string sp)
         {
             this.clientID = id;
             this.clientName = name;
             this.clientSurname = surname;
             this.businessName = businessName;
-            this.clientPhoneNum = number;
+            this.phoneNumber = phoneNumber;
             this.clientAddress = address;
             this.servicePackage = sp;
         }
 
+        #region Properties
         public string ClientID
         {
             get { return clientID; }
@@ -48,8 +49,8 @@ namespace Group2_SEN381_Project
 
         public string ClientPhoneNumber
         {
-            get { return clientPhoneNum; }
-            set { clientPhoneNum = value; }
+            get { return phoneNumber; }
+            set { phoneNumber = value; }
         }
 
         public string ClientAddress
@@ -63,6 +64,7 @@ namespace Group2_SEN381_Project
             get { return servicePackage; }
             set { servicePackage = value; }
         }
+        #endregion
 
         public override bool Equals(object obj)
         {
@@ -71,7 +73,7 @@ namespace Group2_SEN381_Project
                    clientName == client.clientName &&
                    clientSurname == client.clientSurname &&
                    businessName == client.businessName &&
-                   clientPhoneNum == client.clientPhoneNum &&
+                   phoneNumber == client.phoneNumber &&
                    clientAddress == client.clientAddress &&
                    servicePackage == client.servicePackage &&
                    ClientID == client.ClientID &&
@@ -90,7 +92,7 @@ namespace Group2_SEN381_Project
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(clientName);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(clientSurname);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(businessName);
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(clientPhoneNum);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(phoneNumber);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(clientAddress);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(servicePackage);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(ClientID);
@@ -101,6 +103,11 @@ namespace Group2_SEN381_Project
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(ClientAddress);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(ServicePackage);
             return hashCode;
+        }
+
+        public override string ToString()
+        {
+            return ClientID + " " + ClientName + " " + ClientSurname;  
         }
     }
 }

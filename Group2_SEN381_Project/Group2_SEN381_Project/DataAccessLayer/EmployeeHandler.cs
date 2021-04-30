@@ -36,6 +36,9 @@ namespace Group2_SEN381_Project.DataAccessLayer
                 } else if (empType.Equals('S'))
                 {
                     empObject = new SatisfactionEmployee(emp.ItemArray[0].ToString(), emp.ItemArray[1].ToString(), emp.ItemArray[2].ToString(), emp.ItemArray[3].ToString(), emp.ItemArray[4].ToString(), emp.ItemArray[5].ToString());
+                } else if (empType.Equals('D'))
+                {
+                    empObject = new ClientManagementEmployee(emp.ItemArray[0].ToString(), emp.ItemArray[1].ToString(), emp.ItemArray[2].ToString(), emp.ItemArray[3].ToString(), emp.ItemArray[4].ToString(), emp.ItemArray[5].ToString());
                 }
             }
 
