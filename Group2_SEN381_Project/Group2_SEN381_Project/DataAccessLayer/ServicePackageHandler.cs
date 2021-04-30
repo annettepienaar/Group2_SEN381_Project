@@ -45,9 +45,12 @@ namespace Group2_SEN381_Project.DataAccessLayer
 		#endregion
 
 		//Calculates total subscribers of a SP
-		public static void CalcTotalSubscribers()
+		public static string CalcTotalSubscribers(string SP_id)
 		{
-			
+			string totalSubscribers;
+			DataAccess access = new DataAccess();
+			totalSubscribers = access.CountSubscribers(SP_id).ToString();
+			return totalSubscribers;
 		}
 
 	}

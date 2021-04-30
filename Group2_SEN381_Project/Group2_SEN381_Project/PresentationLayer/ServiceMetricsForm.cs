@@ -55,16 +55,18 @@ namespace Group2_SEN381_Project.PresentationLayer
             }
             else
             {
+				
                 ServicePackage selectedSP = spList[index];
-                txtSPID.Text = selectedSP.SPID;
+				txtSPID.Text = selectedSP.SPID;
 				txtSPName.Text = selectedSP.SPName;
 				txtSPType.Text = selectedSP.SPType;
 				txtSPPriority.Text = selectedSP.SPPriority;
 				txtEPName.Text = selectedSP.EPName;
 				txtEPModel.Text = selectedSP.EPModel;
 				txtEPSerialnum.Text = selectedSP.EPSerialnum;
-                txtReleaseDate.Text = selectedSP.SPReleaseDate;
+				txtReleaseDate.Text = selectedSP.SPReleaseDate;
                 txtCloseDate.Text = selectedSP.SPCloseDate;
+				txtSubscriberAmount.Text = ServicePackageHandler.CalcTotalSubscribers(selectedSP.SPID);
             }
         }
 
