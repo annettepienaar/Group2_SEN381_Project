@@ -80,7 +80,7 @@ namespace Group2_SEN381_Project.DataAccessLayer
             DataRow row = dataTable.Rows[0];
 
 
-            return new Ticket(row[0].ToString(), row[1].ToString(), row[2].ToString(), row[6].ToString(), row[7].ToString(), row[8].ToString(), row[3].ToString(), row[4].ToString(), row[5].ToString(), row[6].ToString());
+            return new Ticket(row[0].ToString(), row[1].ToString(), row[2].ToString(), row[6].ToString(), DateTime.Parse(row[7].ToString()).ToString("yyyy-MM-dd"), DateTime.Parse(row[8].ToString()).ToString("yyyy-MM-dd"), row[3].ToString(), row[4].ToString(), row[5].ToString(), row[6].ToString());
         }
 
         //Gets list of open tickets for specific Technician
@@ -92,7 +92,7 @@ namespace Group2_SEN381_Project.DataAccessLayer
 
             foreach (DataRow dr in data.Rows)
             {
-                tickets.Add(new Ticket(dr["Ticket_ID"].ToString(), dr["Ticket_Description"].ToString(), dr["Ticket_Level"].ToString(), dr["Ticket_State"].ToString(), dr["Open_Date"].ToString(), dr["Close_Date"].ToString(), dr["Problem_Area"].ToString(), dr["Client_ID"].ToString(), dr["Technician_ID"].ToString(), dr["Call_Center_ID"].ToString()));
+                tickets.Add(new Ticket(dr["Ticket_ID"].ToString(), dr["Ticket_Description"].ToString(), dr["Ticket_Level"].ToString(), dr["Ticket_State"].ToString(), DateTime.Parse(dr["Open_Date"].ToString()).ToString("yyyy-MM-dd"), DateTime.Parse(dr["Close_Date"].ToString()).ToString("yyyy-MM-dd"), dr["Problem_Area"].ToString(), dr["Client_ID"].ToString(), dr["Technician_ID"].ToString(), dr["Call_Center_ID"].ToString()));
             }
 
             return tickets;
