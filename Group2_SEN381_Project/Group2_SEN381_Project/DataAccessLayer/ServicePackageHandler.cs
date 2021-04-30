@@ -39,9 +39,10 @@ namespace Group2_SEN381_Project.DataAccessLayer
 		// Generates a SP_ID and stores an SP
 		public static void CreateSP(string spName, string spType, string spPriority, string epName, string epModel, string epSerialNum, string spReleaseDate, string spCloseDate)
 		{
-			#region SP_ID Generator
+			DataAccess dataAccess = new DataAccess();
 			string spID;
 
+			#region SP_ID Generator
 			spID = spReleaseDate.Substring(0,4);
 
 			switch (spType)
@@ -80,24 +81,24 @@ namespace Group2_SEN381_Project.DataAccessLayer
 			}
 
 			// Checks if SP_ID already exists, if true then increase the SP_ID numerical
-			string numerical = "";
-			int numCounter = 1;
+			string numerical = "0001";
+			int numCounter = 2;
 
-			while (true)//!dataAccess.SPExists()
+			while (dataAccess.SPExists(spID + numerical))
 			{
-				//Ensuring the numerical has a length of 4
-				while (true)
+				//Left padding the numerical with 0's
+				numerical = numCounter.ToString();
+				while (!(numerical.Length == 4))
 				{
-
+					numerical = "0" + numerical;
 				}
-
-
+				numCounter += 1;
 			}
 
+			spID += numerical;
 			#endregion
 
-			/*DataAccess dataAccess = new DataAccess();
-			dataAccess.InsertSP();*/
+			dataAccess.InsertSP(spID,spName,spType,spPriority,epName,epModel,epSerialNum,spReleaseDate,spCloseDate);
 		}
 		#endregion
 

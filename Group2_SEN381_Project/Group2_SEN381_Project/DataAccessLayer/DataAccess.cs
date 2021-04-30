@@ -284,6 +284,24 @@ namespace Group2_SEN381_Project.DataAccessLayer
             return dataTable;
         }
 
+        //Check if service package ID exists
+        public bool SPExists(string spID)
+		{
+            DataTable dataTable = new DataTable();
+            string query = $"SELECT SP_ID FROM Service_Package WHERE SP_ID = '{spID}'";
+
+            try
+            {
+                dataAdapter = new SqlDataAdapter(query, connection);
+                dataAdapter.Fill(dataTable);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error has occurred: ", ex.Message);
+            }
+
+            return (dataTable.Rows.Count > 0);
+        }
         #endregion
 
         //inserts for employee, client, calls, tickets, service packages
@@ -355,12 +373,12 @@ namespace Group2_SEN381_Project.DataAccessLayer
             }            
         }
 
-        public void InsertSP(string name, string type, string priority, string epName, string epModel, string epSerialnum, string releaseDate, string closeDate)
+        public void InsertSP(string id, string name, string type, string priority, string epName, string epModel, string epSerialnum, string releaseDate, string closeDate)
         {
             try
             {
                 connection.Open();
-                string insert = $@"INSERT INTO Service_Package (SP_Name, SP_Type, SP_Priority, EP_Name, EP_Model, EP_SerialNum, SP_Release_Date, SP_Close_Date) VALUES ('{name}','{type}','{priority}','{epName}','{epModel}','{epSerialnum}','{releaseDate}','{closeDate}')";
+                string insert = $@"INSERT INTO Service_Package (SP_ID, SP_Name, SP_Type, SP_Priority, EP_Name, EP_Model, EP_SerialNum, SP_Release_Date, SP_Close_Date) VALUES ('{id}','{name}','{type}','{priority}','{epName}','{epModel}','{epSerialnum}','{releaseDate}','{closeDate}')";
                 SqlCommand insertcmd = new SqlCommand(insert, connection);
                 insertcmd.ExecuteNonQuery();
                 connection.Close();
