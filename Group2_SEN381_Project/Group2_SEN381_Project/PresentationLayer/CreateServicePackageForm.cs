@@ -66,14 +66,32 @@ namespace Group2_SEN381_Project.PresentationLayer
 			}
 		}
 
-		private void txtDescription_TextChanged(object sender, EventArgs e)
-		{
-
+		#region Form Move Functions
+		//Code to make the form movable, detects when the mouse button is pressed and move to its location
+		private bool mouseDown;
+		private Point lastLocation;
+		private void MenuBar_MouseDown(object sender, MouseEventArgs e)
+        {
+			mouseDown = true;
+			lastLocation = e.Location;
 		}
 
-		private void lblDescription_Click(object sender, EventArgs e)
-		{
+        private void MenuBar_MouseMove(object sender, MouseEventArgs e)
+        {
+			if (mouseDown)
+			{
+				this.Location = new Point(
+				(this.Location.X - lastLocation.X) + e.X, (this.Location.Y - lastLocation.Y) + e.Y);
 
+				this.Update();
+			}
 		}
-	}
+
+        private void MenuBar_MouseUp(object sender, MouseEventArgs e)
+        {
+			mouseDown = false;
+		}
+        #endregion
+
+    }
 }
