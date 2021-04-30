@@ -39,19 +39,19 @@ namespace Group2_SEN381_Project.PresentationLayer
 			this.lblName = new System.Windows.Forms.Label();
 			this.lblHeading = new System.Windows.Forms.Label();
 			this.panel1 = new System.Windows.Forms.Panel();
+			this.txtEpSerial = new System.Windows.Forms.TextBox();
+			this.lblEpSerial = new System.Windows.Forms.Label();
+			this.txtEpModel = new System.Windows.Forms.TextBox();
+			this.lblEpModel = new System.Windows.Forms.Label();
+			this.txtEpName = new System.Windows.Forms.TextBox();
+			this.lblEpName = new System.Windows.Forms.Label();
+			this.cbPriority = new System.Windows.Forms.ComboBox();
+			this.lblPriority = new System.Windows.Forms.Label();
+			this.cbType = new System.Windows.Forms.ComboBox();
+			this.lblType = new System.Windows.Forms.Label();
 			this.btnExit = new System.Windows.Forms.Button();
 			this.pnlMenuBar = new System.Windows.Forms.Panel();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
-			this.lblType = new System.Windows.Forms.Label();
-			this.cbType = new System.Windows.Forms.ComboBox();
-			this.cbPriority = new System.Windows.Forms.ComboBox();
-			this.lblPriority = new System.Windows.Forms.Label();
-			this.txtEpName = new System.Windows.Forms.TextBox();
-			this.lblEpName = new System.Windows.Forms.Label();
-			this.txtEpModel = new System.Windows.Forms.TextBox();
-			this.lblEpModel = new System.Windows.Forms.Label();
-			this.txtEpSerial = new System.Windows.Forms.TextBox();
-			this.lblEpSerial = new System.Windows.Forms.Label();
 			this.panel1.SuspendLayout();
 			this.pnlMenuBar.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -177,6 +177,118 @@ namespace Group2_SEN381_Project.PresentationLayer
 			this.panel1.Size = new System.Drawing.Size(574, 439);
 			this.panel1.TabIndex = 36;
 			// 
+			// txtEpSerial
+			// 
+			this.txtEpSerial.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.txtEpSerial.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.txtEpSerial.Location = new System.Drawing.Point(319, 222);
+			this.txtEpSerial.Multiline = true;
+			this.txtEpSerial.Name = "txtEpSerial";
+			this.txtEpSerial.Size = new System.Drawing.Size(223, 25);
+			this.txtEpSerial.TabIndex = 46;
+			this.txtEpSerial.WordWrap = false;
+			// 
+			// lblEpSerial
+			// 
+			this.lblEpSerial.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblEpSerial.ForeColor = System.Drawing.SystemColors.ControlDark;
+			this.lblEpSerial.Location = new System.Drawing.Point(316, 199);
+			this.lblEpSerial.Name = "lblEpSerial";
+			this.lblEpSerial.Size = new System.Drawing.Size(183, 20);
+			this.lblEpSerial.TabIndex = 45;
+			this.lblEpSerial.Text = "Equipment Serial Number";
+			// 
+			// txtEpModel
+			// 
+			this.txtEpModel.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.txtEpModel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.txtEpModel.Location = new System.Drawing.Point(319, 171);
+			this.txtEpModel.Multiline = true;
+			this.txtEpModel.Name = "txtEpModel";
+			this.txtEpModel.Size = new System.Drawing.Size(223, 25);
+			this.txtEpModel.TabIndex = 44;
+			this.txtEpModel.WordWrap = false;
+			// 
+			// lblEpModel
+			// 
+			this.lblEpModel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblEpModel.ForeColor = System.Drawing.SystemColors.ControlDark;
+			this.lblEpModel.Location = new System.Drawing.Point(316, 148);
+			this.lblEpModel.Name = "lblEpModel";
+			this.lblEpModel.Size = new System.Drawing.Size(168, 20);
+			this.lblEpModel.TabIndex = 43;
+			this.lblEpModel.Text = "Equipment Model";
+			// 
+			// txtEpName
+			// 
+			this.txtEpName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.txtEpName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.txtEpName.Location = new System.Drawing.Point(319, 120);
+			this.txtEpName.Multiline = true;
+			this.txtEpName.Name = "txtEpName";
+			this.txtEpName.Size = new System.Drawing.Size(223, 25);
+			this.txtEpName.TabIndex = 42;
+			this.txtEpName.WordWrap = false;
+			// 
+			// lblEpName
+			// 
+			this.lblEpName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblEpName.ForeColor = System.Drawing.SystemColors.ControlDark;
+			this.lblEpName.Location = new System.Drawing.Point(316, 97);
+			this.lblEpName.Name = "lblEpName";
+			this.lblEpName.Size = new System.Drawing.Size(168, 20);
+			this.lblEpName.TabIndex = 41;
+			this.lblEpName.Text = "Equipment Name";
+			// 
+			// cbPriority
+			// 
+			this.cbPriority.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.cbPriority.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.cbPriority.FormattingEnabled = true;
+			this.cbPriority.Items.AddRange(new object[] {
+            "Copper",
+            "Silver",
+            "Gold",
+            "Platinum"});
+			this.cbPriority.Location = new System.Drawing.Point(34, 222);
+			this.cbPriority.Name = "cbPriority";
+			this.cbPriority.Size = new System.Drawing.Size(223, 26);
+			this.cbPriority.TabIndex = 40;
+			// 
+			// lblPriority
+			// 
+			this.lblPriority.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblPriority.ForeColor = System.Drawing.SystemColors.ControlDark;
+			this.lblPriority.Location = new System.Drawing.Point(31, 199);
+			this.lblPriority.Name = "lblPriority";
+			this.lblPriority.Size = new System.Drawing.Size(183, 20);
+			this.lblPriority.TabIndex = 39;
+			this.lblPriority.Text = "Service Package Priority";
+			// 
+			// cbType
+			// 
+			this.cbType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.cbType.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.cbType.FormattingEnabled = true;
+			this.cbType.Items.AddRange(new object[] {
+            "Warrenty",
+            "Annual Servicing",
+            "Bulk Buy"});
+			this.cbType.Location = new System.Drawing.Point(34, 171);
+			this.cbType.Name = "cbType";
+			this.cbType.Size = new System.Drawing.Size(223, 26);
+			this.cbType.TabIndex = 38;
+			// 
+			// lblType
+			// 
+			this.lblType.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblType.ForeColor = System.Drawing.SystemColors.ControlDark;
+			this.lblType.Location = new System.Drawing.Point(31, 148);
+			this.lblType.Name = "lblType";
+			this.lblType.Size = new System.Drawing.Size(168, 20);
+			this.lblType.TabIndex = 36;
+			this.lblType.Text = "Service Package Type";
+			// 
 			// btnExit
 			// 
 			this.btnExit.BackColor = System.Drawing.Color.White;
@@ -216,118 +328,6 @@ namespace Group2_SEN381_Project.PresentationLayer
 			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
 			this.pictureBox1.TabIndex = 19;
 			this.pictureBox1.TabStop = false;
-			// 
-			// lblType
-			// 
-			this.lblType.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblType.ForeColor = System.Drawing.SystemColors.ControlDark;
-			this.lblType.Location = new System.Drawing.Point(31, 148);
-			this.lblType.Name = "lblType";
-			this.lblType.Size = new System.Drawing.Size(168, 20);
-			this.lblType.TabIndex = 36;
-			this.lblType.Text = "Service Package Type";
-			// 
-			// cbType
-			// 
-			this.cbType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.cbType.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.cbType.FormattingEnabled = true;
-			this.cbType.Items.AddRange(new object[] {
-            "Warrenty",
-            "Annual Servicing",
-            "Bulk Buy"});
-			this.cbType.Location = new System.Drawing.Point(34, 171);
-			this.cbType.Name = "cbType";
-			this.cbType.Size = new System.Drawing.Size(223, 26);
-			this.cbType.TabIndex = 38;
-			// 
-			// cbPriority
-			// 
-			this.cbPriority.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.cbPriority.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.cbPriority.FormattingEnabled = true;
-			this.cbPriority.Items.AddRange(new object[] {
-            "Copper",
-            "Silver",
-            "Gold",
-            "Platinum"});
-			this.cbPriority.Location = new System.Drawing.Point(34, 222);
-			this.cbPriority.Name = "cbPriority";
-			this.cbPriority.Size = new System.Drawing.Size(223, 26);
-			this.cbPriority.TabIndex = 40;
-			// 
-			// lblPriority
-			// 
-			this.lblPriority.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblPriority.ForeColor = System.Drawing.SystemColors.ControlDark;
-			this.lblPriority.Location = new System.Drawing.Point(31, 199);
-			this.lblPriority.Name = "lblPriority";
-			this.lblPriority.Size = new System.Drawing.Size(183, 20);
-			this.lblPriority.TabIndex = 39;
-			this.lblPriority.Text = "Service Package Priority";
-			// 
-			// txtEpName
-			// 
-			this.txtEpName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.txtEpName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.txtEpName.Location = new System.Drawing.Point(319, 120);
-			this.txtEpName.Multiline = true;
-			this.txtEpName.Name = "txtEpName";
-			this.txtEpName.Size = new System.Drawing.Size(223, 25);
-			this.txtEpName.TabIndex = 42;
-			this.txtEpName.WordWrap = false;
-			// 
-			// lblEpName
-			// 
-			this.lblEpName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblEpName.ForeColor = System.Drawing.SystemColors.ControlDark;
-			this.lblEpName.Location = new System.Drawing.Point(316, 97);
-			this.lblEpName.Name = "lblEpName";
-			this.lblEpName.Size = new System.Drawing.Size(168, 20);
-			this.lblEpName.TabIndex = 41;
-			this.lblEpName.Text = "Equipment Name";
-			// 
-			// txtEpModel
-			// 
-			this.txtEpModel.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.txtEpModel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.txtEpModel.Location = new System.Drawing.Point(319, 171);
-			this.txtEpModel.Multiline = true;
-			this.txtEpModel.Name = "txtEpModel";
-			this.txtEpModel.Size = new System.Drawing.Size(223, 25);
-			this.txtEpModel.TabIndex = 44;
-			this.txtEpModel.WordWrap = false;
-			// 
-			// lblEpModel
-			// 
-			this.lblEpModel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblEpModel.ForeColor = System.Drawing.SystemColors.ControlDark;
-			this.lblEpModel.Location = new System.Drawing.Point(316, 148);
-			this.lblEpModel.Name = "lblEpModel";
-			this.lblEpModel.Size = new System.Drawing.Size(168, 20);
-			this.lblEpModel.TabIndex = 43;
-			this.lblEpModel.Text = "Equipment Model";
-			// 
-			// txtEpSerial
-			// 
-			this.txtEpSerial.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.txtEpSerial.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.txtEpSerial.Location = new System.Drawing.Point(319, 222);
-			this.txtEpSerial.Multiline = true;
-			this.txtEpSerial.Name = "txtEpSerial";
-			this.txtEpSerial.Size = new System.Drawing.Size(223, 25);
-			this.txtEpSerial.TabIndex = 46;
-			this.txtEpSerial.WordWrap = false;
-			// 
-			// lblEpSerial
-			// 
-			this.lblEpSerial.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblEpSerial.ForeColor = System.Drawing.SystemColors.ControlDark;
-			this.lblEpSerial.Location = new System.Drawing.Point(316, 199);
-			this.lblEpSerial.Name = "lblEpSerial";
-			this.lblEpSerial.Size = new System.Drawing.Size(183, 20);
-			this.lblEpSerial.TabIndex = 45;
-			this.lblEpSerial.Text = "Equipment Serial Number";
 			// 
 			// CreateServicePackageForm
 			// 
