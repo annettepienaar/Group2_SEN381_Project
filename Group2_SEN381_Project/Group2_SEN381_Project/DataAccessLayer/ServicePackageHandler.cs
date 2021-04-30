@@ -5,19 +5,19 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Group2_SEN381_Project.DataAccessLayer
 {
 	static class ServicePackageHandler
 	{
 		#region Service Package Database-related methods
-		//Adds a Service Package into the DB
-		public static void AddSP(ServicePackage obj)
+		//Sends updated Service Package to Database
+		public static void UpdateSP(string spID, string spName, string spType, string spPriority, string epName, string epModel, string epSerialnum, string spReleaseDate, string spCloseDate)
 		{
 			DataAccess dataAccess = new DataAccess();
-			dataAccess.InsertSP(obj.SPName, obj.SPType, obj.SPPriority, obj.EPName, obj.EPModel, obj.EPSerialnum, obj.SPReleaseDate, obj.SPCloseDate);
+			dataAccess.UpdateSP(spID, spName, spType, spPriority, epName, epModel, epSerialnum, spReleaseDate, spCloseDate);
 		}
-
 
 		//Returns a List of all the Service Packages
 		public static List<ServicePackage> GetAllSP()
@@ -36,13 +36,72 @@ namespace Group2_SEN381_Project.DataAccessLayer
 			return spList;
 		}
 
-		//Sends updated Service Package to Database
-		public static void UpdateSP(string spID, string spName, string spType, string spPriority, string epName, string epModel, string epSerialnum, string spReleaseDate, string spCloseDate)
+		// Generates a SP_ID and stores an SP
+		public static void CreateSP(string spName, string spType, string spPriority, string epName, string epModel, string epSerialNum, string spReleaseDate, string spCloseDate)
 		{
-			DataAccess dataAccess = new DataAccess();
-			dataAccess.UpdateSP(spID, spName, spType, spPriority, epName, epModel, epSerialnum, spReleaseDate, spCloseDate);
+			#region SP_ID Generator
+			string spID;
+
+			spID = spReleaseDate.Substring(0,4);
+
+			switch (spType)
+			{
+				case "Warrenty":
+					spID += "W";
+					break;
+				case "Annual Servicing":
+					spID += "A";
+					break;
+				case "Bulk Buy":
+					spID += "B";
+					break;
+				default:
+					MessageBox.Show("Incorrect Service Package entered.");
+					break;
+			}
+
+			switch (spPriority)
+			{
+				case "Copper":
+					spID += "A";
+					break;
+				case "Silver":
+					spID += "B";
+					break;
+				case "Gold":
+					spID += "C";
+					break;
+				case "Platinum":
+					spID += "D";
+					break;
+				default:
+					MessageBox.Show("Incorrect Service Priority entered.");
+					break;
+			}
+
+			// Checks if SP_ID already exists, if true then increase the SP_ID numerical
+			string numerical = "";
+			int numCounter = 1;
+
+			while (true)//!dataAccess.SPExists()
+			{
+				//Ensuring the numerical has a length of 4
+				while (true)
+				{
+
+				}
+
+
+			}
+
+			#endregion
+
+			/*DataAccess dataAccess = new DataAccess();
+			dataAccess.InsertSP();*/
 		}
 		#endregion
+
+
 
 		//Calculates total subscribers of a SP
 		public static string CalcTotalSubscribers(string SP_id)
