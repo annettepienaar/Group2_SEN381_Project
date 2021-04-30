@@ -25,7 +25,8 @@ namespace Group2_SEN381_Project.DataAccessLayer
 
         //Gets for all, technician, specialization, technician specializations, active tickets, open tickets, employee, call
         #region Get  Methods
-
+        
+        //Gets count of subscribers to a Service Package
         public int CountSubscribers(string id)
         {
             int count;
@@ -43,6 +44,7 @@ namespace Group2_SEN381_Project.DataAccessLayer
             
         }
 
+        //Gets the table of specified tableName
         public DataTable GetTable(string tblName)
         {
             DataTable tblEntries = new DataTable();
@@ -126,6 +128,8 @@ namespace Group2_SEN381_Project.DataAccessLayer
             }
             return tblEntries;
         }
+
+        //Gets Open tickets
         public DataTable GetTechOpenTicket(string empID)
         {
 
@@ -143,6 +147,7 @@ namespace Group2_SEN381_Project.DataAccessLayer
             return tblEntries;
         }
 
+        //Gets employees based on employee id
         public DataTable GetEmployee(string username)
         {
             string select = $@"SELECT * FROM Employee WHERE Emp_ID = '{username}'";
@@ -162,6 +167,7 @@ namespace Group2_SEN381_Project.DataAccessLayer
             return tblEntries;
         }
 
+        //Gets tickets based on client id
         public DataTable GetClientTickets(string clientID)
         {
             string select = $@"SELECT Assigned_Ticket.Open_Date AS 'Open Date', Assigned_Ticket.Close_Date AS 'Close Date', Assigned_Ticket.Ticket_ID AS 'ID', CONCAT(Employee.Emp_Name, ' ', Employee.Emp_Surname) AS 'Employee', Assigned_Ticket.Problem_Area AS 'Problem Area', Assigned_Ticket.Ticket_State AS 'State'
@@ -185,6 +191,7 @@ namespace Group2_SEN381_Project.DataAccessLayer
             return tblEntries;
         }
 
+        //Gets client calls based on client id
         public DataTable GetClientCalls(string clientID)
         {
             string select = $@"SELECT [Call].Call_ID AS 'Call ID', [Call].Start_Time AS 'Start Time', [Call].End_Time AS 'End Time', CONCAT(Employee.Emp_Name, ' ', Employee.Emp_Surname) AS 'Employee'
