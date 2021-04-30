@@ -26,6 +26,23 @@ namespace Group2_SEN381_Project.DataAccessLayer
         //Gets for all, technician, specialization, technician specializations, active tickets, open tickets, employee, call
         #region Get  Methods
 
+        public int CountSubscribers(string id)
+        {
+            int count;
+            string select = $"SELECT COUNT(*) FROM Client WHERE SP_ID = '{id}'";
+            
+            using (connection)
+            {
+                using (modifyCMD = new SqlCommand(select, connection))
+                {
+                    connection.Open();
+                    count = (int)modifyCMD.ExecuteScalar();
+                }
+            }
+            return count;            
+            
+        }
+
         public DataTable GetTable(string tblName)
         {
             DataTable tblEntries = new DataTable();
