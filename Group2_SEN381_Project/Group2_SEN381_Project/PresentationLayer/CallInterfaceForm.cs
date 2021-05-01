@@ -15,14 +15,15 @@ namespace Group2_SEN381_Project
 {
     public partial class CallInterfaceForm : Form
     {
-        //Equals null at end of testing phase
-        //This is the employee that logs in
-        public string callInterfaceID = "C001";
         BindingSource sourceC, sourceT;
+
+        CallCentreEmployee callCentreEmployee;
 
         public CallInterfaceForm(CallCentreEmployee callCentreEmployee)
         {
             InitializeComponent();
+
+            this.callCentreEmployee = callCentreEmployee;
 
             sourceC = new BindingSource();
             sourceT = new BindingSource();
@@ -56,10 +57,10 @@ namespace Group2_SEN381_Project
 
                         string startTime = DateTime.Now.ToString("yyyy-MM-dd") + " " + lblStartTime.Text;
                         string endTime = DateTime.Now.ToString("yyyy-MM-dd") + " " + lblCallEnd.Text;
-                        CallHandler.Call(startTime, endTime, txtClientID.Text, callInterfaceID);
+                        CallHandler.Call(startTime, endTime, txtClientID.Text, callCentreEmployee.EmpID);
 
                         string openDate = DateTime.Now.ToString("yyyy-MM-dd");
-                        TicketHandler.TicketCreation(rtxtProblemDesc.Text, cboxUrgencyLevel.SelectedItem.ToString(), "Unresolved", openDate, "", cboxProblemArea.SelectedItem.ToString(), txtClientID.Text, callInterfaceID);
+                        TicketHandler.TicketCreation(rtxtProblemDesc.Text, cboxUrgencyLevel.SelectedItem.ToString(), "Unresolved", openDate, "", cboxProblemArea.SelectedItem.ToString(), txtClientID.Text, callCentreEmployee.EmpID);
                         break;
                     case DialogResult.No:
                         clockRunning = false;
