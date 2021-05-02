@@ -39,7 +39,7 @@ namespace Group2_SEN381_Project
         public string ClientID { get { return clientID; } set { clientID = value; } }
         public string CallCenterEmpID { get { return callCenterEmpID; } set { callCenterEmpID = value; } }
         public string TicketState { get { return ticketState; } set { ticketState = value; } }
-        public string TicketOpenDate { get { return ticketOpenDate; } set { ticketOpenDate = value; } }
+        public string TicketOpenDate { get { return DateTime.Parse(ticketOpenDate).ToString("yyyy-MM-dd"); } set { ticketOpenDate = value; } }
         public string TicketCloseDate { get { return ticketCloseDate; } set { ticketCloseDate = value; } }
         public string ProblemArea { get { return problemArea; } set { problemArea = value; } }
         public string TechnitionID { get { return technitionID; } set { technitionID = value; } }
@@ -78,6 +78,10 @@ namespace Group2_SEN381_Project
         public override string ToString()
         {
             return $"{TicketID}\t{(TicketOpenDate)}";
+        }
+        public string UnassignedTicketToString()
+        {
+            return $"{TicketID} {ProblemArea} {TicketState}";
         }
     }
 }

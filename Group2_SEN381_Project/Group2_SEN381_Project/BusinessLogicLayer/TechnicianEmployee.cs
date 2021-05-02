@@ -26,7 +26,7 @@ namespace Group2_SEN381_Project.BusinessLogicLayer
             this.address = address;
             this.phoneNum = phoneNum;
             this.password = password;
-            this.specializations = TicketHandler.GetTechnicianSpecs(this.empID);
+            this.specializations = EmployeeHandler.GetTechnicianSpecs(this.empID);
         }
        
         public override string EmpID { get { return empID; } set { empID = value; } }
@@ -58,6 +58,27 @@ namespace Group2_SEN381_Project.BusinessLogicLayer
                    surname == employee.surname &&
                    phoneNum == employee.phoneNum &&
                    EqualityComparer<List<Specialization>>.Default.Equals(specializations, employee.specializations);
+        }
+
+        public string GetSpecializationsNames()
+        {
+            string specs = string.Empty;
+            foreach (Specialization spec in Specializations)
+            {
+                specs += $"{spec.SpecName}, ";
+            }
+
+            //removes the last comma and space for display purposes
+            if (specs != null)
+            {
+                specs = specs.Remove(specs.Length - 2);
+            }            
+            return specs;
+        }
+
+        public override string ToString()
+        {
+            return $"{EmpID} {Name} {Surname}";
         }
     }
 }

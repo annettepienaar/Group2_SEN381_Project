@@ -27,48 +27,10 @@ namespace Group2_SEN381_Project.DataAccessLayer
         //assigns an open technician to the ticket.
         public static Ticket AssignTechnicians(Ticket obj)
         {
-            string problemArea = obj.ProblemArea;
-            int min = int.MaxValue;
-            string techID = "";
-            DataAccess access = new DataAccess();
-            DataTable data = new DataTable();
-            data = access.GetActiveTickets(problemArea);
-            System.Windows.Forms.MessageBox.Show(data.Rows[0].ToString());
-
-            Dictionary<string, int> technicianOpenTickets = new Dictionary<string, int>();
-
-            foreach (DataRow dr in data.Rows)
-            {
-                technicianOpenTickets.Add(dr["Emp_ID"].ToString(), int.Parse(dr["Total_Open_Tickets"].ToString()));
-            }
-            foreach (KeyValuePair<string, int> item in technicianOpenTickets)
-            {
-                if (item.Value < min)
-                {
-                    min = item.Value;
-                    techID = item.Key;
-                }
-            }
-
-            obj.TechnitionID = techID;
 
             return obj;
-
         }
-        //returns a list of specializations for technician objects
-        public static List<Specialization> GetTechnicianSpecs(string empID)
-        {
-            DataAccess access = new DataAccess();
-            List<Specialization> specs = new List<Specialization>();
-            DataTable data = access.GetTechSpecializations(empID);
-
-            foreach (DataRow dr in data.Rows)
-            {
-                specs.Add(new Specialization(dr["Spec_ID"].ToString(), dr["Spec_Name"].ToString(), dr["Spec_Description"].ToString()));
-            }
-
-            return specs;
-        }
+        
 
         //Returns a specific ticket based on a ticket-ID
         public static Ticket GetTicket(string ticketID)
@@ -113,10 +75,25 @@ namespace Group2_SEN381_Project.DataAccessLayer
 
             dataAccess.InsertCreationTicket(ticketDescription, ticketLevel, ticketState, openDate, closeDate, problemArea, clientID, callCenterID);
         }
+        //gets all unassigned tickets
+        public static List<Ticket> GetUnassignedTickets()
+        {
+            List<Ticket> unassignedTickets = new List<Ticket>();
+
+            DataAccess data = new DataAccess();
+            DataTable unassigned = data.GetUnassignedTickets();
+
+            foreach (DataRow dr in unassigned.Rows)
+            {
+                unassignedTickets.Add(new Ticket(dr["Ticket_ID"].ToString(), dr["Ticket_Description"].ToString(), dr["Ticket_Level"].ToString(), dr["Ticket_State"].ToString(), dr["Open_Date"].ToString(), dr["Close_Date"].ToString(), dr["Problem_Area"].ToString(), dr["Client_ID"].ToString(), "" , dr["Call_Center_ID"].ToString()));
+            }
+            return unassignedTickets;
+        }
 
         public static DataTable GetClientTicketTable(string clientID)
         {
             return new DataAccess().GetClientTickets(clientID);
         }
+
     }
 }

@@ -89,6 +89,11 @@ namespace Group2_SEN381_Project.PresentationLayer
                     childFormHandler.OpenChildForm(new ClientManagementForm((ClientManagementEmployee)empObject));
                     childFormHandler.ChangeUserDisplay(empObject.Name + " " + empObject.Surname);
                 }
+                else if (empObject is TicketManagementEmployee)
+                {
+                    childFormHandler.OpenChildForm(new TicketManagementForm((TicketManagementEmployee)empObject));
+                    childFormHandler.ChangeUserDisplay(empObject.Name + " " + empObject.Surname);
+                }
             }
             else
             {

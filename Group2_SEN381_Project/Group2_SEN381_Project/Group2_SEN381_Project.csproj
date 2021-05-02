@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="BusinessLogicLayer\Call.cs" />
     <Compile Include="BusinessLogicLayer\ClientManagementEmployee.cs" />
+    <Compile Include="BusinessLogicLayer\TicketManagementEmployee.cs" />
     <Compile Include="BusinessLogicLayer\Specialization.cs" />
     <Compile Include="DataAccessLayer\CallHandler.cs" />
     <Compile Include="DataAccessLayer\ClientHandler.cs" />
