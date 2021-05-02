@@ -121,6 +121,9 @@
   <data name="Refresh_White_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Refresh_White_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="circle_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\circle_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Refresh_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Refresh_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -130,16 +133,19 @@
   <data name="checkmarkRed_no_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\checkmarkRed_no_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Exit_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Exit_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="checkmark_yes_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\checkmark_yes_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="circle_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\circle_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Refresh_161" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Refresh_161.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Exit_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Exit_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Arrow_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Arrow_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Upload_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Upload_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

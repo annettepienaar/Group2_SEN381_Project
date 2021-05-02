@@ -63,6 +63,16 @@ namespace Group2_SEN381_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Arrow_16 {
+            get {
+                object obj = ResourceManager.GetObject("Arrow_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap checkmark_no_16 {
             get {
                 object obj = ResourceManager.GetObject("checkmark_no_16", resourceCulture);
@@ -136,6 +146,16 @@ namespace Group2_SEN381_Project.Properties {
         internal static System.Drawing.Bitmap Refresh_White_16 {
             get {
                 object obj = ResourceManager.GetObject("Refresh_White_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Upload_16 {
+            get {
+                object obj = ResourceManager.GetObject("Upload_16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
