@@ -23,7 +23,7 @@ namespace Group2_SEN381_Project.PresentationLayer
             InitializeComponent();
         }
 
-        #region OnForm Loads
+        #region OnFormLoads
         private void TicketManagementForm_Load(object sender, EventArgs e)
         {
             LoadListBox();
@@ -131,17 +131,69 @@ namespace Group2_SEN381_Project.PresentationLayer
         //Reloads all tickets in the list box
         private void btnReloadTickets_Click(object sender, EventArgs e)
         {
-
+            LoadListBox();
         }
         //Assigns currently selected technician to ticket
         private void btnAssignTicket_Click(object sender, EventArgs e)
         {
+            if (lbUnassignedTickets.SelectedIndex == -1 && cbTechnition.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select a ticket to assign and technician to assign");
+            }
+            else
+            {
+                string txtSpecs = txtSpecialization.Text;
+                string[] indSpecs = txtSpecs.Split(',');
+                //Ensuring each entry has no leading or trailing blanks
+                for (int i = 0; i < indSpecs.Length; i++)
+                {
+                    indSpecs[i] = indSpecs[i].Trim();
+                }
 
+                if (indSpecs.Contains(cbProblemArea.Text))
+                {
+                    string selectedItem = cbTechnition.Text;
+                    int firstSpace = selectedItem.IndexOf(' ');
+                    string selectedID = selectedItem.Substring(0, firstSpace);
+                    foreach (Ticket item in unassingedTickets)
+                    {
+                        if (item.TicketID == txtTicketID.Text)
+                        {
+                            MessageBox.Show($"{selectedID}");
+                            item.TechnitionID = selectedID;
+                            TicketHandler.AssignTechnicians(item);
+                        }
+                    }
+
+                }
+
+
+            }
         }
         //Updates ticket information to what is in the boxes
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            string message = "Are you sure you want to update ticket information?";
+            string caption = "Update Ticket Info?";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            MessageBoxIcon icon = MessageBoxIcon.Question;
+            DialogResult result;
+            result = MessageBox.Show(message, caption, buttons, icon);
 
+            if (result == DialogResult.Yes)
+            {
+                foreach (Ticket item in unassingedTickets)
+                {
+                    if (item.TicketID == txtTicketID.Text)
+                    {
+                        item.TicketLevel = cbTicketLevel.SelectedItem.ToString();
+                        item.ProblemArea = cbProblemArea.SelectedItem.ToString();
+                        MessageBox.Show(item.ProblemArea);
+                        TicketHandler.UpdateTicket(item);
+                        LoadListBox();
+                    }
+                }
+            }
         }
         #endregion
 

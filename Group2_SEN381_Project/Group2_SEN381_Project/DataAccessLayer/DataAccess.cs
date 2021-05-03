@@ -365,6 +365,22 @@ namespace Group2_SEN381_Project.DataAccessLayer
             }            
         }
 
+        public void InsertAssignedTicket(string desc, string level, string state, string openDate, string closeDate, string problemArea, string clientID, string techID, string callCenterID)
+        {
+            try
+            {
+                connection.Open();
+                string insert = $@"INSERT INTO Assigned_Ticket (Ticket_Description, Ticket_Level, Ticket_State, Open_Date, Close_Date, Problem_Area, Client_ID, Technician_ID, Call_Center_ID) VALUES ('{desc}', '{level}', '{state}', '{openDate}', '{closeDate}', '{problemArea}', '{clientID}', '{techID}', '{callCenterID}')";
+                modifyCMD = new SqlCommand(insert, connection);
+                modifyCMD.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error has occoured", ex.Message);
+            }
+        }
+
         public void InsertSP(string id, string name, string type, string priority, string epName, string epModel, string epSerialnum, string releaseDate, string closeDate)
         {
             try
@@ -403,12 +419,12 @@ namespace Group2_SEN381_Project.DataAccessLayer
 
         }
 
-        public void UpdateTicket(string id, string desc, string level, string state, string openDate, string closeDate, string clientID, string techID, string empID)
+        public void UpdateTicket(string ticketID, string desc, string level, string state, string problemArea, string openDate, string closeDate, string clientID,  string callCenterID)
         {
             try
             {
                 connection.Open();
-                string update = $@"UPDATE Assigned_Ticket SET Ticket_Description = '{desc}',Ticket_Level = '{level}',Ticket_State = '{state}',Open_Date = '{openDate}',Close_Date = '{closeDate}',Client_ID = '{clientID}' ,Call_Center_ID = '{empID}' WHERE Ticket_ID = '{id}'";
+                string update = $@"UPDATE Created_Ticket SET Ticket_Description = '{desc}',Ticket_Level = '{level}',Ticket_State = '{state}',Problem_Area = '{problemArea}',Open_Date = '{openDate}',Close_Date = '{closeDate}',Client_ID = '{clientID}' ,Call_Center_ID = '{callCenterID}' WHERE Ticket_ID = '{ticketID}'";
                 modifyCMD = new SqlCommand(update, connection);
                 modifyCMD.ExecuteNonQuery();
                 connection.Close();
@@ -510,6 +526,22 @@ namespace Group2_SEN381_Project.DataAccessLayer
             {
                 connection.Open();
                 string delete = $@"DELETE FROM Assigned_Ticket WHERE Ticket_ID = '{ticketID}'";
+                modifyCMD = new SqlCommand(delete, connection);
+                modifyCMD.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error has occoured", ex.Message);
+            }
+        }
+
+        public void DeleteUnassignedTicket(string ticketID)
+        {
+            try
+            {
+                connection.Open();
+                string delete = $@"DELETE FROM Created_Ticket WHERE Ticket_ID = '{ticketID}'";
                 modifyCMD = new SqlCommand(delete, connection);
                 modifyCMD.ExecuteNonQuery();
                 connection.Close();

@@ -25,11 +25,13 @@ namespace Group2_SEN381_Project.DataAccessLayer
         //}
 
         //assigns an open technician to the ticket.
-        public static Ticket AssignTechnicians(Ticket obj)
+        public static void AssignTechnicians(Ticket ticket)
         {
-
-            return obj;
+            DataAccess access = new DataAccess();
+            access.InsertAssignedTicket(ticket.TicketDesc, ticket.TicketLevel, ticket.TicketState, ticket.TicketOpenDate, ticket.TicketCloseDate, ticket.ProblemArea, ticket.ClientID, ticket.TechnitionID, ticket.CallCenterEmpID);
+            access.DeleteUnassignedTicket(ticket.TicketID);
         }
+    
         
 
         //Returns a specific ticket based on a ticket-ID
@@ -63,7 +65,7 @@ namespace Group2_SEN381_Project.DataAccessLayer
         public static void UpdateTicket(Ticket obj)
         {
             DataAccess access = new DataAccess();
-            access.UpdateTicket(obj.TicketID, obj.TicketDesc, obj.TicketLevel, obj.TicketState, obj.TicketOpenDate, obj.TicketCloseDate, obj.ClientID, obj.TechnitionID, obj.CallCenterEmpID);
+            access.UpdateTicket(obj.TicketID, obj.TicketDesc, obj.TicketLevel, obj.TicketState, obj.ProblemArea, obj.TicketOpenDate, obj.TicketCloseDate, obj.ClientID, obj.CallCenterEmpID);
         }
 
         public static void EscalateTicket(string ticketID, string ticketDescription, string ticketLevel, string openDate, string closeDate, string problemArea, string clientID, string callCenterID)
