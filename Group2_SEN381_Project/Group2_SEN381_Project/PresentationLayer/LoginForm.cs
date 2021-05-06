@@ -53,46 +53,52 @@ namespace Group2_SEN381_Project.PresentationLayer
             if (e.KeyData == Keys.Enter)
             {
                 Login();
+                e.SuppressKeyPress = true;
             }
         }
 
         private void Login()
         {
-            //Search for they employees who match the text in the username textbox
-            Employee empObject = EmployeeHandler.GetEmployee(txtUsername.Text.Trim());
-
             //Hide the incorrect username or password on start
             lblIncorrect.Visible = false;
 
+            //Storing the textboxes input into variables for later use
+            string username = txtUsername.Text.Trim();
+            string password = txtPassword.Text.Trim();
+
+            //Search for they employees who match the text in the username textbox
+            Employee empObject = EmployeeHandler.GetEmployee(username);
+
             //If the object found and its password match then open the form and change userDisplay
-            if (empObject != null && txtPassword.Text.Trim().Equals(empObject.Password))
+            if (empObject != null && password.Equals(empObject.Password))
             {
+                //Var used to change the top panels displayed text
+                string userNameAndSurname = empObject.Name + " " + empObject.Surname;
+
+                //Checks the type of employee recieved then opens the correct form whilst changing the displayed employee
                 if (empObject is CallCentreEmployee)
                 {
-                    //Change to form
                     childFormHandler.OpenChildForm(new CallInterfaceForm((CallCentreEmployee)empObject));
-                    childFormHandler.ChangeUserDisplay(empObject.Name + " " + empObject.Surname);
+                    childFormHandler.ChangeUserDisplay(userNameAndSurname);
                 }
                 else if (empObject is TechnicianEmployee)
                 {
                     childFormHandler.OpenChildForm(new TechnitionInterfaceForm((TechnicianEmployee)empObject));
-                    childFormHandler.ChangeUserDisplay(empObject.Name + " " + empObject.Surname);
-                    //Change to form
+                    childFormHandler.ChangeUserDisplay(userNameAndSurname);
                 }
                 else if (empObject is SatisfactionEmployee)
                 {
                     childFormHandler.OpenChildForm(new ServiceMetricsForm((SatisfactionEmployee)empObject));
-                    childFormHandler.ChangeUserDisplay(empObject.Name + " " + empObject.Surname);
-                    //Change to form
+                    childFormHandler.ChangeUserDisplay(userNameAndSurname);
                 }else if (empObject is ClientManagementEmployee)
                 {
                     childFormHandler.OpenChildForm(new ClientManagementForm((ClientManagementEmployee)empObject));
-                    childFormHandler.ChangeUserDisplay(empObject.Name + " " + empObject.Surname);
+                    childFormHandler.ChangeUserDisplay(userNameAndSurname);
                 }
                 else if (empObject is TicketManagementEmployee)
                 {
                     childFormHandler.OpenChildForm(new TicketManagementForm((TicketManagementEmployee)empObject));
-                    childFormHandler.ChangeUserDisplay(empObject.Name + " " + empObject.Surname);
+                    childFormHandler.ChangeUserDisplay(userNameAndSurname);
                 }
             }
             else
