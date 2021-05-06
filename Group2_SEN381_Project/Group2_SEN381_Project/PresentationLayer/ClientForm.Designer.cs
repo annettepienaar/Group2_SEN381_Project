@@ -169,12 +169,12 @@
             this.cboxServicePackage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.cboxServicePackage.FormattingEnabled = true;
             this.cboxServicePackage.Items.AddRange(new object[] {
-            "Bronze",
-            "Silver",
-            "Gold",
-            "Premium Bronze",
-            "Premium Silver",
-            "Premium Gold"});
+            "Gamis Gaming",
+            "Garenteed Gaming",
+            "Mouse Mania",
+            "Garenteed Sound",
+            "The Ergonomic Feel",
+            "Gaming Experience"});
             this.cboxServicePackage.Location = new System.Drawing.Point(30, 439);
             this.cboxServicePackage.Margin = new System.Windows.Forms.Padding(5);
             this.cboxServicePackage.Name = "cboxServicePackage";

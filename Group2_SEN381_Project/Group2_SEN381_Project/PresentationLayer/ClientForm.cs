@@ -63,6 +63,10 @@ namespace Group2_SEN381_Project.PresentationLayer
         {
             if (txtClientID.Text != "" && txtName.Text != "" && txtSurname.Text != "" && txtPhone.Text != "" && txtAddress.Text != "" && cboxServicePackage.Text != "")
             {
+                if(txtBusinessName.Text == "")
+                {
+                    txtBusinessName.Text = "N/A";
+                }
                 ClientHandler.Add(new Client(txtClientID.Text, txtName.Text, txtSurname.Text, txtBusinessName.Text, txtPhone.Text, txtAddress.Text, cboxServicePackage.Text));
 
                 txtClient.Text = txtClientID.Text;

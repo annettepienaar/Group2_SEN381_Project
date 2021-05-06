@@ -45,8 +45,8 @@ namespace Group2_SEN381_Project
             }
             else
             {
-                string selectedItem = lbAssignedTickets.SelectedItem.ToString();
-                string selectedID = selectedItem.Substring(0, selectedItem.IndexOf(' ')+1);
+                string selectedItem = lbAssignedTickets.Text;
+                string selectedID = selectedItem.Substring(0, selectedItem.IndexOf(' '));
                 UpdateInformation(selectedID);
             }
         }

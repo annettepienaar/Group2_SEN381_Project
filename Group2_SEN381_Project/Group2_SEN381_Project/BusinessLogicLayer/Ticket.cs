@@ -77,7 +77,7 @@ namespace Group2_SEN381_Project
 
         public override string ToString()
         {
-            return $"{TicketID}\t{(TicketOpenDate)}";
+            return $"{TicketID} {TicketOpenDate}";
         }
         public string UnassignedTicketToString()
         {
