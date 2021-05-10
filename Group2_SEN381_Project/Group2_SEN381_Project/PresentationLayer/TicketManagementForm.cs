@@ -132,7 +132,21 @@ namespace Group2_SEN381_Project.PresentationLayer
         private void btnReloadTickets_Click(object sender, EventArgs e)
         {
             LoadListBox();
+            clearLabels();
         }
+
+        private void clearLabels()
+        {
+            txtTicketID.Text = String.Empty;
+            txtTicketState.Text = String.Empty;
+            cbTicketLevel.SelectedItem = null;
+            cbProblemArea.SelectedItem = null;
+            txtTicketID.Text = String.Empty;
+            txtOpenDate.Text = String.Empty;
+            txtClientID.Text = String.Empty;
+            txtDescription.Text = String.Empty;
+        }
+
         //Assigns currently selected technician to ticket
         private void btnAssignTicket_Click(object sender, EventArgs e)
         {
@@ -159,7 +173,6 @@ namespace Group2_SEN381_Project.PresentationLayer
                     {
                         if (item.TicketID == txtTicketID.Text)
                         {
-                            MessageBox.Show($"{selectedID}");
                             item.TechnitionID = selectedID;
                             TicketHandler.AssignTechnicians(item);
                         }
@@ -188,8 +201,7 @@ namespace Group2_SEN381_Project.PresentationLayer
                     {
                         item.TicketLevel = cbTicketLevel.SelectedItem.ToString();
                         item.ProblemArea = cbProblemArea.SelectedItem.ToString();
-                        MessageBox.Show(item.ProblemArea);
-                        TicketHandler.UpdateTicket(item);
+                        TicketHandler.UpdateCreatedTicket(item);
                         LoadListBox();
                     }
                 }

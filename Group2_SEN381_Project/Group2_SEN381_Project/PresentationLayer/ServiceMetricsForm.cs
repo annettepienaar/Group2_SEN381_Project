@@ -70,6 +70,21 @@ namespace Group2_SEN381_Project.PresentationLayer
             }
         }
 
+        private void btnReloadTickets_Click(object sender, EventArgs e)
+        {
+			spList = ServicePackageHandler.GetAllSP();
+			lbServicePackages.DataSource = spList;
 
+			txtSPID.Text = String.Empty;
+			txtSPName.Text = String.Empty;
+			txtEPName.Text = String.Empty;
+			txtSPType.Text = String.Empty;
+			txtEPModel.Text = String.Empty;
+			txtSPPriority.Text = String.Empty;
+			txtEPSerialnum.Text = String.Empty;
+			txtReleaseDate.Text = String.Empty;
+			txtCloseDate.Text = String.Empty;
+			txtSubscriberAmount.Text = String.Empty;
+		}
     }
 }

@@ -15,6 +15,8 @@ namespace Group2_SEN381_Project.PresentationLayer
     {
         TextBox txtClient = null;
 
+        List<string> servicePackageName = new List<string>();
+
         public ClientForm(TextBox txtClient)
         {
             InitializeComponent();
@@ -22,6 +24,9 @@ namespace Group2_SEN381_Project.PresentationLayer
             this.txtClient = txtClient;
 
             txtClientID.Text = NextClientID();
+
+            servicePackageName = ServicePackageHandler.GetSpNames();
+            cboxServicePackage.DataSource = servicePackageName;
         }
 
         private void btnExit_Click(object sender, EventArgs e)

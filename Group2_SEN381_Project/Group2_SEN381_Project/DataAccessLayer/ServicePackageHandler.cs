@@ -102,7 +102,19 @@ namespace Group2_SEN381_Project.DataAccessLayer
 		}
 		#endregion
 
+		public static List<string> GetSpNames()
+        {
+			DataAccess dataAccess = new DataAccess();
+			DataTable spNamesTable = dataAccess.SPName();
+			List<string> spNameList = new List<string>();
 
+            foreach (DataRow item in spNamesTable.Rows)
+            {
+				spNameList.Add(item["SP_Name"].ToString());
+            }
+
+			return spNameList;
+        }
 
 		//Calculates total subscribers of a SP
 		public static string CalcTotalSubscribers(string SP_id)

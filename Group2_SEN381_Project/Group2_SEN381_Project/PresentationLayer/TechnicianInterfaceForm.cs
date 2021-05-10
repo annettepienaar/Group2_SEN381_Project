@@ -95,7 +95,7 @@ namespace Group2_SEN381_Project
                     {
                         item.TicketState = "Resolved";
                         item.TicketCloseDate = DateTime.Now.ToString("yyyy-MM-dd");
-                        TicketHandler.UpdateTicket(item);
+                        TicketHandler.UpdateAssignedTicket(item);
                     }
                 }
             }

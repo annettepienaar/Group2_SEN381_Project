@@ -259,6 +259,26 @@ namespace Group2_SEN381_Project.DataAccessLayer
             return dataTable;
 		}
 
+        //Search Service Package Names
+        public DataTable SPName()
+        {
+            DataTable dataTable = new DataTable();
+
+            string select = $"SELECT SP_Name FROM Service_Package";
+
+            try
+            {
+                dataAdapter = new SqlDataAdapter(select, connection);
+                dataAdapter.Fill(dataTable);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "An error has occurred: ");
+            }
+
+            return dataTable;
+        }
+
         //Search service package
         public DataTable SearchSP(string spName)
         {
@@ -420,12 +440,29 @@ namespace Group2_SEN381_Project.DataAccessLayer
 
         }
 
-        public void UpdateTicket(string ticketID, string desc, string level, string state, string problemArea, string openDate, string closeDate, string clientID,  string callCenterID)
+        public void UpdateCreatedTicket(string ticketID, string desc, string level, string state, string problemArea, string openDate, string closeDate, string clientID,  string callCenterID)
         {
             try
             {
                 connection.Open();
                 string update = $@"UPDATE Created_Ticket SET Ticket_Description = '{desc}',Ticket_Level = '{level}',Ticket_State = '{state}',Problem_Area = '{problemArea}',Open_Date = '{openDate}',Close_Date = '{closeDate}',Client_ID = '{clientID}' ,Call_Center_ID = '{callCenterID}' WHERE Ticket_ID = '{ticketID}'";
+                modifyCMD = new SqlCommand(update, connection);
+                modifyCMD.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error has occoured", ex.Message);
+            }
+
+        }
+
+        public void UpdateAssignedTicket(string ticketID, string state, string closeDate)
+        {
+            try
+            {
+                connection.Open();
+                string update = $@"UPDATE Assigned_Ticket SET Ticket_State = '{state}',Close_Date = '{closeDate}' WHERE Ticket_ID = '{ticketID}'";
                 modifyCMD = new SqlCommand(update, connection);
                 modifyCMD.ExecuteNonQuery();
                 connection.Close();

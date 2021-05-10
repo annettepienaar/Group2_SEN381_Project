@@ -40,6 +40,14 @@
             this.lbServicePackages = new System.Windows.Forms.ListBox();
             this.lblServicePackagesTitle = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtSPName = new System.Windows.Forms.TextBox();
+            this.txtEPName = new System.Windows.Forms.TextBox();
+            this.txtSPType = new System.Windows.Forms.TextBox();
+            this.txtEPModel = new System.Windows.Forms.TextBox();
+            this.txtSPPriority = new System.Windows.Forms.TextBox();
+            this.txtEPSerialnum = new System.Windows.Forms.TextBox();
+            this.txtCloseDate = new System.Windows.Forms.TextBox();
+            this.txtReleaseDate = new System.Windows.Forms.TextBox();
             this.txtSubscriberAmount = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -47,14 +55,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtReleaseDate = new System.Windows.Forms.TextBox();
-            this.txtCloseDate = new System.Windows.Forms.TextBox();
-            this.txtEPSerialnum = new System.Windows.Forms.TextBox();
-            this.txtSPPriority = new System.Windows.Forms.TextBox();
-            this.txtEPModel = new System.Windows.Forms.TextBox();
-            this.txtSPType = new System.Windows.Forms.TextBox();
-            this.txtEPName = new System.Windows.Forms.TextBox();
-            this.txtSPName = new System.Windows.Forms.TextBox();
+            this.btnReloadTickets = new System.Windows.Forms.Button();
             this.pnlTicketDisplay.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -138,6 +139,7 @@
             // pnlTicketDisplay
             // 
             this.pnlTicketDisplay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.pnlTicketDisplay.Controls.Add(this.btnReloadTickets);
             this.pnlTicketDisplay.Controls.Add(this.btnAddServicePackage);
             this.pnlTicketDisplay.Controls.Add(this.lbServicePackages);
             this.pnlTicketDisplay.Controls.Add(this.lblServicePackagesTitle);
@@ -154,9 +156,9 @@
             this.btnAddServicePackage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddServicePackage.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddServicePackage.ForeColor = System.Drawing.Color.White;
-            this.btnAddServicePackage.Location = new System.Drawing.Point(7, 482);
+            this.btnAddServicePackage.Location = new System.Drawing.Point(7, 480);
             this.btnAddServicePackage.Name = "btnAddServicePackage";
-            this.btnAddServicePackage.Size = new System.Drawing.Size(138, 39);
+            this.btnAddServicePackage.Size = new System.Drawing.Size(138, 25);
             this.btnAddServicePackage.TabIndex = 2;
             this.btnAddServicePackage.Text = "ADD PACKAGE";
             this.btnAddServicePackage.UseVisualStyleBackColor = false;
@@ -218,6 +220,102 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(900, 570);
             this.panel1.TabIndex = 43;
+            // 
+            // txtSPName
+            // 
+            this.txtSPName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtSPName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSPName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtSPName.Location = new System.Drawing.Point(168, 173);
+            this.txtSPName.Multiline = true;
+            this.txtSPName.Name = "txtSPName";
+            this.txtSPName.Size = new System.Drawing.Size(300, 25);
+            this.txtSPName.TabIndex = 70;
+            this.txtSPName.WordWrap = false;
+            // 
+            // txtEPName
+            // 
+            this.txtEPName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtEPName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEPName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtEPName.Location = new System.Drawing.Point(554, 173);
+            this.txtEPName.Multiline = true;
+            this.txtEPName.Name = "txtEPName";
+            this.txtEPName.Size = new System.Drawing.Size(300, 25);
+            this.txtEPName.TabIndex = 69;
+            this.txtEPName.WordWrap = false;
+            // 
+            // txtSPType
+            // 
+            this.txtSPType.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtSPType.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSPType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtSPType.Location = new System.Drawing.Point(168, 235);
+            this.txtSPType.Multiline = true;
+            this.txtSPType.Name = "txtSPType";
+            this.txtSPType.Size = new System.Drawing.Size(300, 25);
+            this.txtSPType.TabIndex = 68;
+            this.txtSPType.WordWrap = false;
+            // 
+            // txtEPModel
+            // 
+            this.txtEPModel.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtEPModel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEPModel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtEPModel.Location = new System.Drawing.Point(554, 235);
+            this.txtEPModel.Multiline = true;
+            this.txtEPModel.Name = "txtEPModel";
+            this.txtEPModel.Size = new System.Drawing.Size(300, 25);
+            this.txtEPModel.TabIndex = 67;
+            this.txtEPModel.WordWrap = false;
+            // 
+            // txtSPPriority
+            // 
+            this.txtSPPriority.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtSPPriority.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSPPriority.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtSPPriority.Location = new System.Drawing.Point(168, 305);
+            this.txtSPPriority.Multiline = true;
+            this.txtSPPriority.Name = "txtSPPriority";
+            this.txtSPPriority.Size = new System.Drawing.Size(300, 25);
+            this.txtSPPriority.TabIndex = 66;
+            this.txtSPPriority.WordWrap = false;
+            // 
+            // txtEPSerialnum
+            // 
+            this.txtEPSerialnum.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtEPSerialnum.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEPSerialnum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtEPSerialnum.Location = new System.Drawing.Point(554, 305);
+            this.txtEPSerialnum.Multiline = true;
+            this.txtEPSerialnum.Name = "txtEPSerialnum";
+            this.txtEPSerialnum.Size = new System.Drawing.Size(300, 25);
+            this.txtEPSerialnum.TabIndex = 65;
+            this.txtEPSerialnum.WordWrap = false;
+            // 
+            // txtCloseDate
+            // 
+            this.txtCloseDate.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCloseDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCloseDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtCloseDate.Location = new System.Drawing.Point(554, 402);
+            this.txtCloseDate.Multiline = true;
+            this.txtCloseDate.Name = "txtCloseDate";
+            this.txtCloseDate.Size = new System.Drawing.Size(300, 25);
+            this.txtCloseDate.TabIndex = 64;
+            this.txtCloseDate.WordWrap = false;
+            // 
+            // txtReleaseDate
+            // 
+            this.txtReleaseDate.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtReleaseDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtReleaseDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtReleaseDate.Location = new System.Drawing.Point(168, 402);
+            this.txtReleaseDate.Multiline = true;
+            this.txtReleaseDate.Name = "txtReleaseDate";
+            this.txtReleaseDate.Size = new System.Drawing.Size(300, 25);
+            this.txtReleaseDate.TabIndex = 63;
+            this.txtReleaseDate.WordWrap = false;
             // 
             // txtSubscriberAmount
             // 
@@ -291,101 +389,24 @@
             this.label4.TabIndex = 43;
             this.label4.Text = "label4";
             // 
-            // txtReleaseDate
+            // btnReloadTickets
             // 
-            this.txtReleaseDate.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtReleaseDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtReleaseDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtReleaseDate.Location = new System.Drawing.Point(168, 402);
-            this.txtReleaseDate.Multiline = true;
-            this.txtReleaseDate.Name = "txtReleaseDate";
-            this.txtReleaseDate.Size = new System.Drawing.Size(300, 25);
-            this.txtReleaseDate.TabIndex = 63;
-            this.txtReleaseDate.WordWrap = false;
-            // 
-            // txtCloseDate
-            // 
-            this.txtCloseDate.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtCloseDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCloseDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtCloseDate.Location = new System.Drawing.Point(554, 402);
-            this.txtCloseDate.Multiline = true;
-            this.txtCloseDate.Name = "txtCloseDate";
-            this.txtCloseDate.Size = new System.Drawing.Size(300, 25);
-            this.txtCloseDate.TabIndex = 64;
-            this.txtCloseDate.WordWrap = false;
-            // 
-            // txtEPSerialnum
-            // 
-            this.txtEPSerialnum.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtEPSerialnum.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEPSerialnum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtEPSerialnum.Location = new System.Drawing.Point(554, 305);
-            this.txtEPSerialnum.Multiline = true;
-            this.txtEPSerialnum.Name = "txtEPSerialnum";
-            this.txtEPSerialnum.Size = new System.Drawing.Size(300, 25);
-            this.txtEPSerialnum.TabIndex = 65;
-            this.txtEPSerialnum.WordWrap = false;
-            // 
-            // txtSPPriority
-            // 
-            this.txtSPPriority.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtSPPriority.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSPPriority.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtSPPriority.Location = new System.Drawing.Point(168, 305);
-            this.txtSPPriority.Multiline = true;
-            this.txtSPPriority.Name = "txtSPPriority";
-            this.txtSPPriority.Size = new System.Drawing.Size(300, 25);
-            this.txtSPPriority.TabIndex = 66;
-            this.txtSPPriority.WordWrap = false;
-            // 
-            // txtEPModel
-            // 
-            this.txtEPModel.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtEPModel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEPModel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtEPModel.Location = new System.Drawing.Point(554, 235);
-            this.txtEPModel.Multiline = true;
-            this.txtEPModel.Name = "txtEPModel";
-            this.txtEPModel.Size = new System.Drawing.Size(300, 25);
-            this.txtEPModel.TabIndex = 67;
-            this.txtEPModel.WordWrap = false;
-            // 
-            // txtSPType
-            // 
-            this.txtSPType.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtSPType.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSPType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtSPType.Location = new System.Drawing.Point(168, 235);
-            this.txtSPType.Multiline = true;
-            this.txtSPType.Name = "txtSPType";
-            this.txtSPType.Size = new System.Drawing.Size(300, 25);
-            this.txtSPType.TabIndex = 68;
-            this.txtSPType.WordWrap = false;
-            // 
-            // txtEPName
-            // 
-            this.txtEPName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtEPName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEPName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtEPName.Location = new System.Drawing.Point(554, 173);
-            this.txtEPName.Multiline = true;
-            this.txtEPName.Name = "txtEPName";
-            this.txtEPName.Size = new System.Drawing.Size(300, 25);
-            this.txtEPName.TabIndex = 69;
-            this.txtEPName.WordWrap = false;
-            // 
-            // txtSPName
-            // 
-            this.txtSPName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtSPName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSPName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtSPName.Location = new System.Drawing.Point(168, 173);
-            this.txtSPName.Multiline = true;
-            this.txtSPName.Name = "txtSPName";
-            this.txtSPName.Size = new System.Drawing.Size(300, 25);
-            this.txtSPName.TabIndex = 70;
-            this.txtSPName.WordWrap = false;
+            this.btnReloadTickets.BackColor = System.Drawing.Color.Teal;
+            this.btnReloadTickets.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnReloadTickets.FlatAppearance.BorderSize = 0;
+            this.btnReloadTickets.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReloadTickets.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReloadTickets.ForeColor = System.Drawing.Color.White;
+            this.btnReloadTickets.Image = global::Group2_SEN381_Project.Properties.Resources.Refresh_White_16;
+            this.btnReloadTickets.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.btnReloadTickets.Location = new System.Drawing.Point(7, 524);
+            this.btnReloadTickets.Name = "btnReloadTickets";
+            this.btnReloadTickets.Size = new System.Drawing.Size(138, 25);
+            this.btnReloadTickets.TabIndex = 44;
+            this.btnReloadTickets.Text = "REFRESH";
+            this.btnReloadTickets.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnReloadTickets.UseVisualStyleBackColor = false;
+            this.btnReloadTickets.Click += new System.EventHandler(this.btnReloadTickets_Click);
             // 
             // ServiceMetricsForm
             // 
@@ -432,5 +453,6 @@
         private System.Windows.Forms.TextBox txtEPSerialnum;
         private System.Windows.Forms.TextBox txtCloseDate;
         private System.Windows.Forms.TextBox txtReleaseDate;
+        private System.Windows.Forms.Button btnReloadTickets;
     }
 }

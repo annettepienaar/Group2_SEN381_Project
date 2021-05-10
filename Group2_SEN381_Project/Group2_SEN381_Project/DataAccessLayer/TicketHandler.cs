@@ -62,10 +62,16 @@ namespace Group2_SEN381_Project.DataAccessLayer
             return tickets;
         }
         //Update Ticket
-        public static void UpdateTicket(Ticket obj)
+        public static void UpdateCreatedTicket(Ticket obj)
         {
             DataAccess access = new DataAccess();
-            access.UpdateTicket(obj.TicketID, obj.TicketDesc, obj.TicketLevel, obj.TicketState, obj.ProblemArea, obj.TicketOpenDate, obj.TicketCloseDate, obj.ClientID, obj.CallCenterEmpID);
+            access.UpdateCreatedTicket(obj.TicketID, obj.TicketDesc, obj.TicketLevel, obj.TicketState, obj.ProblemArea, obj.TicketOpenDate, obj.TicketCloseDate, obj.ClientID, obj.CallCenterEmpID);
+        }
+
+        public static void UpdateAssignedTicket(Ticket obj)
+        {
+            DataAccess access = new DataAccess();
+            access.UpdateAssignedTicket(obj.TicketID, obj.TicketState, obj.TicketCloseDate);
         }
 
         public static void EscalateTicket(string ticketID, string ticketDescription, string ticketLevel, string openDate, string closeDate, string problemArea, string clientID, string callCenterID)

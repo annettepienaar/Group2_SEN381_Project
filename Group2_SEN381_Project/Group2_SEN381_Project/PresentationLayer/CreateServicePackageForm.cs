@@ -63,6 +63,8 @@ namespace Group2_SEN381_Project.PresentationLayer
 				txtEpName.Text = "";
 				txtEpModel.Text = "";
 				txtEpSerial.Text = "";
+
+				this.Close();
 			}
 		}
 
