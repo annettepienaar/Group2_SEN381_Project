@@ -34,6 +34,8 @@ namespace Group2_SEN381_Project.PresentationLayer
             this.label4 = new System.Windows.Forms.Label();
             this.txtSpecialization = new System.Windows.Forms.Label();
             this.gbTicketInformation = new System.Windows.Forms.GroupBox();
+            this.cbProblemArea = new System.Windows.Forms.ComboBox();
+            this.cbTicketLevel = new System.Windows.Forms.ComboBox();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.txtClientID = new System.Windows.Forms.Label();
             this.lblDescriptionTitle = new System.Windows.Forms.Label();
@@ -56,8 +58,11 @@ namespace Group2_SEN381_Project.PresentationLayer
             this.btnReloadTickets = new System.Windows.Forms.Button();
             this.btnAssignTicket = new System.Windows.Forms.Button();
             this.lblUnassignedTickets = new System.Windows.Forms.Label();
-            this.cbTicketLevel = new System.Windows.Forms.ComboBox();
-            this.cbProblemArea = new System.Windows.Forms.ComboBox();
+            this.txtClientName = new System.Windows.Forms.TextBox();
+            this.lblNameTitle = new System.Windows.Forms.Label();
+            this.txtClientPhone = new System.Windows.Forms.TextBox();
+            this.lblPhoneTitle = new System.Windows.Forms.Label();
+            this.btnStartStop = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.gbTicketInformation.SuspendLayout();
             this.pnlTicketDisplay.SuspendLayout();
@@ -78,9 +83,9 @@ namespace Group2_SEN381_Project.PresentationLayer
             this.panel1.Controls.Add(this.lblSpecializationTitle);
             this.panel1.Controls.Add(this.lblTechnitionTitle);
             this.panel1.Controls.Add(this.pnlTicketDisplay);
-            this.panel1.Location = new System.Drawing.Point(19, 12);
+            this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(871, 531);
+            this.panel1.Size = new System.Drawing.Size(900, 570);
             this.panel1.TabIndex = 25;
             // 
             // cbTechnition
@@ -99,7 +104,7 @@ namespace Group2_SEN381_Project.PresentationLayer
             this.label4.BackColor = System.Drawing.Color.Teal;
             this.label4.Location = new System.Drawing.Point(155, 4);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(1, 523);
+            this.label4.Size = new System.Drawing.Size(1, 562);
             this.label4.TabIndex = 24;
             this.label4.Text = "label4";
             // 
@@ -108,13 +113,17 @@ namespace Group2_SEN381_Project.PresentationLayer
             this.txtSpecialization.BackColor = System.Drawing.Color.White;
             this.txtSpecialization.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txtSpecialization.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtSpecialization.Location = new System.Drawing.Point(552, 31);
+            this.txtSpecialization.Location = new System.Drawing.Point(578, 31);
             this.txtSpecialization.Name = "txtSpecialization";
             this.txtSpecialization.Size = new System.Drawing.Size(300, 25);
             this.txtSpecialization.TabIndex = 21;
             // 
             // gbTicketInformation
             // 
+            this.gbTicketInformation.Controls.Add(this.txtClientPhone);
+            this.gbTicketInformation.Controls.Add(this.lblPhoneTitle);
+            this.gbTicketInformation.Controls.Add(this.txtClientName);
+            this.gbTicketInformation.Controls.Add(this.lblNameTitle);
             this.gbTicketInformation.Controls.Add(this.cbProblemArea);
             this.gbTicketInformation.Controls.Add(this.cbTicketLevel);
             this.gbTicketInformation.Controls.Add(this.txtDescription);
@@ -131,12 +140,37 @@ namespace Group2_SEN381_Project.PresentationLayer
             this.gbTicketInformation.Controls.Add(this.lblIDTitle);
             this.gbTicketInformation.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.gbTicketInformation.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.gbTicketInformation.Location = new System.Drawing.Point(173, 227);
+            this.gbTicketInformation.Location = new System.Drawing.Point(173, 184);
             this.gbTicketInformation.Name = "gbTicketInformation";
-            this.gbTicketInformation.Size = new System.Drawing.Size(681, 295);
+            this.gbTicketInformation.Size = new System.Drawing.Size(705, 371);
             this.gbTicketInformation.TabIndex = 20;
             this.gbTicketInformation.TabStop = false;
             this.gbTicketInformation.Text = "Ticket Information";
+            // 
+            // cbProblemArea
+            // 
+            this.cbProblemArea.FormattingEnabled = true;
+            this.cbProblemArea.Items.AddRange(new object[] {
+            "Service",
+            "Electrician",
+            "Installation",
+            "Mechanic"});
+            this.cbProblemArea.Location = new System.Drawing.Point(405, 85);
+            this.cbProblemArea.Name = "cbProblemArea";
+            this.cbProblemArea.Size = new System.Drawing.Size(290, 26);
+            this.cbProblemArea.TabIndex = 23;
+            // 
+            // cbTicketLevel
+            // 
+            this.cbTicketLevel.FormattingEnabled = true;
+            this.cbTicketLevel.Items.AddRange(new object[] {
+            "High",
+            "Medium",
+            "Low"});
+            this.cbTicketLevel.Location = new System.Drawing.Point(14, 85);
+            this.cbTicketLevel.Name = "cbTicketLevel";
+            this.cbTicketLevel.Size = new System.Drawing.Size(290, 26);
+            this.cbTicketLevel.TabIndex = 22;
             // 
             // txtDescription
             // 
@@ -145,7 +179,7 @@ namespace Group2_SEN381_Project.PresentationLayer
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.ReadOnly = true;
-            this.txtDescription.Size = new System.Drawing.Size(654, 100);
+            this.txtDescription.Size = new System.Drawing.Size(677, 100);
             this.txtDescription.TabIndex = 21;
             // 
             // txtClientID
@@ -153,7 +187,7 @@ namespace Group2_SEN381_Project.PresentationLayer
             this.txtClientID.BackColor = System.Drawing.Color.White;
             this.txtClientID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtClientID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtClientID.Location = new System.Drawing.Point(378, 136);
+            this.txtClientID.Location = new System.Drawing.Point(405, 136);
             this.txtClientID.Name = "txtClientID";
             this.txtClientID.Size = new System.Drawing.Size(290, 25);
             this.txtClientID.TabIndex = 13;
@@ -173,7 +207,7 @@ namespace Group2_SEN381_Project.PresentationLayer
             // 
             this.lblClientIDTitle.AutoSize = true;
             this.lblClientIDTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClientIDTitle.Location = new System.Drawing.Point(379, 118);
+            this.lblClientIDTitle.Location = new System.Drawing.Point(399, 118);
             this.lblClientIDTitle.Name = "lblClientIDTitle";
             this.lblClientIDTitle.Size = new System.Drawing.Size(62, 18);
             this.lblClientIDTitle.TabIndex = 11;
@@ -183,7 +217,7 @@ namespace Group2_SEN381_Project.PresentationLayer
             // 
             this.lblProblemAreaTitle.AutoSize = true;
             this.lblProblemAreaTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProblemAreaTitle.Location = new System.Drawing.Point(379, 65);
+            this.lblProblemAreaTitle.Location = new System.Drawing.Point(399, 65);
             this.lblProblemAreaTitle.Name = "lblProblemAreaTitle";
             this.lblProblemAreaTitle.Size = new System.Drawing.Size(98, 18);
             this.lblProblemAreaTitle.TabIndex = 10;
@@ -194,7 +228,7 @@ namespace Group2_SEN381_Project.PresentationLayer
             this.txtTicketState.BackColor = System.Drawing.Color.White;
             this.txtTicketState.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTicketState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtTicketState.Location = new System.Drawing.Point(378, 38);
+            this.txtTicketState.Location = new System.Drawing.Point(405, 38);
             this.txtTicketState.Name = "txtTicketState";
             this.txtTicketState.Size = new System.Drawing.Size(290, 25);
             this.txtTicketState.TabIndex = 9;
@@ -203,7 +237,7 @@ namespace Group2_SEN381_Project.PresentationLayer
             // 
             this.lblTicketStateTitle.AutoSize = true;
             this.lblTicketStateTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTicketStateTitle.Location = new System.Drawing.Point(379, 16);
+            this.lblTicketStateTitle.Location = new System.Drawing.Point(399, 16);
             this.lblTicketStateTitle.Name = "lblTicketStateTitle";
             this.lblTicketStateTitle.Size = new System.Drawing.Size(42, 18);
             this.lblTicketStateTitle.TabIndex = 8;
@@ -266,7 +300,7 @@ namespace Group2_SEN381_Project.PresentationLayer
             this.txtTickets.Multiline = true;
             this.txtTickets.Name = "txtTickets";
             this.txtTickets.ReadOnly = true;
-            this.txtTickets.Size = new System.Drawing.Size(682, 143);
+            this.txtTickets.Size = new System.Drawing.Size(706, 100);
             this.txtTickets.TabIndex = 19;
             // 
             // lblTicketTitle
@@ -285,7 +319,7 @@ namespace Group2_SEN381_Project.PresentationLayer
             this.lblSpecializationTitle.AutoSize = true;
             this.lblSpecializationTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSpecializationTitle.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblSpecializationTitle.Location = new System.Drawing.Point(553, 8);
+            this.lblSpecializationTitle.Location = new System.Drawing.Point(579, 8);
             this.lblSpecializationTitle.Name = "lblSpecializationTitle";
             this.lblSpecializationTitle.Size = new System.Drawing.Size(99, 18);
             this.lblSpecializationTitle.TabIndex = 13;
@@ -305,6 +339,7 @@ namespace Group2_SEN381_Project.PresentationLayer
             // pnlTicketDisplay
             // 
             this.pnlTicketDisplay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.pnlTicketDisplay.Controls.Add(this.btnStartStop);
             this.pnlTicketDisplay.Controls.Add(this.btnUpdate);
             this.pnlTicketDisplay.Controls.Add(this.lbUnassignedTickets);
             this.pnlTicketDisplay.Controls.Add(this.btnReloadTickets);
@@ -313,7 +348,7 @@ namespace Group2_SEN381_Project.PresentationLayer
             this.pnlTicketDisplay.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlTicketDisplay.Location = new System.Drawing.Point(0, 0);
             this.pnlTicketDisplay.Name = "pnlTicketDisplay";
-            this.pnlTicketDisplay.Size = new System.Drawing.Size(151, 531);
+            this.pnlTicketDisplay.Size = new System.Drawing.Size(151, 570);
             this.pnlTicketDisplay.TabIndex = 11;
             // 
             // btnUpdate
@@ -325,7 +360,7 @@ namespace Group2_SEN381_Project.PresentationLayer
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
             this.btnUpdate.Image = global::Group2_SEN381_Project.Properties.Resources.Upload_16;
             this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnUpdate.Location = new System.Drawing.Point(9, 497);
+            this.btnUpdate.Location = new System.Drawing.Point(9, 467);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(135, 25);
             this.btnUpdate.TabIndex = 25;
@@ -340,7 +375,7 @@ namespace Group2_SEN381_Project.PresentationLayer
             this.lbUnassignedTickets.FormattingEnabled = true;
             this.lbUnassignedTickets.Location = new System.Drawing.Point(9, 57);
             this.lbUnassignedTickets.Name = "lbUnassignedTickets";
-            this.lbUnassignedTickets.Size = new System.Drawing.Size(135, 368);
+            this.lbUnassignedTickets.Size = new System.Drawing.Size(135, 342);
             this.lbUnassignedTickets.TabIndex = 1;
             this.lbUnassignedTickets.SelectedIndexChanged += new System.EventHandler(this.lbUnassignedTickets_SelectedIndexChanged);
             // 
@@ -354,7 +389,7 @@ namespace Group2_SEN381_Project.PresentationLayer
             this.btnReloadTickets.ForeColor = System.Drawing.Color.White;
             this.btnReloadTickets.Image = global::Group2_SEN381_Project.Properties.Resources.Refresh_White_16;
             this.btnReloadTickets.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnReloadTickets.Location = new System.Drawing.Point(9, 435);
+            this.btnReloadTickets.Location = new System.Drawing.Point(9, 405);
             this.btnReloadTickets.Name = "btnReloadTickets";
             this.btnReloadTickets.Size = new System.Drawing.Size(135, 25);
             this.btnReloadTickets.TabIndex = 23;
@@ -372,7 +407,7 @@ namespace Group2_SEN381_Project.PresentationLayer
             this.btnAssignTicket.ForeColor = System.Drawing.Color.White;
             this.btnAssignTicket.Image = global::Group2_SEN381_Project.Properties.Resources.Arrow_16;
             this.btnAssignTicket.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAssignTicket.Location = new System.Drawing.Point(9, 466);
+            this.btnAssignTicket.Location = new System.Drawing.Point(9, 436);
             this.btnAssignTicket.Name = "btnAssignTicket";
             this.btnAssignTicket.Size = new System.Drawing.Size(135, 25);
             this.btnAssignTicket.TabIndex = 22;
@@ -392,38 +427,77 @@ namespace Group2_SEN381_Project.PresentationLayer
             this.lblUnassignedTickets.Text = "Unassigned Tickets";
             this.lblUnassignedTickets.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // cbTicketLevel
+            // txtClientName
             // 
-            this.cbTicketLevel.FormattingEnabled = true;
-            this.cbTicketLevel.Items.AddRange(new object[] {
-            "High",
-            "Medium",
-            "Low"});
-            this.cbTicketLevel.Location = new System.Drawing.Point(14, 85);
-            this.cbTicketLevel.Name = "cbTicketLevel";
-            this.cbTicketLevel.Size = new System.Drawing.Size(290, 26);
-            this.cbTicketLevel.TabIndex = 22;
+            this.txtClientName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtClientName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtClientName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtClientName.Location = new System.Drawing.Point(18, 327);
+            this.txtClientName.Multiline = true;
+            this.txtClientName.Name = "txtClientName";
+            this.txtClientName.ReadOnly = true;
+            this.txtClientName.Size = new System.Drawing.Size(286, 25);
+            this.txtClientName.TabIndex = 28;
             // 
-            // cbProblemArea
+            // lblNameTitle
             // 
-            this.cbProblemArea.FormattingEnabled = true;
-            this.cbProblemArea.Items.AddRange(new object[] {
-            "Service",
-            "Electrician",
-            "Installation",
-            "Mechanic"});
-            this.cbProblemArea.Location = new System.Drawing.Point(378, 85);
-            this.cbProblemArea.Name = "cbProblemArea";
-            this.cbProblemArea.Size = new System.Drawing.Size(290, 26);
-            this.cbProblemArea.TabIndex = 23;
+            this.lblNameTitle.AutoSize = true;
+            this.lblNameTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNameTitle.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.lblNameTitle.Location = new System.Drawing.Point(15, 304);
+            this.lblNameTitle.Name = "lblNameTitle";
+            this.lblNameTitle.Size = new System.Drawing.Size(89, 18);
+            this.lblNameTitle.TabIndex = 27;
+            this.lblNameTitle.Text = "Client Name";
+            // 
+            // txtClientPhone
+            // 
+            this.txtClientPhone.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtClientPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtClientPhone.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtClientPhone.Location = new System.Drawing.Point(409, 327);
+            this.txtClientPhone.Multiline = true;
+            this.txtClientPhone.Name = "txtClientPhone";
+            this.txtClientPhone.ReadOnly = true;
+            this.txtClientPhone.Size = new System.Drawing.Size(286, 25);
+            this.txtClientPhone.TabIndex = 32;
+            // 
+            // lblPhoneTitle
+            // 
+            this.lblPhoneTitle.AutoSize = true;
+            this.lblPhoneTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPhoneTitle.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.lblPhoneTitle.Location = new System.Drawing.Point(410, 306);
+            this.lblPhoneTitle.Name = "lblPhoneTitle";
+            this.lblPhoneTitle.Size = new System.Drawing.Size(149, 18);
+            this.lblPhoneTitle.TabIndex = 31;
+            this.lblPhoneTitle.Text = "Client Phone Number";
+            // 
+            // btnStartStop
+            // 
+            this.btnStartStop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(220)))), ((int)(((byte)(76)))));
+            this.btnStartStop.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnStartStop.FlatAppearance.BorderSize = 0;
+            this.btnStartStop.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(200)))), ((int)(((byte)(76)))));
+            this.btnStartStop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStartStop.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStartStop.ForeColor = System.Drawing.Color.White;
+            this.btnStartStop.Location = new System.Drawing.Point(0, 501);
+            this.btnStartStop.Name = "btnStartStop";
+            this.btnStartStop.Size = new System.Drawing.Size(151, 69);
+            this.btnStartStop.TabIndex = 26;
+            this.btnStartStop.Text = "START CALL";
+            this.btnStartStop.UseVisualStyleBackColor = false;
+            this.btnStartStop.Click += new System.EventHandler(this.btnStartStop_Click);
             // 
             // TicketManagementForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Teal;
-            this.ClientSize = new System.Drawing.Size(908, 555);
+            this.ClientSize = new System.Drawing.Size(924, 594);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "TicketManagementForm";
             this.Text = "TicketManagementForm";
             this.Load += new System.EventHandler(this.TicketManagementForm_Load);
@@ -467,5 +541,10 @@ namespace Group2_SEN381_Project.PresentationLayer
         private System.Windows.Forms.Label lblDescriptionTitle;
         private System.Windows.Forms.ComboBox cbProblemArea;
         private System.Windows.Forms.ComboBox cbTicketLevel;
+        private System.Windows.Forms.TextBox txtClientName;
+        private System.Windows.Forms.Label lblNameTitle;
+        private System.Windows.Forms.TextBox txtClientPhone;
+        private System.Windows.Forms.Label lblPhoneTitle;
+        private System.Windows.Forms.Button btnStartStop;
     }
 }

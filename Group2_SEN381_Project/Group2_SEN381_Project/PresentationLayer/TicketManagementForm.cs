@@ -69,25 +69,37 @@ namespace Group2_SEN381_Project.PresentationLayer
                 string selectedItem = lbUnassignedTickets.SelectedItem.ToString();
                 int firstSpace = selectedItem.IndexOf(' ');
                 string selectedID = selectedItem.Substring(0, firstSpace);
-                DisplayTicketInformation(selectedID);
+
+                foreach (Ticket ticket in unassingedTickets)
+                {
+                    if (ticket.TicketID == selectedID)
+                    {
+                        DisplayTicketInformation(ticket);
+                        DisplayClientInfromation(ticket);
+                        break;
+                    }
+                }
+                
             }
         }
         //Updates information 
-        private void DisplayTicketInformation(string id)
+        private void DisplayTicketInformation(Ticket ticket)
         {
-            foreach (Ticket ticket in unassingedTickets)
-            {
-                if (ticket.TicketID == id)
-                {
-                    txtClientID.Text = ticket.ClientID;
-                    txtTicketID.Text = ticket.TicketID;
-                    txtTicketState.Text = ticket.TicketState;
-                    txtOpenDate.Text = ticket.TicketOpenDate;
-                    txtDescription.Text = ticket.TicketDesc;
-                    cbTicketLevel.Text = ticket.TicketLevel;
-                    cbProblemArea.Text = ticket.ProblemArea;
-                }
-            }
+            txtClientID.Text = ticket.ClientID;
+            txtTicketID.Text = ticket.TicketID;
+            txtTicketState.Text = ticket.TicketState;
+            txtOpenDate.Text = ticket.TicketOpenDate;
+            txtDescription.Text = ticket.TicketDesc;
+            cbTicketLevel.Text = ticket.TicketLevel;
+            cbProblemArea.Text = ticket.ProblemArea;
+        }
+
+        private void DisplayClientInfromation(Ticket ticket)
+        {
+            Client client = ClientHandler.Search(ticket.ClientID);
+
+            txtClientName.Text = client.ClientName + " " + client.ClientSurname;
+            txtClientPhone.Text = client.ClientPhoneNumber;
         }
         #endregion
 
@@ -145,6 +157,8 @@ namespace Group2_SEN381_Project.PresentationLayer
             txtOpenDate.Text = String.Empty;
             txtClientID.Text = String.Empty;
             txtDescription.Text = String.Empty;
+            txtClientName.Text = String.Empty;
+            txtClientPhone.Text = String.Empty;
         }
 
         //Assigns currently selected technician to ticket
@@ -207,7 +221,43 @@ namespace Group2_SEN381_Project.PresentationLayer
                 }
             }
         }
+
+        bool callStarted = false;
+        private void btnStartStop_Click(object sender, EventArgs e)
+        {
+
+            if (callStarted)
+            {
+                DialogResult dialog = MessageBox.Show("End Call?", "End Call", MessageBoxButtons.OKCancel);
+                switch (dialog)
+                {
+                    case DialogResult.OK:
+                        btnStartStop.BackColor = Color.FromArgb(34, 220, 76);
+                        btnStartStop.FlatAppearance.MouseOverBackColor = Color.FromArgb(34, 200, 76);
+                        btnStartStop.Text = "START CALL";
+
+                        callStarted = false;
+                        break;
+                    case DialogResult.Cancel:
+                        //Nothing happens
+                        break;
+                    default:
+                        break;
+                }
+            }
+            else
+            {
+                btnStartStop.BackColor = Color.FromArgb(255, 128, 128);
+                btnStartStop.FlatAppearance.MouseOverBackColor = Color.FromArgb(235, 128, 128);
+                btnStartStop.Text = "STOP CALL";
+
+                callStarted = true;
+            }
+        }
+
         #endregion
 
-    }
+
+
+        }
 }
